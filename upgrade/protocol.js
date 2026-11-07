@@ -3,11 +3,11 @@ export const ZERO='0x'+'0'.repeat(64);
 export function validatePackage(pkg,config) {
   const p=pkg?.payload;
   const fields=['schemaVersion','chainId','registryAddress','institution','issuer','keyEpoch','credentialId','previousId','title','holderRef','validUntil'];
-  if(!p || Object.keys(p).sort().join()!==fields.sort().join()) throw new Error('需要升级版 v3 凭证包；基础版凭证请到原页面核验');
-  if(p.schemaVersion!==3 || p.chainId!==config.chainId || p.registryAddress!==config.registryAddress?.toLowerCase()) throw new Error('凭证不属于当前网络或升级版合约');
-  if(!is32(p.institution)||!is32(p.credentialId)||!is32(pkg.salt)||!isAddress(p.issuer)||!(p.previousId===ZERO||is32(p.previousId))) throw new Error('机构、地址、ID 或盐格式错误');
-  if(!Number.isSafeInteger(p.keyEpoch)||p.keyEpoch<1||!Number.isSafeInteger(p.validUntil)||p.validUntil<1) throw new Error('密钥版本或有效期错误');
-  for(const k of ['title','holderRef']) if(typeof p[k]!=='string'||!p[k].length||p[k].length>200) throw new Error('字段长度错误：'+k);
+  if(!p || Object.keys(p).sort().join()!==fields.sort().join()) throw new Error('凭证文件格式不受支持，请导入当前工作台导出的凭证文件。');
+  if(p.schemaVersion!==3 || p.chainId!==config.chainId || p.registryAddress!==config.registryAddress?.toLowerCase()) throw new Error('此凭证与当前工作台的网络或合约不匹配，请检查凭证文件。');
+  if(!is32(p.institution)||!is32(p.credentialId)||!is32(pkg.salt)||!isAddress(p.issuer)||!(p.previousId===ZERO||is32(p.previousId))) throw new Error('凭证文件中的机构、编号或签发信息格式有误，请检查原文件。');
+  if(!Number.isSafeInteger(p.keyEpoch)||p.keyEpoch<1||!Number.isSafeInteger(p.validUntil)||p.validUntil<1) throw new Error('凭证的签发版本或有效期格式有误，请检查原文件。');
+  for(const k of ['title','holderRef']) if(typeof p[k]!=='string'||!p[k].length||p[k].length>200) throw new Error('凭证标题与持有人代号均须填写 1 至 200 个字符。');
   canonical(p);return p;
 }
 export async function commitment(pkg,config) {

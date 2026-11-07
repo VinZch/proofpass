@@ -11,16 +11,16 @@ export class GovernedAdapter extends TestnetContractAdapter {
     if(Number(BigInt(await this.rpc('eth_chainId',[],provider)))!==31337) throw new Error('本机测试链不匹配');
   }
   async snapshot(institution,id=ZERO) {
-    if(!is32(institution)||!(is32(id)||id===ZERO)) throw new Error('需要 bytes32 机构编号 / 凭证编号');
+    if(!is32(institution)||!(is32(id)||id===ZERO)) throw new Error('机构编号或凭证编号格式有误，请复制并填写完整编号。');
     await this.getDeploymentInfo();
     const block=await this.rpc('eth_getBlockByNumber',['latest',false]);
     const timestamp=Number(BigInt(block.timestamp));
-    if(!block.hash || Date.now()/1000-timestamp>300 || timestamp>Date.now()/1000+60) throw new Error('区块过旧或时间异常');
+    if(!block.hash || Date.now()/1000-timestamp>300 || timestamp>Date.now()/1000+60) throw Object.assign(new Error('暂时无法获取最新链上状态，请稍后重试。'),{code:'STALE_BLOCK'});
     const [org,[r]]=await Promise.all([this.call('institutions',[institution],block.number),this.call('getRecord',[institution,id],block.number)]);
-    if((await this.rpc('eth_getBlockByNumber',[block.number,false]))?.hash!==block.hash) throw new Error('查询期间区块重组，请重试');
+    if((await this.rpc('eth_getBlockByNumber',[block.number,false]))?.hash!==block.hash) throw new Error('链上记录正在更新，请重新查询。');
     return {institution:orgPlain(org),record:recordPlain(r),query:{mode:this.config.mode,chainId:this.config.chainId,registryAddress:this.config.registryAddress,blockNumber:Number(BigInt(block.number)),blockHash:block.hash,blockTimestamp:timestamp,at:new Date().toISOString()}};
   }
-  async role(account) {const [[gov],[org]]=await Promise.all([this.call('governors',[account]),this.call('keyInstitution',[account])]);return (gov?'治理成员':'普通账户')+(org!==ZERO?' · 曾登记机构密钥（是否当前有效需查询机构）':'');}
+  async role(account) {const [[gov],[org]]=await Promise.all([this.call('governors',[account]),this.call('keyInstitution',[account])]);return (gov?'治理成员':'普通账户')+(org!==ZERO?' · 有机构登记记录（签发权限见机构信息）':'');}
   async proposal(id,account) {
     if(!Number.isSafeInteger(id)||id<1) throw new Error('提案编号无效');
     await this.getDeploymentInfo();

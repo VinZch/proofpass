@@ -34,19 +34,19 @@
     const localEntry = location.protocol === 'file:' || ['127.0.0.1', 'localhost', '[::1]'].includes(location.hostname);
     byId('startup-local').hidden = !localEntry;
     byId('startup-help').hidden = !localEntry;
-    byId('network').textContent = '未初始化 · 未确认网络';
-    byId('role').textContent = '工作台未就绪，连接状态未确认';
+    byId('network').textContent = '尚未连接网络';
+    byId('role').textContent = '尚未连接钱包';
     byId('status').textContent = '工作台暂不可用，请重试；网络信息仍可查看。';
     byId('status').classList.add('error');
     byId('working').hidden = true;
   }
 
   if (location.protocol === 'file:') {
-    fail('当前通过本地文件打开。升级工作台需要 HTTP 本机服务来加载程序和配置；此页面尚未连接钱包或查询区块链。');
+    fail('本地文件无法直接启动工作台，请通过下方 HTTP 本机服务入口打开。');
     return;
   }
   if (!['http:', 'https:'].includes(location.protocol)) {
-    fail('当前打开方式不支持工作台，请通过 HTTPS 网址或 HTTP 本机服务打开。');
+    fail('请通过网站地址或本机服务打开工作台。');
     return;
   }
 
@@ -106,12 +106,17 @@
       byId('startup-message').textContent = '正在加载工作台…';
       setInitializing(true);
       controls.forEach((control, index) => { control.disabled = initialDisabled[index]; });
-      await import('./app.js?v=20261107-network');
+      await import('./app.js?v=20261107-product');
       setInitializing(false);
       panel.hidden = true;
     } catch (error) {
-      const detail = typeof error?.message === 'string' ? error.message.slice(0,220) : '未知加载错误';
-      fail(`工作台程序或配置加载失败：${detail}。请检查服务与文件后重新加载；不要重复提交交易。`);
+      const detail = String(error?.message || '');
+      const message = /超时|无法读取|fetch|network/i.test(detail)
+        ? '网络连接暂不可用，请检查网络后重新加载。'
+        : /config\.json|abi\.json/.test(detail)
+          ? '工作台配置暂不可用，请稍后重新加载；如仍无法打开，请联系网站维护者。'
+          : '工作台加载失败，请重新加载；如仍无法打开，请联系网站维护者。';
+      fail(message);
     }
   }
   start();
