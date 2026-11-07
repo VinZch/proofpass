@@ -91,7 +91,7 @@
     if (!Array.isArray(abi) || abi.length === 0 || abi.some(entry => !entry || typeof entry !== 'object' || typeof entry.type !== 'string')) {
       throw new Error('abi.json 合约接口格式错误。请恢复升级合约接口文件后重试。');
     }
-    const {Interface} = await import('../chain/vendor/ethers.js');
+    const {Interface} = await import('../chain/vendor/ethers.js?v=2b1ab550fac8a14e');
     const parsed = new Interface(abi);
     for (const name of ['institutions', 'getRecord', 'governors', 'keyInstitution', 'threshold', 'approved', 'proposals', 'issue', 'correct', 'revoke', 'propose', 'approve', 'execute', 'cancel']) {
       if (!parsed.getFunction(name)) throw new Error(`abi.json 缺少可解析的升级合约接口 ${name}，无法启动工作台。`);
@@ -106,7 +106,7 @@
       byId('startup-message').textContent = '正在加载工作台…';
       setInitializing(true);
       controls.forEach((control, index) => { control.disabled = initialDisabled[index]; });
-      await import('./app.js?v=20261107-product');
+      await import('./app.js?v=2b1ab550fac8a14e');
       setInitializing(false);
       panel.hidden = true;
     } catch (error) {

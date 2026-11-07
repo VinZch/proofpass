@@ -1,6 +1,11 @@
-import {Interface, keccak256} from './vendor/ethers.js';
-import {isAddress,is32} from './protocol.js';
+import {Interface, keccak256} from './vendor/ethers.js?v=2b1ab550fac8a14e';
+import {isAddress,is32} from './protocol.js?v=2b1ab550fac8a14e';
 const sleep = ms => new Promise(resolve=>setTimeout(resolve,ms));
+// JSON-RPC QUANTITY is a hex string, not a value to coerce with Number(null).
+export function rpcQuantity(value) {
+  if(typeof value!=='string'||!/^0x(?:0|[1-9a-fA-F][0-9a-fA-F]*)$/.test(value))return null;
+  const number=Number(value);return Number.isSafeInteger(number)?number:null;
+}
 function transactionError(error,context) {
   const source=error instanceof Error?error:new Error(String(error));
   const details={...context,...source.transactionContext};
@@ -44,9 +49,10 @@ export class TestnetContractAdapter extends LedgerAdapter {
     await this.guard();const c=this.config;
     const [code,receipt]=await Promise.all([this.rpc('eth_getCode',[c.registryAddress,'latest']),this.getReceipt(c.deploymentTxHash)]);
     if(code==='0x'||keccak256(code)!==c.runtimeCodeHash)throw new Error('部署代码校验失败');
-    if(!receipt||receipt.status!=='0x1'||receipt.contractAddress?.toLowerCase()!==c.registryAddress.toLowerCase())throw new Error('部署回执不匹配');
+    const receiptNumber=rpcQuantity(receipt?.blockNumber);
+    if(!receipt||receiptNumber===null||receipt.transactionHash?.toLowerCase()!==c.deploymentTxHash.toLowerCase()||receipt.status!=='0x1'||receipt.contractAddress?.toLowerCase()!==c.registryAddress.toLowerCase())throw new Error('部署回执不匹配');
     const block=await this.rpc('eth_getBlockByNumber',[receipt.blockNumber,false]);
-    if(!block||block.hash!==receipt.blockHash)throw new Error('部署区块已重组或不可查询');
+    if(!block||block.hash!==receipt.blockHash||rpcQuantity(block.number)!==receiptNumber)throw new Error('部署区块已重组或不可查询');
     return {mode:c.mode,chainId:c.chainId,registryAddress:c.registryAddress,deploymentReceipt:receipt};
   }
   async call(name,args,block='latest') {const data=await this.rpc('eth_call',[{to:this.config.registryAddress,data:this.abi.encodeFunctionData(name,args)},block]);return this.abi.decodeFunctionResult(name,data);}
@@ -86,11 +92,13 @@ export class TestnetContractAdapter extends LedgerAdapter {
     if(receipt.transactionHash?.toLowerCase()!==hash.toLowerCase())throw new Error('交易回执哈希不匹配');
     if(!isAddress(receipt.from?.toLowerCase())||receipt.to?.toLowerCase()!==this.config.registryAddress.toLowerCase()||(expectedAccount&&receipt.from.toLowerCase()!==expectedAccount.toLowerCase()))throw new Error('交易回执地址不匹配');
     if(!['0x0','0x1'].includes(receipt.status))throw new Error('交易回执状态异常，尚无法确认');
+    const receiptNumber=rpcQuantity(receipt.blockNumber);
+    if(receiptNumber===null)throw new Error('交易回执区块编号无效，尚无法确认');
     const block=await this.rpc('eth_getBlockByNumber',[receipt.blockNumber,false]);
-    if(!block||block.hash!==receipt.blockHash||BigInt(block.number)!==BigInt(receipt.blockNumber))throw new Error('交易区块已重组或不匹配，请重新确认');
-    const result={...context,from:receipt.from.toLowerCase(),state:'已入块成功',phase:'confirmed',confirmed:true,blockNumber:Number(BigInt(receipt.blockNumber)),blockHash:receipt.blockHash,receiptStatus:receipt.status,finality:'未确认最终性',queriedAt:new Date().toISOString()};
+    if(!block||block.hash!==receipt.blockHash||rpcQuantity(block.number)!==receiptNumber)throw new Error('交易区块已重组或不匹配，请重新确认');
+    const result={...context,from:receipt.from.toLowerCase(),state:'已入块成功',phase:'confirmed',confirmed:true,blockNumber:receiptNumber,blockHash:receipt.blockHash,receiptStatus:receipt.status,finality:'未确认最终性',queriedAt:new Date().toISOString()};
     if(receipt.status==='0x0')throw transactionError(new Error('交易已入块但执行失败：'+hash),{...result,state:'已入块执行失败'});
-    try {const finalized=await this.rpc('eth_getBlockByNumber',['finalized',false]);if(finalized && BigInt(finalized.number)>=BigInt(receipt.blockNumber))result.finality='已达 finalized 区块';}catch{}
+    try {const finalized=await this.rpc('eth_getBlockByNumber',['finalized',false]),number=rpcQuantity(finalized?.number);if(number!==null&&number>=receiptNumber)result.finality='已达 finalized 区块';}catch{}
     return result;
   }
   async checkTransaction(hash,expectedAccount) {

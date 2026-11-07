@@ -1,6 +1,6 @@
-import {GovernedAdapter} from './adapter.js';
-import {ZERO,validatePackage,commitment,verifyPackage} from './protocol.js';
-import {random32,hex,is32,isAddress} from '../chain/protocol.js';
+import {GovernedAdapter} from './adapter.js?v=2b1ab550fac8a14e';
+import {ZERO,validatePackage,commitment,verifyPackage} from './protocol.js?v=2b1ab550fac8a14e';
+import {random32,hex,is32,isAddress} from '../chain/protocol.js?v=2b1ab550fac8a14e';
 const $=id=>document.getElementById(id),json=v=>JSON.stringify(v,(_,x)=>typeof x==='bigint'?String(x):x,2);
 const ACTIONS=['登记新机构','更换签发钱包','启用 / 停用','紧急撤销'];
 const [config,abi]=await Promise.all(['config.json','abi.json'].map(u=>fetch(u,{signal:AbortSignal.timeout(15000),cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(u+' 配置加载失败');return r.json();})));
@@ -37,8 +37,9 @@ function userMessage(error){
 const transactionLabel=state=>({'已入块成功':'交易成功','已入块失败':'交易执行失败','已入块执行失败':'交易执行失败','待打包':'等待网络确认','已广播':'交易已提交','待钱包批准':'请在钱包中确认','用户拒绝':'已取消钱包请求'})[state]||state;
 const notify=(msg,error=false)=>{$('status').textContent=msg;$('status').classList.toggle('error',error);};
 const details=data=>{const target=$('details');if(target)target.textContent=json(data);};
-const required=id=>{const s=$(id).value.trim();if(!s){$(id).setAttribute('aria-invalid','true');throw new Error('请填写：'+document.querySelector(`label[for="${id}"]`).textContent);}return s;};
-const institution=()=>{const v=required('institution').toLowerCase();if(!is32(v))throw new Error('机构编号格式有误，请粘贴以 0x 开头的完整编号。');return v;};
+function invalidField(id,message){$(id).setAttribute('aria-invalid','true');throw new Error(message);}
+const required=id=>{const s=$(id).value.trim();if(!s)invalidField(id,'请填写：'+document.querySelector(`label[for="${id}"]`).textContent);return s;};
+const institution=()=>{const v=required('institution').toLowerCase();if(!is32(v))invalidField('institution','机构编号格式有误，请粘贴以 0x 开头的完整编号。');return v;};
 const hashText=async text=>hex(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text))));
 function invalidateReport(){clearTimeout(timer);report=null;$('report').disabled=true;$('verdict').textContent='当前结论待重新查询。';$('verdict').classList.remove('bad');}
 function invalidateHistory(message='机构或凭证编号已变化，请重新查询。'){history=null;$('history-result').textContent=message;}
@@ -55,11 +56,12 @@ function renderTransaction(){
 function trackTransaction(entry){
  if(!is32(entry.transactionHash))return;
  const previous=transaction?.transactionHash===entry.transactionHash?transaction:{};
+ const confirmed=entry.confirmed===true||entry.state==='已入块成功';
  transaction={...previous,transactionHash:entry.transactionHash,from:entry.from??previous.from??account,
   chainId:config.chainId,registryAddress:config.registryAddress,state:entry.state,
-  blockNumber:entry.blockNumber??previous.blockNumber,blockHash:entry.blockHash??previous.blockHash,
-  receiptStatus:entry.receiptStatus??previous.receiptStatus,confirmed:entry.confirmed??previous.confirmed,
-  finality:entry.finality??previous.finality,queriedAt:entry.queriedAt??new Date().toISOString()};
+  blockNumber:confirmed?entry.blockNumber:undefined,blockHash:confirmed?entry.blockHash:undefined,
+  receiptStatus:confirmed?entry.receiptStatus:undefined,confirmed,
+  finality:confirmed?entry.finality:undefined,queriedAt:entry.queriedAt??new Date().toISOString()};
  try{sessionStorage.setItem(transactionStorageKey,json(transaction));}catch{}
  renderTransaction();
 }
@@ -88,7 +90,7 @@ async function run(work){
  try{await work();}catch(e){failed=true;let message=userMessage(e);if(local&&(e.code==='STALE_BLOCK'||e.message?.includes('区块过旧')))message='本机网络闲置过久，请重启本机服务。重启将清空临时数据，原凭证文件不能用于新部署。';if(e.transactionHash)trackTransaction({...e,state:e.confirmed&&e.receiptStatus==='0x0'?'已入块失败':'交易状态未确认'});notify(message,true);details({error:e.message,...(e.transactionHash?{transactionHash:e.transactionHash,from:e.from,phase:e.phase}:{} )});}
  finally{controls.forEach((el,i)=>el.disabled=states[i]);busy=false;$('working').hidden=true;permissions();
   const invalid=failed&&document.querySelector('[aria-invalid="true"]');
-  if(invalid)invalid.focus();else if(document.activeElement===document.body&&trigger?.tagName==='BUTTON'&&!trigger.disabled)trigger.focus();
+  if(invalid){for(let parent=invalid.parentElement;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;invalid.focus();}else if(document.activeElement===document.body&&trigger?.tagName==='BUTTON'&&!trigger.disabled)trigger.focus();
  }
 }
 function changed(){++generation;account='';invalidateProposal('账户或网络已变化，请重新连接并读取提案。');invalidateHistory('账户或网络已变化，请重新查询。');invalidateReport();$('role').textContent='账户或网络已变化，请重新连接';$('org-state').textContent='账户或网络已变化，机构状态待重新查询。';notify('账户或网络已变化，请重新连接；只读查询仍可使用。');permissions();}
@@ -119,17 +121,28 @@ async function connect(){if(!local){wallet=providers[0]??window.ethereum;if(!wal
  catch(e){account='';$('role').textContent='连接未完成，请重新连接钱包。';throw e;}
  if($('institution').value)await refresh();}
 function needAccount(){if(!account)throw new Error('请先连接操作账户');return account;}
-function setPackage(value){pkg=value;$('package-info').classList.remove('empty');invalidateReport();invalidateHistory('已导入凭证，请查询最新状态。');$('package-info').textContent=`${pkg.payload.title}\n机构：${pkg.payload.institution}\n编号：${pkg.payload.credentialId}\n签发账户：${pkg.payload.issuer}\n密钥版本：${pkg.payload.keyEpoch}\n${pkg.receipt?'已附交易记录，点击查询最新状态':'草稿，尚未确认登记'}`;$('history-id').value=pkg.payload.credentialId;permissions();}
+function setPackage(value){pkg=value;
+ if($('institution').value.trim().toLowerCase()!==pkg.payload.institution){
+  $('institution').value=pkg.payload.institution;$('institution').removeAttribute('aria-invalid');
+  $('institution-name').textContent='机构 '+pkg.payload.institution.slice(0,8)+'…'+pkg.payload.institution.slice(-4);
+  $('org-state').textContent='已切换到凭证所属机构，请查询机构状态。';
+  invalidateProposal('机构已切换，请重新查看提案详情。');
+ }
+$('package-info').classList.remove('empty');invalidateReport();invalidateHistory('已导入凭证，请查询最新状态。');$('package-info').textContent=`${pkg.payload.title}\n机构：${pkg.payload.institution}\n编号：${pkg.payload.credentialId}\n签发账户：${pkg.payload.issuer}\n密钥版本：${pkg.payload.keyEpoch}\n${pkg.receipt?'已附交易记录，点击查询最新状态':'草稿，尚未确认登记'}`;$('history-id').value=pkg.payload.credentialId;permissions();}
 function download(name,data){const link=document.createElement('a'),url=URL.createObjectURL(new Blob([json(data)],{type:'application/json'}));link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 async function verify(){if(!pkg)throw new Error('请先导入凭证文件。');invalidateReport();const token=generation;const result=await verifyPackage(pkg,adapter,config);if(token!==generation)throw new Error('查询期间账户或网络变化，请重查');report=result;$('verdict').textContent=`${report.status} · 内容${report.integrity?'匹配':'不匹配'}\n签发密钥 v${report.keyEpoch} · 当前机构${report.institutionEnabled?'启用':'停用'}\n查询区块 ${report.query.blockNumber} · 结果保留 60 秒`;$('verdict').classList.toggle('bad',!report.technicalPass);details(report);timer=setTimeout(()=>{invalidateReport();notify('查询结果需要更新，请重新查询。');},60000);notify('当前凭证状态：'+report.status);}
-async function issue(){const actor=needAccount(),org=institution(),s=await refresh();if(!s.institution.enabled||s.institution.key!==actor)throw new Error('当前账户无签发权限，请使用该机构当前的签发钱包。');const correcting=$('operation').value==='correct';const old=correcting?required('old-id').toLowerCase():ZERO;const until=Math.floor(new Date($('expires').value).getTime()/1000);const next={payload:{schemaVersion:3,chainId:config.chainId,registryAddress:config.registryAddress,institution:org,issuer:actor,keyEpoch:s.institution.epoch,credentialId:random32(),previousId:old,title:required('title'),holderRef:required('holder'),validUntil:until},salt:random32()};
+async function issue(){const actor=needAccount(),org=institution(),s=await refresh();if(!s.institution.enabled||s.institution.key!==actor)throw new Error('当前账户无签发权限，请使用该机构当前的签发钱包。');const correcting=$('operation').value==='correct';const old=correcting?required('old-id').toLowerCase():ZERO;
+ if(correcting&&!is32(old))invalidField('old-id','原凭证编号格式有误，请粘贴完整编号。');
+ const until=Math.floor(new Date(required('expires')).getTime()/1000);
+ if(!Number.isSafeInteger(until)||until<=Math.max(Math.floor(Date.now()/1000),s.query.blockTimestamp))invalidField('expires','有效期须晚于当前时间，请重新选择。');
+ const next={payload:{schemaVersion:3,chainId:config.chainId,registryAddress:config.registryAddress,institution:org,issuer:actor,keyEpoch:s.institution.epoch,credentialId:random32(),previousId:old,title:required('title'),holderRef:required('holder'),validUntil:until},salt:random32()};
  const digest=await commitment(next,config);const args=correcting?[org,old,next.payload.credentialId,digest,until,await hashText(required('correction-reason'))]:[org,next.payload.credentialId,digest,until];
  setPackage(next);invalidateReport();const receipt=await adapter.send(correcting?'correct':'issue',args,actor);next.receipt=receipt;setPackage(next);await verify();notify(correcting?'更正成功，请下载新版凭证。':'签发成功，请下载凭证文件。');}
 async function readProposal(){invalidateProposal('正在读取提案…');const token=generation;
  try{const id=Number(required('proposal-id'));const p=await adapter.proposal(id,needAccount());assertCurrent(token);if(id!==Number($('proposal-id').value))throw new Error('提案编号已变化，请重新读取');reviewed=p;
  $('proposal-summary').textContent=`提案 #${p.id} · ${ACTIONS[p.action]}\n机构：${p.institution}\n${p.action<=1?'新签发钱包：'+p.key:p.action===2?'机构状态：'+(p.enabled?'启用':'停用'):'凭证编号：'+p.credentialId}\n批准：${p.approvals} / ${p.threshold}；当前账户${p.alreadyApproved?'已批准':'尚未批准'}\n截止：${new Date(p.deadline*1000).toLocaleString()}\n状态：${p.executed?'已执行':p.cancelled?'已否决':p.stale?'机构已变化，提案失效':p.deadline*1000<=Date.now()?'已超时':'待处理'}`;details(p);notify('已加载提案详情，请确认后操作。');}
  catch(e){invalidateProposal('提案读取失败，请重新查询。');throw e;}}
-async function proposalAction(name){if(!reviewed||reviewed.id!==Number($('proposal-id').value))throw new Error('请先查看该提案详情。');invalidateReport();await adapter.send(name,[reviewed.id],needAccount());await readProposal();await refresh();notify('提案已'+({approve:'批准',execute:'执行',cancel:'否决'})[name]);}
+async function proposalAction(name){if(!reviewed||reviewed.id!==Number($('proposal-id').value))throw new Error('请先查看该提案详情。');invalidateReport();await adapter.send(name,[reviewed.id],needAccount());await readProposal();if($('institution').value.trim().toLowerCase()===reviewed.institution.toLowerCase())await refresh();notify('提案已'+({approve:'批准',execute:'执行',cancel:'否决'})[name]);}
 async function propose(){const action=Number($('action').value),key=action<=1?required('new-key').toLowerCase():'0x'+'0'.repeat(40),enabled=action===2&&$('enabled').value==='true',id=action===3?required('emergency-id').toLowerCase():ZERO;if(action<=1&&!isAddress(key))throw new Error('钱包地址格式有误，请填写以 0x 开头的完整地址。');const hash=await hashText(required('reason'));const deadline=Math.floor(Date.now()/1000)+86400;const r=await adapter.send('propose',[action,institution(),key,enabled,id,hash,deadline],needAccount());const receipt=await adapter.getReceipt(r.transactionHash);const event=receipt.logs.map(l=>{try{return adapter.abi.parseLog(l);}catch{return null;}}).find(l=>l?.name==='Proposed');if(!event)throw new Error('交易已提交，但暂未获取提案编号，请查看交易详情。');$('proposal-id').value=String(event.args.proposalId);await readProposal();notify('提案已创建，已有 1 票批准。请由另一位治理成员批准。');}
 async function query(){
  invalidateHistory('正在查询凭证状态…');const token=generation;
@@ -138,9 +151,9 @@ async function query(){
 }
 $('connect').onclick=()=>run(connect);$('refresh').onclick=()=>run(async()=>{await refresh();notify('机构状态已更新');});$('issue').onclick=()=>run(issue);$('verify').onclick=()=>run(verify);
 $('import').onchange=()=>run(async()=>{
- const file=$('import').files[0];if(!file)return;pkg=null;invalidateReport();$('package-info').classList.add('empty');$('package-info').textContent='正在检查导入文件';
+ const file=$('import').files[0];if(!file)return;pkg=null;invalidateReport();invalidateHistory('正在导入新的凭证，请稍后查询。');$('history-id').value='';$('package-info').classList.add('empty');$('package-info').textContent='正在检查导入文件';
  try{if(file.size>100000)throw new Error('文件超过 100 KB');const value=JSON.parse(await file.text());validatePackage(value,config);setPackage(value);$('import').removeAttribute('aria-invalid');notify('已导入，尚未查询最新状态');}
- catch(e){if(e instanceof SyntaxError)e.code='INVALID_PACKAGE_JSON';$('package-info').textContent='导入失败：'+userMessage(e);$('import').setAttribute('aria-invalid','true');throw e;}
+ catch(e){if(e instanceof SyntaxError)e.code='INVALID_PACKAGE_JSON';$('package-info').textContent='导入失败：'+userMessage(e);$('import').setAttribute('aria-invalid','true');$('import').value='';throw e;}
 });
 $('download').onclick=()=>pkg&&download('ProofPass-v3-'+pkg.payload.credentialId.slice(2,10)+'.json',pkg);$('report').onclick=()=>report&&download('ProofPass-v3-report.json',report);
 $('revoke').onclick=()=>run(async()=>{if(!pkg)throw new Error('请先导入或签发凭证。');const actor=needAccount(),s=await adapter.snapshot(pkg.payload.institution);if(!s.institution.enabled||s.institution.key!==actor)throw new Error('请使用该机构当前的签发钱包；机构停用时，请在机构管理中发起紧急撤销。');invalidateReport();await adapter.send('revoke',[pkg.payload.institution,pkg.payload.credentialId,await hashText(required('revoke-reason'))],actor);await verify();});
@@ -157,7 +170,8 @@ for(const button of tabs){button.onclick=()=>{activateTab(button);window.history
  const i=tabs.indexOf(button),next=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(['ArrowRight','ArrowDown'].includes(e.key)?1:-1)+tabs.length)%tabs.length;
  tabs[next].click();tabs[next].focus();
 };}
-const initialTab=tabs.find(b=>'#'+b.dataset.tab===location.hash);if(initialTab)activateTab(initialTab);
+function activateHashTab(){const target=tabs.find(b=>'#'+b.dataset.tab===location.hash);if(target)activateTab(target);}
+window.addEventListener('hashchange',activateHashTab);activateHashTab();
 for(const field of document.querySelectorAll('input,textarea,select'))field.addEventListener('input',()=>field.removeAttribute('aria-invalid'));
 
 const d=new Date(Date.now()+365*86400000);d.setMinutes(d.getMinutes()-d.getTimezoneOffset());$('expires').value=d.toISOString().slice(0,16);

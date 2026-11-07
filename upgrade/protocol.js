@@ -1,4 +1,4 @@
-import {canonical,hex,is32,isAddress} from '../chain/protocol.js';
+import {canonical,hex,is32,isAddress} from '../chain/protocol.js?v=2b1ab550fac8a14e';
 export const ZERO='0x'+'0'.repeat(64);
 export function validatePackage(pkg,config) {
   const p=pkg?.payload;
