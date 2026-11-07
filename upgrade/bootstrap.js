@@ -20,7 +20,7 @@
       tab.setAttribute('aria-selected', String(selected));
       tab.tabIndex = selected ? 0 : -1;
     });
-    byId('page-title').textContent = '上链记录';
+    byId('page-title').textContent = '网络信息';
     byId('evidence').scrollIntoView({block: 'start'});
   });
 
@@ -36,7 +36,7 @@
     byId('startup-help').hidden = !localEntry;
     byId('network').textContent = '未初始化 · 未确认网络';
     byId('role').textContent = '工作台未就绪，连接状态未确认';
-    byId('status').textContent = '工作台暂不可用，请重试；历史记录仍可查看。';
+    byId('status').textContent = '工作台暂不可用，请重试；网络信息仍可查看。';
     byId('status').classList.add('error');
     byId('working').hidden = true;
   }
@@ -106,7 +106,7 @@
       byId('startup-message').textContent = '正在加载工作台…';
       setInitializing(true);
       controls.forEach((control, index) => { control.disabled = initialDisabled[index]; });
-      await import('./app.js?v=20261107-clean');
+      await import('./app.js?v=20261107-network');
       setInitializing(false);
       panel.hidden = true;
     } catch (error) {

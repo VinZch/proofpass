@@ -232,6 +232,17 @@ p{ text-wrap:pretty }
 }
 @media(max-width:360px){.brand>span{gap:10px}.brand small{font-size:10px}}
 
-/* Saved test evidence has its own context; operational controls remain in their tabs. */
+/* Network information uses its own context, without operational controls. */
 .evidence-view .connection,.evidence-view .status-line,.evidence-view .technical,.evidence-view .intro{display:none}
 @media(max-width:760px){#workspace{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}#workspace button{min-width:0;flex-direction:column;gap:5px;padding:10px 3px;white-space:normal;font-size:12px}#workspace button span{text-align:center}}
+
+/* Compact network information, without historical test exhibits. */
+.network-card{max-width:880px}
+.network-summary{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:0 0 28px}
+.network-summary div{min-width:0}
+.network-summary dt{color:var(--muted);font-size:13px;margin-bottom:10px}
+.network-summary dd{margin:0;font-size:18px;line-height:1.7}
+.network-contract{grid-column:1/-1;border-top:1px solid var(--line);padding-top:24px}
+.network-contract code{font-family:var(--font-data);font-size:15px;overflow-wrap:anywhere}
+.network-explorer{display:inline-flex;align-items:center;min-height:44px;color:var(--primary);text-underline-offset:5px}
+@media(max-width:480px){.network-summary{gap:24px}.network-summary dd{font-size:16px}.network-contract code{font-size:13px}}

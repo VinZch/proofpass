@@ -5,6 +5,11 @@ const $=id=>document.getElementById(id),json=v=>JSON.stringify(v,(_,x)=>typeof x
 const ACTIONS=['登记新机构','轮换密钥','启用 / 停用','紧急撤销'];
 const [config,abi]=await Promise.all(['config.json','abi.json'].map(u=>fetch(u,{signal:AbortSignal.timeout(15000),cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(u+' 配置加载失败');return r.json();})));
 const local=config.mode==='local-evm';
+$('network-name').textContent=local?'本机测试链':'Sepolia 测试网';
+$('network-chain').textContent=String(config.chainId);
+$('network-address').textContent=config.registryAddress;
+$('network-explorer').hidden=local;
+if(!local)$('network-explorer').href='https://sepolia.etherscan.io/address/'+config.registryAddress;
 let account='',pkg=null,report=null,reviewed=null,history=null,busy=false,timer,generation=0;
 let providers=[],wallet;
 const transactionStorageKey=`proofpass:v3:transaction:${config.chainId}:${config.registryAddress?.toLowerCase()||'undeployed'}`;
@@ -124,7 +129,7 @@ $('check-transaction').onclick=()=>run(async()=>{if(!transaction)throw new Error
 for(const name of ['previous','next'])$(name).onclick=()=>run(async()=>{if(!history)return;$('history-id').value=history.record[name==='previous'?'previousId':'replacedBy'];await query();});
 $('operation').onchange=()=>{const correcting=$('operation').value==='correct';$('correction-fields').hidden=!correcting;$('issue').textContent=correcting?'提交原子更正':'登记凭证';};$('action').onchange=()=>{const a=Number($('action').value);$('key-fields').hidden=a>1;$('enabled-fields').hidden=a!==2;$('emergency-fields').hidden=a!==3;};
 const tabs=[...document.querySelectorAll('[data-tab]')];
-function activateTab(button){document.querySelector('.workspace-shell').classList.toggle('evidence-view',button.dataset.tab==='evidence');$('page-title').textContent=({credentials:'签发与更正',governance:'机构管理',history:'状态与版本',evidence:'上链记录'})[button.dataset.tab];for(const b of tabs){const active=b===button;b.classList.toggle('selected',active);b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;$(b.dataset.tab).hidden=!active;}}
+function activateTab(button){document.querySelector('.workspace-shell').classList.toggle('evidence-view',button.dataset.tab==='evidence');$('page-title').textContent=({credentials:'签发与更正',governance:'机构管理',history:'状态与版本',evidence:'网络信息'})[button.dataset.tab];for(const b of tabs){const active=b===button;b.classList.toggle('selected',active);b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;$(b.dataset.tab).hidden=!active;}}
 for(const button of tabs){button.onclick=()=>{activateTab(button);window.history.replaceState(null,'','#'+button.dataset.tab);};button.onkeydown=e=>{
  if(e.key==='Tab'&&!e.shiftKey&&!busy){const first=$(button.dataset.tab).querySelector('input:not([disabled]),select:not([disabled]),button:not([disabled]),textarea:not([disabled]),a[href],summary');if(first){e.preventDefault();first.focus();}return;}
  if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End'].includes(e.key)||busy)return;e.preventDefault();
