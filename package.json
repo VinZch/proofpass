@@ -13,15 +13,23 @@
     "evidence:verify": "node scripts/evidence.mjs verify",
     "evidence:record": "node scripts/evidence.mjs record",
     "evidence:backfill": "node scripts/evidence.mjs backfill",
-    "verify:deployment": "node scripts/verify-deployment.mjs"
+    "verify:deployment": "node scripts/verify-deployment.mjs",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check:artifacts": "node scripts/check-artifacts.mjs"
   },
   "engines": {
     "node": ">=22 <27"
   },
   "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "eslint": "10.15.0",
     "ethers": "6.17.0",
     "ganache": "7.9.2",
+    "globals": "17.14.0",
     "playwright": "1.56.1",
+    "prettier": "3.10.1",
     "solc": "0.8.38"
   },
   "overrides": {

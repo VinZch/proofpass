@@ -1,0 +1,23 @@
+node_modules/
+.npm-cache/
+package-lock.json
+chain/vendor/
+
+# 生成或样式文件不参与格式化，避免与编译/构建脚本互相覆盖
+chain/*.json
+chain/*.css
+upgrade/*.json
+upgrade/*.css
+artifacts/
+evidence/
+deployment/
+simulation-research/
+demo-placeholders/
+course-closeout/
+audit_source/
+.work/
+
+*.html
+*.md
+*.sol
+*.zip
