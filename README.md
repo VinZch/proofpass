@@ -49,7 +49,7 @@
 1. 当场新建一个空钱包，仅申请免费的 Sepolia 测试币；不要使用有真实资产的钱包，也不向页面或脚本输入私钥、助记词。
 2. Remix 打开 `contracts/ProofPassRegistry.sol`。编译器 **0.8.38**，优化器 **enabled / 200 runs**，EVM **shanghai**。文件名须保持 `ProofPassRegistry.sol`，精确编译输入见 `artifacts/compiler-input.json`。合约共 29 行，没有用整段挤成一行伪装；这是单管理员基础合约，不是多签或联盟链。
 3. Remix Deploy & Run 选择 **Browser Extension**，确认钱包网络 Sepolia、value 为 0，部署并等待成功回执。Remix VM 不算测试网证据。
-4. 执行 `node scripts/verify-deployment.mjs https://你的只读RPC 真实合约地址 真实部署交易哈希`。脚本只读核对链 ID、成功回执、区块哈希、完整运行时代码；匹配后才写入 `chain/config.json` 和 `evidence/sepolia-deployment.json`。RPC 地址将出现在浏览器配置中，不使用秘密 API 凭据。
+4. 执行 `node scripts/verify-deployment.mjs https://你的只读RPC 真实合约地址 真实部署交易哈希`。脚本只读核对链 ID、成功回执、区块哈希、完整运行时代码，默认 dry-run 不写文件；核对无误后加 `--write`，才会写入 `chain/config.json` 并登记 `evidence/sepolia-deployment.json`（旧配置先备份，旧证据不覆盖）。RPC 地址将出现在浏览器配置中，不使用秘密 API 凭据。
 5. 管理员连接页面，授权一个新建的机构测试钱包。切换机构钱包，输入虚构信息并登记，等待 **receipt.status=0x1**。保存下载的凭证包和交易证据。机构与现实学校的对应关系由线下准入审核确认。
 6. 在另一浏览器打开同一固定配置页面，导入包并查询；修改包的标题或盐应完整性失败，修改网络或合约地址应拒绝。以未授权钱包直接调用 issue 应回退。原机构撤销后，另一浏览器重新查询应显示撤销。
 7. 团队亲自拍摄部署、授权、签发、查询、撤销截图，记录查询日期及区块；填写 `P0验收记录.md` 的公共测试网栏。代码和本地测试完成不等于 P0 全部完成。

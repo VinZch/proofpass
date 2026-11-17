@@ -106,6 +106,20 @@ function assertEvidenceName(name) {
 }
 
 /**
+ * 选择证据文件名：默认不覆盖历史。
+ * 目标已存在时（且未 force）追加 -recheck-<时间戳>，避免审计脚本冲掉旧快照。
+ */
+export function uniqueEvidenceName(name, options = {}) {
+  const root = rootOf(options);
+  const target = path.resolve(root, EVIDENCE_DIR, name);
+  if (!fs.existsSync(target) || options.force) return name;
+  const extension = path.extname(name);
+  const base = name.slice(0, name.length - extension.length);
+  const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+  return `${base}-recheck-${stamp}${extension}`;
+}
+
+/**
  * 把一份已核验的文件登记为证据。
  * 默认拒绝覆盖同名证据；确需替换时用 force，manifest 会记录新哈希。
  */

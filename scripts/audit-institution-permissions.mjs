@@ -3,7 +3,10 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {Interface, keccak256} from 'ethers';
-const [otherInput,stage='before-authorization']=process.argv.slice(2);
+import {recordEvidence, uniqueEvidenceName, writeTestOutput} from './evidence.mjs';
+const argv=process.argv.slice(2);
+const willRecord=argv.includes('--record'),force=argv.includes('--force');
+const [otherInput,stage='before-authorization']=argv.filter(argument=>!argument.startsWith('--'));
 const other=otherInput?.toLowerCase();
 if(!/^0x[0-9a-f]{40}$/.test(other??'')||!['before-authorization','after-authorization','after-issue','after-revoke','after-disable'].includes(stage))throw Error('Expected institution B address and an audit stage');
 const config=JSON.parse(fs.readFileSync('chain/config.json'));
@@ -74,5 +77,6 @@ if(!bEnabled){
 }
 assert.equal((await rpc('eth_getBlockByNumber',[block.number,false])).hash,block.hash);
 const evidence={at:new Date().toISOString(),chainId:config.chainId,registryAddress:config.registryAddress,stage,block:{number:parseInt(block.number,16),hash:block.hash,timestamp:Number(BigInt(block.timestamp))},institutionA:a,institutionB:other,aEnabled,bEnabled,records:{a:record(aRecord),b:record(bRecord)},checks,limitations:['eth_call sender is a simulation parameter, not proof of wallet control','Only wallet-signed successful transactions establish independent account write evidence','Two test accounts do not establish real-world institutional identities']};
-fs.writeFileSync(`evidence/sepolia-permissions-${stage}.json`,JSON.stringify(evidence,null,2));
+const draft=writeTestOutput(`sepolia-permissions-${stage}.json`,evidence);
+if(willRecord){const saved=recordEvidence(draft,{as:uniqueEvidenceName(`sepolia-permissions-${stage}.json`,{force}),note:`机构 B 权限审计阶段 ${stage}，区块 ${evidence.block.number}`});console.log('已登记 evidence/'+saved.name);}else console.log('未写入 evidence/；如需登记加 --record');
 console.log(JSON.stringify({stage,passed:checks.length,block:evidence.block,bEnabled,records:evidence.records},null,2));

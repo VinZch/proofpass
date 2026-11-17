@@ -11,7 +11,10 @@
 在项目根目录执行以下命令，仅调用只读 RPC，核对通过后更新本地升级配置和证据文件：
 
 ```sh
-node scripts/verify-upgrade-deployment.mjs https://ethereum-sepolia.publicnode.com 0x623b2e6a55003da0aa144ef0ec53547af3f61410 0x069e1a31d7ffd37aaaa17e079c120633c7eab8bb7d1bb0a30983a51e12d72bb7 deployment/upgrade-sepolia/governors.json 2 0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac
+# 默认 dry-run，只读核对、不写文件
+node scripts/verify-upgrade-deployment.mjs https://ethereum-sepolia.publicnode.com 0x623b2e6a55003da0aa144ef0ec53547af3f61410 0x069e1a31d7ffd37aaaa17e079c120633c7eab8bb7d1bb0a30983a51e12d72bb7 deployment/upgrade-sepolia/governors.json 2 0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac --artifact deployment/upgrade-sepolia/artifact.json
+
+# 核对无误后加 --write 才更新 upgrade/config.json 并登记证据（旧同名证据不覆盖）
 ```
 
 脚本保存完整交易对象、发送者和最终性查询结果；finalized 查询失败记为 unknown。成功入块与最终性分开报告。

@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {Interface,AbiCoder,zeroPadValue,toBeHex} from 'ethers';
+import {recordEvidence,writeTestOutput} from './evidence.mjs';
 const config=JSON.parse(fs.readFileSync('upgrade/config.json','utf8'));
 const plan=JSON.parse(fs.readFileSync('deployment/upgrade-sepolia/governance-test-plan.json','utf8'));
 const abi=new Interface(JSON.parse(fs.readFileSync('upgrade/abi.json','utf8')));
@@ -16,7 +17,8 @@ const block=await rpc('eth_getBlockByNumber',[snapshotTag,false]);
 const tag=block.number;
 console.log('FIXED_SNAPSHOT '+tag+' / '+Number(BigInt(tag)));
 const evidence={at:new Date().toISOString(),network:'Sepolia',chainId,registryAddress:config.registryAddress,mode:'read-only eth_call; not failed on-chain transactions',block,blockTag:tag,proposalId:1,independentRealInstitutions:false,calls:[],checks:[],proposedLogs:[],approvedLogs:[]};
-const save=()=>fs.writeFileSync('evidence/upgrade-sepolia-governance-one-vote.json',JSON.stringify(evidence,(_,v)=>typeof v==='bigint'?v.toString():v,2)+'\n');save();
+const serialize=()=>JSON.stringify(evidence,(_,v)=>typeof v==='bigint'?v.toString():v,2)+'\n';
+const save=()=>writeTestOutput('upgrade-sepolia-governance-one-vote.json',serialize());save();
 try {
  const [proposalRaw,thresholdRaw,proposedLogs,approvedLogs]=await Promise.all([
  rpc('eth_call',[{to:config.registryAddress,data:abi.encodeFunctionData('proposals',[1])},tag]),
@@ -33,4 +35,5 @@ try {
  const cases=[['execute',[1],plan.proposer,'threshold'],['approve',[1],plan.proposer,'already approved'],['approve',[1],'0x1111111111111111111111111111111111111111','governor']];
  for(const [name,args,from,expectedReason]of cases){const call={to:config.registryAddress,from,data:abi.encodeFunctionData(name,args)};const response=await raw('eth_call',[call,tag]);const decodedReason=reason(response.error);evidence.calls.push({method:'eth_call',blockTag:tag,...call,response,decodedReason,expectedReason,passed:decodedReason===expectedReason});save();assert(response.error);assert.equal(decodedReason,expectedReason);}
  const canonical=await rpc('eth_getBlockByNumber',[tag,false]);assert.equal(canonical.hash,block.hash);evidence.canonicalBlockRechecked=true;evidence.checks.push('three exact revert reasons verified at fixed block; snapshot remains canonical');evidence.passed=true;save();console.log(JSON.stringify({passed:true,block:Number(BigInt(tag)),tx:tx.hash,revertReasons:evidence.calls.map(c=>c.decodedReason)}));
+ if(process.argv.includes('--record')){const saved=recordEvidence('artifacts/test-output/upgrade-sepolia-governance-one-vote.json',{as:'upgrade-sepolia-governance-one-vote.json',force:process.argv.includes('--force'),note:'固定区块 '+tag+' 的一票权限只读审计'});console.log('已登记 evidence/'+saved.name);}else console.log('未写入 evidence/；如需更新证据加 --record（覆盖再加 --force）');
 }catch(error){evidence.passed=false;evidence.failure=error.message;save();throw error;}

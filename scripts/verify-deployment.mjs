@@ -11,7 +11,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {keccak256, Interface} from 'ethers';
-import {recordEvidence, writeTestOutput} from './evidence.mjs';
+import {recordEvidence, uniqueEvidenceName, writeTestOutput} from './evidence.mjs';
 
 const flags = new Set(process.argv.slice(2).filter(argument => argument.startsWith('--')));
 const [rpcUrl, addressInput, hash] = process.argv.slice(2).filter(argument => !argument.startsWith('--'));
@@ -88,9 +88,7 @@ const evidenceDraft = writeTestOutput('sepolia-deployment.json', {
   block,
   codeHash,
 });
-const evidenceName = fs.existsSync('evidence/sepolia-deployment.json')
-  ? `sepolia-deployment-recheck-${stamp}.json`
-  : 'sepolia-deployment.json';
+const evidenceName = uniqueEvidenceName('sepolia-deployment.json');
 const saved = recordEvidence(evidenceDraft, {
   as: evidenceName,
   note: `verify-deployment.mjs 只读核验，区块 ${Number(BigInt(receipt.blockNumber))}`,

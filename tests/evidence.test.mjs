@@ -69,7 +69,9 @@ test('测试与浏览器脚本不得出现直接写 evidence/ 的调用', () => 
     ...fs.readdirSync(path.join(projectRoot, 'tests'))
       .filter(name => name.endsWith('.mjs') && name !== 'evidence.test.mjs')
       .map(name => path.join(projectRoot, 'tests', name)),
-    path.join(projectRoot, 'scripts/browser-check.mjs'),
+    ...fs.readdirSync(path.join(projectRoot, 'scripts'))
+      .filter(name => name.endsWith('.mjs'))
+      .map(name => path.join(projectRoot, 'scripts', name)),
   ];
   const forbidden = [
     /writeFileSync\(\s*['"`]evidence\//,

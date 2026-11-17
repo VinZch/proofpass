@@ -2,7 +2,10 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {Interface,keccak256,parseEther} from 'ethers';
-const [kind,hash]=process.argv.slice(2);
+import {recordEvidence,uniqueEvidenceName,writeTestOutput} from './evidence.mjs';
+const argv=process.argv.slice(2);
+const willRecord=argv.includes('--record'),force=argv.includes('--force');
+const [kind,hash]=argv.filter(argument=>!argument.startsWith('--'));
 if(!['authorization','funding','issue','revoke'].includes(kind)||!/^0x[0-9a-fA-F]{64}$/.test(hash??''))throw Error('Expected authorization|funding|issue|revoke and transaction hash');
 const c=JSON.parse(fs.readFileSync('chain/config.json')),p=JSON.parse(fs.readFileSync('evidence/sepolia-institution-b-plan.json'));
 const abi=new Interface(JSON.parse(fs.readFileSync('chain/abi.json')));
@@ -23,10 +26,16 @@ if(kind==='issue')assert.ok(events.some(e=>e.name==='Issued'&&e.args[0].toLowerC
 if(kind==='revoke')assert.ok(events.some(e=>e.name==='Revoked'&&e.args[0].toLowerCase()===p.institutionB&&e.args[1]===p.credentialId));
 const finalized=await rpc('eth_getBlockByNumber',['finalized',false]);
 const evidence={at:new Date().toISOString(),chainId:c.chainId,registryAddress:c.registryAddress,kind,receipt,transaction:tx,block,finality:BigInt(finalized.number)>=BigInt(receipt.blockNumber)?'finalized':'included; not yet finalized',validatedExpected:{from,to,amountWei:BigInt(tx.value).toString(),call:calls[kind]??null}};
-fs.writeFileSync(`evidence/sepolia-institution-b-${kind}.json`,JSON.stringify(evidence,null,2));
+const draft=writeTestOutput(`sepolia-institution-b-${kind}.json`,evidence);
+let packageDraft=null;
 if(kind==='issue'){
  const pkg=JSON.parse(fs.readFileSync(p.package));
  pkg.receipt={state:'已入块成功',transactionHash:hash.toLowerCase(),blockNumber:parseInt(receipt.blockNumber,16),blockHash:receipt.blockHash,receiptStatus:receipt.status,finality:evidence.finality,queriedAt:evidence.at};
- fs.writeFileSync(p.package,JSON.stringify(pkg,null,2));
+ packageDraft=writeTestOutput('sepolia-institution-b-package.json',pkg);
 }
+if(willRecord){
+ const saved=recordEvidence(draft,{as:uniqueEvidenceName(`sepolia-institution-b-${kind}.json`,{force}),note:`机构 B ${kind} 交易只读核验`});
+ console.log('已登记 evidence/'+saved.name);
+ if(packageDraft){const savedPkg=recordEvidence(packageDraft,{as:uniqueEvidenceName('sepolia-institution-b-package.json',{force}),note:'B 凭证包附加签发回执'});console.log('已登记 evidence/'+savedPkg.name);}
+}else console.log('未写入 evidence/；如需登记加 --record');
 console.log(JSON.stringify({kind,hash,block:parseInt(receipt.blockNumber,16),from,to,finality:evidence.finality},null,2));
