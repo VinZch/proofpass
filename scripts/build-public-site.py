@@ -42,6 +42,9 @@ APP_FILES = (
     "upgrade/abi.json",
     "chain/adapters.js",
     "chain/protocol.js",
+    "chain/rpc.js",
+    "chain/deployment.js",
+    "chain/transaction.js",
     "chain/vendor/ethers.js",
     "chain/vendor/ethers-LICENSE.md",
 )
@@ -197,8 +200,10 @@ def version_assets(name: str, content: str, version: str) -> str:
     if name.endswith(".html"):
         patterns.append(r'\b(?:src|href)=[\'"](?P<url>[^\'"]+)[\'"]')
     if name.endswith(".js") and name != "chain/vendor/ethers.js":
+        # 允许 Prettier 产生的多行 import：from 之前可以有换行，但不能跨过分号。
         patterns.extend((
-            r'(?m)^\s*(?:import|export)\s+(?:.*?\s+from\s+)?[\'"](?P<url>[^\'"]+)[\'"]',
+            r'(?m)^\s*(?:import|export)\s+[^;]*?\bfrom\s*[\'"](?P<url>[^\'"]+)[\'"]',
+            r'(?m)^\s*import\s*[\'"](?P<url>[^\'"]+)[\'"]',
             r'\bimport\s*\(\s*[\'"](?P<url>[^\'"]+)[\'"]\s*\)',
         ))
     if name.endswith((".css", ".html")):
@@ -229,7 +234,8 @@ def check_references(staging: Path, names: list[str]) -> dict:
             urls.extend((match, False) for match in re.findall(r"url\(\s*['\"]?([^)'\"\s]+)", source))
         if path.suffix == ".js" and name != "chain/vendor/ethers.js":
             patterns = (
-                r"(?m)^\s*(?:import|export)\s+(?:.*?\s+from\s+)?['\"]([^'\"]+)['\"]",
+                r"(?m)^\s*(?:import|export)\s+[^;]*?\bfrom\s*['\"]([^'\"]+)['\"]",
+                r"(?m)^\s*import\s*['\"]([^'\"]+)['\"]",
                 r"\bimport\s*\(\s*['\"]([^'\"]+)['\"]\s*\)",
                 r"\b(?:fetch|readJson)\s*\(\s*['\"]([^'\"]+)['\"]",
             )

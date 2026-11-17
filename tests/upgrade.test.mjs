@@ -1,85 +1,198 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {writeTestOutput} from '../scripts/evidence.mjs';
-import {id,ZeroHash,ZeroAddress,ContractFactory} from 'ethers';
-import {fixture,artifact} from '../scripts/upgrade-fixture.mjs';
-import {GovernedAdapter} from '../upgrade/adapter.js';
-import {commitment,verifyPackage,validatePackage} from '../upgrade/protocol.js';
+import { writeTestOutput } from '../scripts/evidence.mjs';
+import { id, ZeroHash, ZeroAddress, ContractFactory } from 'ethers';
+import { fixture, artifact } from '../scripts/upgrade-fixture.mjs';
+import { GovernedAdapter } from '../upgrade/adapter.js';
+import { commitment, verifyPackage, validatePackage } from '../upgrade/protocol.js';
 
-test('升级治理：阈值、轮换、原子更正、停用后紧急撤销与隔离',async()=>{
- const f=await fixture(),{contract:c,signers:s,addresses:a,orgA,orgB}=f;
- const checks=[];const ok=(label,value)=>{assert.ok(value,label);checks.push(label);};
- const fails=async(label,fn)=>{await assert.rejects(fn);checks.push(label);};
- try {
-  await fails('治理部署拒绝单人阈值',()=>new ContractFactory(artifact.abi,artifact.bytecode,s[0]).deploy(a.slice(0,3),1));
-  await fails('治理部署拒绝重复成员',()=>new ContractFactory(artifact.abi,artifact.bytecode,s[0]).deploy([a[0],a[0],a[1]],2));
-  const n=await f.proposal(0,orgA,{key:a[3]});
-  await fails('单人不能执行准入提案',()=>c.execute(n));
-  await fails('同一治理成员不能重复计票',()=>c.approve(n));
-  await fails('非治理成员不能批准',()=>c.connect(s[3]).approve(n));
-  await(await c.connect(s[1]).approve(n)).wait();await(await c.execute(n)).wait();
-  ok('达到两人阈值后登记机构',(await c.institutions(orgA)).key===a[3]);
-  await fails('已执行提案不能重放',()=>c.execute(n));
-  await f.govern(0,orgB,{key:a[4]});
-  const end=(await f.provider.getBlock('latest')).timestamp+86400,id1=id('v1'),id2=id('v2'),reason=id('修正名称');
-  const pkg={payload:{schemaVersion:3,chainId:31337,registryAddress:f.config.registryAddress,institution:orgA,issuer:a[3].toLowerCase(),keyEpoch:1,credentialId:id1,previousId:ZeroHash,title:'TEST ONLY 证书',holderRef:'虚构学员001',validUntil:end},salt:id('random-test-salt')};
-  const digest=await commitment(pkg,f.config);
-  await fails('B 不能冒充 A 签发',()=>c.connect(s[4]).issue(orgA,id1,digest,end));
-  await(await c.connect(s[3]).issue(orgA,id1,digest,end)).wait();
-  await fails('超过有效期上限不能签发',()=>c.connect(s[3]).issue(orgA,id('too-long'),digest,BigInt(end)+315360000n));
-  await(await c.connect(s[4]).issue(orgB,id1,id('B'),end)).wait();
-  const beforeA=await c.getRecord(orgA,id1),beforeB=await c.getRecord(orgB,id1);
-  const adapter=new GovernedAdapter(f.config,artifact.abi,{readProvider:f.rpc,wallet:f.wallet(3),pollMs:10});
-  ok('v3 凭证完整性与链上状态核验通过',(await verifyPackage(pkg,adapter,f.config)).technicalPass);
-  const bad=structuredClone(pkg);bad.payload.title='篡改';ok('改标题不能通过核验',!(await verifyPackage(bad,adapter,f.config)).technicalPass);
-  const wrong=structuredClone(pkg);wrong.payload.institution=orgB;ok('同 ID 不能跨机构替换',(await verifyPackage(wrong,adapter,f.config)).integrity===false);
-  assert.throws(()=>validatePackage({...pkg,payload:{...pkg.payload,schemaVersion:2}},f.config));checks.push('旧协议不会被误当升级协议');
-  const stale=await f.proposal(2,orgA,{enabled:false});
-  await f.govern(1,orgA,{key:a[5]});
-  assert.deepEqual([...(await c.getRecord(orgA,id1))],[...beforeA]);checks.push('轮换不改写原始签发地址和历史记录');
-  ok('旧包在密钥轮换后仍有效',(await verifyPackage(pkg,adapter,f.config)).technicalPass);
-  await fails('旧密钥不能继续签发',()=>c.connect(s[3]).issue(orgA,id2,digest,end));
-  await fails('旧密钥不能继续撤销',()=>c.connect(s[3]).revoke(orgA,id1,reason));
-  await fails('过期机构修订的提案不能继续批准',()=>c.connect(s[1]).approve(stale));
-  await fails('退役密钥不能再次准入',()=>c.propose(0,id('C'),a[3],false,ZeroHash,reason,end-80000));
-  await fails('治理成员不能同时作为机构签发密钥',()=>c.propose(0,id('C'),a[0],false,ZeroHash,reason,end-80000));
-  await fails('紧急撤销不存在的凭证不能提案',()=>c.propose(3,orgA,ZeroAddress,false,id('missing'),reason,end-80000));
-  await fails('更正的新编号相同会回退',()=>c.connect(s[5]).correct(orgA,id1,id1,digest,end,reason));
-  await fails('过期新版导致整笔更正回退',()=>c.connect(s[5]).correct(orgA,id1,id2,digest,1,reason));
-  assert.deepEqual([...(await c.getRecord(orgA,id1))],[...beforeA]);checks.push('失败更正不会撤销旧证书');
-  const next={payload:{...pkg.payload,issuer:a[5].toLowerCase(),keyEpoch:2,credentialId:id2,previousId:id1,title:'TEST ONLY 已更正'},salt:id('next salt')};
-  await(await c.connect(s[5]).correct(orgA,id1,id2,await commitment(next,f.config),end,reason)).wait();
-  const old=await c.getRecord(orgA,id1),fresh=await c.getRecord(orgA,id2);
-  ok('更正同时建立双向版本关联',old.replacedBy===id2&&fresh.previousId===id1&&old.revocationKind===2n);
-  ok('新证书保留新密钥和密钥版本',fresh.issuedBy===a[5]&&fresh.keyEpoch===2n);
-  ok('旧包显示已更正而不是有效',(await verifyPackage(pkg,adapter,f.config)).status==='已被更正版替代');
-  ok('新版凭证核验有效',(await verifyPackage(next,adapter,f.config)).technicalPass);
-  await fails('已替代版本不能再次分叉更正',()=>c.connect(s[5]).correct(orgA,id1,id('branch'),digest,end,reason));
-  await f.govern(2,orgA,{enabled:false});
-  ok('停用不自动使历史凭证失效',(await verifyPackage(next,adapter,f.config)).technicalPass);
-  await fails('停用后签发被拦截',()=>c.connect(s[5]).issue(orgA,id('disabled'),digest,end));
-  await fails('停用后普通撤销被拦截',()=>c.connect(s[5]).revoke(orgA,id2,reason));
-  const emergency=await f.proposal(3,orgA,{credential:id2});
-  await fails('紧急撤销也需要两人批准',()=>c.execute(emergency));
-  await(await c.connect(s[1]).approve(emergency)).wait();
-  const emergencyReceipt=await(await c.execute(emergency)).wait();
-  const emergencyLogs=emergencyReceipt.logs.map(l=>{try{return c.interface.parseLog(l);}catch{return null;}}).filter(Boolean);
-  ok('紧急撤销不再发机构变更事件',emergencyLogs.filter(e=>e.name==='InstitutionChanged').length===0);
-  ok('紧急撤销仍发 Executed 事件',emergencyLogs.filter(e=>e.name==='Executed').length===1);
-  ok('停用状态仍可由治理阈值完成紧急撤销',(await verifyPackage(next,adapter,f.config)).status==='已紧急撤销');
-  assert.deepEqual([...(await c.getRecord(orgB,id1))],[...beforeB]);checks.push('A 轮换、更正、紧急撤销均不改变 B 同编号记录');
-  await f.govern(1,orgA,{key:a[6]});ok('轮换不偷偷解除机构停用',!(await c.institutions(orgA)).enabled);
-  const cancel=await f.proposal(2,orgA,{enabled:true});
-  await fails('非提案人单票不能取消提案',()=>c.connect(s[2]).cancel(cancel));
-  await(await c.connect(s[0]).cancel(cancel)).wait();
-  await fails('取消提案不能继续批准',()=>c.connect(s[1]).approve(cancel));
-  const cancellable=await f.proposal(2,orgA,{enabled:true});
-  await(await c.connect(s[1]).approve(cancellable)).wait();
-  await(await c.connect(s[2]).cancel(cancellable)).wait();
-  ok('达到阈值后任一治理成员可取消',true);
-  const exp=await f.proposal(2,orgA,{enabled:true,deadline:(await f.provider.getBlock('latest')).timestamp+2});
-  await f.rpc.request({method:'evm_increaseTime',params:[3]});await f.rpc.request({method:'evm_mine',params:[]});
-  await fails('超时提案不能批准',()=>c.connect(s[1]).approve(exp));
-  writeTestOutput('upgrade-local-evm.json',{at:new Date().toISOString(),mode:'local-evm',chainId:31337,publicTestnetDeployed:false,checks:checks.map(name=>({name,passed:true})),count:checks.length});
- }finally{await f.close();}
+test('升级治理：阈值、轮换、原子更正、停用后紧急撤销与隔离', async () => {
+  const f = await fixture(),
+    { contract: c, signers: s, addresses: a, orgA, orgB } = f;
+  const checks = [];
+  const ok = (label, value) => {
+    assert.ok(value, label);
+    checks.push(label);
+  };
+  const fails = async (label, fn) => {
+    await assert.rejects(fn);
+    checks.push(label);
+  };
+  try {
+    await fails('治理部署拒绝单人阈值', () =>
+      new ContractFactory(artifact.abi, artifact.bytecode, s[0]).deploy(a.slice(0, 3), 1),
+    );
+    await fails('治理部署拒绝重复成员', () =>
+      new ContractFactory(artifact.abi, artifact.bytecode, s[0]).deploy([a[0], a[0], a[1]], 2),
+    );
+    const n = await f.proposal(0, orgA, { key: a[3] });
+    await fails('单人不能执行准入提案', () => c.execute(n));
+    await fails('同一治理成员不能重复计票', () => c.approve(n));
+    await fails('非治理成员不能批准', () => c.connect(s[3]).approve(n));
+    await (await c.connect(s[1]).approve(n)).wait();
+    await (await c.execute(n)).wait();
+    ok('达到两人阈值后登记机构', (await c.institutions(orgA)).key === a[3]);
+    await fails('已执行提案不能重放', () => c.execute(n));
+    await f.govern(0, orgB, { key: a[4] });
+    const end = (await f.provider.getBlock('latest')).timestamp + 86400,
+      id1 = id('v1'),
+      id2 = id('v2'),
+      reason = id('修正名称');
+    const pkg = {
+      payload: {
+        schemaVersion: 3,
+        chainId: 31337,
+        registryAddress: f.config.registryAddress,
+        institution: orgA,
+        issuer: a[3].toLowerCase(),
+        keyEpoch: 1,
+        credentialId: id1,
+        previousId: ZeroHash,
+        title: 'TEST ONLY 证书',
+        holderRef: '虚构学员001',
+        validUntil: end,
+      },
+      salt: id('random-test-salt'),
+    };
+    const digest = await commitment(pkg, f.config);
+    await fails('B 不能冒充 A 签发', () => c.connect(s[4]).issue(orgA, id1, digest, end));
+    await (await c.connect(s[3]).issue(orgA, id1, digest, end)).wait();
+    await fails('超过有效期上限不能签发', () =>
+      c.connect(s[3]).issue(orgA, id('too-long'), digest, BigInt(end) + 315360000n),
+    );
+    await (await c.connect(s[4]).issue(orgB, id1, id('B'), end)).wait();
+    const beforeA = await c.getRecord(orgA, id1),
+      beforeB = await c.getRecord(orgB, id1);
+    const adapter = new GovernedAdapter(f.config, artifact.abi, {
+      readProvider: f.rpc,
+      wallet: f.wallet(3),
+      pollMs: 10,
+    });
+    ok(
+      'v3 凭证完整性与链上状态核验通过',
+      (await verifyPackage(pkg, adapter, f.config)).technicalPass,
+    );
+    const bad = structuredClone(pkg);
+    bad.payload.title = '篡改';
+    ok('改标题不能通过核验', !(await verifyPackage(bad, adapter, f.config)).technicalPass);
+    const wrong = structuredClone(pkg);
+    wrong.payload.institution = orgB;
+    ok('同 ID 不能跨机构替换', (await verifyPackage(wrong, adapter, f.config)).integrity === false);
+    assert.throws(() =>
+      validatePackage({ ...pkg, payload: { ...pkg.payload, schemaVersion: 2 } }, f.config),
+    );
+    checks.push('旧协议不会被误当升级协议');
+    const stale = await f.proposal(2, orgA, { enabled: false });
+    await f.govern(1, orgA, { key: a[5] });
+    assert.deepEqual([...(await c.getRecord(orgA, id1))], [...beforeA]);
+    checks.push('轮换不改写原始签发地址和历史记录');
+    ok('旧包在密钥轮换后仍有效', (await verifyPackage(pkg, adapter, f.config)).technicalPass);
+    await fails('旧密钥不能继续签发', () => c.connect(s[3]).issue(orgA, id2, digest, end));
+    await fails('旧密钥不能继续撤销', () => c.connect(s[3]).revoke(orgA, id1, reason));
+    await fails('过期机构修订的提案不能继续批准', () => c.connect(s[1]).approve(stale));
+    await fails('退役密钥不能再次准入', () =>
+      c.propose(0, id('C'), a[3], false, ZeroHash, reason, end - 80000),
+    );
+    await fails('治理成员不能同时作为机构签发密钥', () =>
+      c.propose(0, id('C'), a[0], false, ZeroHash, reason, end - 80000),
+    );
+    await fails('紧急撤销不存在的凭证不能提案', () =>
+      c.propose(3, orgA, ZeroAddress, false, id('missing'), reason, end - 80000),
+    );
+    await fails('更正的新编号相同会回退', () =>
+      c.connect(s[5]).correct(orgA, id1, id1, digest, end, reason),
+    );
+    await fails('过期新版导致整笔更正回退', () =>
+      c.connect(s[5]).correct(orgA, id1, id2, digest, 1, reason),
+    );
+    assert.deepEqual([...(await c.getRecord(orgA, id1))], [...beforeA]);
+    checks.push('失败更正不会撤销旧证书');
+    const next = {
+      payload: {
+        ...pkg.payload,
+        issuer: a[5].toLowerCase(),
+        keyEpoch: 2,
+        credentialId: id2,
+        previousId: id1,
+        title: 'TEST ONLY 已更正',
+      },
+      salt: id('next salt'),
+    };
+    await (
+      await c.connect(s[5]).correct(orgA, id1, id2, await commitment(next, f.config), end, reason)
+    ).wait();
+    const old = await c.getRecord(orgA, id1),
+      fresh = await c.getRecord(orgA, id2);
+    ok(
+      '更正同时建立双向版本关联',
+      old.replacedBy === id2 && fresh.previousId === id1 && old.revocationKind === 2n,
+    );
+    ok('新证书保留新密钥和密钥版本', fresh.issuedBy === a[5] && fresh.keyEpoch === 2n);
+    ok(
+      '旧包显示已更正而不是有效',
+      (await verifyPackage(pkg, adapter, f.config)).status === '已被更正版替代',
+    );
+    ok('新版凭证核验有效', (await verifyPackage(next, adapter, f.config)).technicalPass);
+    await fails('已替代版本不能再次分叉更正', () =>
+      c.connect(s[5]).correct(orgA, id1, id('branch'), digest, end, reason),
+    );
+    await f.govern(2, orgA, { enabled: false });
+    ok('停用不自动使历史凭证失效', (await verifyPackage(next, adapter, f.config)).technicalPass);
+    await fails('停用后签发被拦截', () => c.connect(s[5]).issue(orgA, id('disabled'), digest, end));
+    await fails('停用后普通撤销被拦截', () => c.connect(s[5]).revoke(orgA, id2, reason));
+    const emergency = await f.proposal(3, orgA, { credential: id2 });
+    await fails('紧急撤销也需要两人批准', () => c.execute(emergency));
+    await (await c.connect(s[1]).approve(emergency)).wait();
+    const emergencyReceipt = await (await c.execute(emergency)).wait();
+    const emergencyLogs = emergencyReceipt.logs
+      .map((l) => {
+        try {
+          return c.interface.parseLog(l);
+        } catch {
+          return null;
+        }
+      })
+      .filter(Boolean);
+    ok(
+      '紧急撤销不再发机构变更事件',
+      emergencyLogs.filter((e) => e.name === 'InstitutionChanged').length === 0,
+    );
+    ok(
+      '紧急撤销仍发 Executed 事件',
+      emergencyLogs.filter((e) => e.name === 'Executed').length === 1,
+    );
+    ok(
+      '停用状态仍可由治理阈值完成紧急撤销',
+      (await verifyPackage(next, adapter, f.config)).status === '已紧急撤销',
+    );
+    assert.deepEqual([...(await c.getRecord(orgB, id1))], [...beforeB]);
+    checks.push('A 轮换、更正、紧急撤销均不改变 B 同编号记录');
+    await f.govern(1, orgA, { key: a[6] });
+    ok('轮换不偷偷解除机构停用', !(await c.institutions(orgA)).enabled);
+    const cancel = await f.proposal(2, orgA, { enabled: true });
+    await fails('非提案人单票不能取消提案', () => c.connect(s[2]).cancel(cancel));
+    await (await c.connect(s[0]).cancel(cancel)).wait();
+    await fails('取消提案不能继续批准', () => c.connect(s[1]).approve(cancel));
+    const cancellable = await f.proposal(2, orgA, { enabled: true });
+    await (await c.connect(s[1]).approve(cancellable)).wait();
+    await (await c.connect(s[2]).cancel(cancellable)).wait();
+    ok('达到阈值后任一治理成员可取消', true);
+    const exp = await f.proposal(2, orgA, {
+      enabled: true,
+      deadline: (await f.provider.getBlock('latest')).timestamp + 2,
+    });
+    await f.rpc.request({ method: 'evm_increaseTime', params: [3] });
+    await f.rpc.request({ method: 'evm_mine', params: [] });
+    await fails('超时提案不能批准', () => c.connect(s[1]).approve(exp));
+    writeTestOutput('upgrade-local-evm.json', {
+      at: new Date().toISOString(),
+      mode: 'local-evm',
+      chainId: 31337,
+      publicTestnetDeployed: false,
+      checks: checks.map((name) => ({ name, passed: true })),
+      count: checks.length,
+    });
+  } finally {
+    await f.close();
+  }
 });

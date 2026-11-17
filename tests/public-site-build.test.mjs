@@ -1,11 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {spawnSync} from 'node:child_process';
-import {fileURLToPath} from 'node:url';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
 test('Public release uses stable content versions throughout the module graph and keeps legacy files private', () => {
   const root = fileURLToPath(new URL('../', import.meta.url));
-  const result = spawnSync('python3', ['-B', '-c', String.raw`
+  const result = spawnSync(
+    'python3',
+    [
+      '-B',
+      '-c',
+      String.raw`
 import importlib.util, json, pathlib, re, shutil, sys, tempfile, zipfile
 from urllib.parse import parse_qs, urlsplit
 
@@ -40,7 +45,9 @@ with tempfile.TemporaryDirectory(prefix='proofpass-public-build-') as directory:
             'upgrade/bootstrap.js': ('./app.js', '../chain/vendor/ethers.js'),
             'upgrade/app.js': ('./adapter.js', './protocol.js', '../chain/protocol.js'),
             'upgrade/adapter.js': ('../chain/adapters.js', '../chain/protocol.js', './protocol.js'),
-            'chain/adapters.js': ('./vendor/ethers.js', './protocol.js'),
+            'chain/adapters.js': ('./vendor/ethers.js', './protocol.js', './rpc.js', './deployment.js', './transaction.js'),
+            'chain/transaction.js': ('./protocol.js', './rpc.js'),
+            'chain/deployment.js': ('./vendor/ethers.js', './protocol.js', './rpc.js'),
         }
         for name, imports in checks.items():
             text = (builder.DIST / name).read_text()
@@ -78,6 +85,10 @@ with tempfile.TemporaryDirectory(prefix='proofpass-public-build-') as directory:
     changed = build()
     assert changed['assetVersion'] != first['assetVersion']
     versions(changed)
-`, root], {encoding: 'utf8', timeout: 20000});
+`,
+      root,
+    ],
+    { encoding: 'utf8', timeout: 20000 },
+  );
   assert.equal(result.status, 0, result.error?.message || result.stderr || result.stdout);
 });

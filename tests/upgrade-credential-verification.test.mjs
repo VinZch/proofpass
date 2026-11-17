@@ -1,7 +1,149 @@
-import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {Interface,id} from 'ethers';
-import {commitment,ZERO} from '../upgrade/protocol.js';
-import {validateCredentialTransaction,validateRecordSnapshot} from '../scripts/verify-upgrade-credential.mjs';
-const abi=new Interface(JSON.parse(fs.readFileSync('upgrade/abi.json','utf8'))),address='0x'+'1'.repeat(40),issuer='0x'+'2'.repeat(40),hash=id('transaction'),blockHash=id('block'),reasonHash=id('correction reason');const config={chainId:11155111,registryAddress:address};
-async function sample(stage){const p={schemaVersion:3,chainId:11155111,registryAddress:address,institution:id('institution'),issuer,keyEpoch:1,credentialId:id('new'),previousId:stage==='correct'?id('old'):ZERO,title:'TEST ONLY',holderRef:'TEST ONLY',validUntil:2000};const pkg={payload:p,salt:id('salt')},digest=await commitment(pkg,config),args=stage==='correct'?[p.institution,p.previousId,p.credentialId,digest,p.validUntil,reasonHash]:[p.institution,p.credentialId,digest,p.validUntil];const event=(name,params)=>({address,...abi.encodeEventLog(abi.getEvent(name),params)}),logs=[event('Issued',[p.institution,p.credentialId,issuer,digest])];if(stage==='correct')logs.push(event('Revoked',[p.institution,p.previousId,2,reasonHash]),event('Corrected',[p.institution,p.previousId,p.credentialId]));const tx={hash,from:issuer,to:address,blockHash,blockNumber:'0x10',chainId:'0xaa36a7',value:'0x0',input:abi.encodeFunctionData(stage,args)},receipt={transactionHash:hash,from:issuer,to:address,status:'0x1',blockHash,blockNumber:'0x10',logs},block={hash:blockHash,number:'0x10',timestamp:'0x3e8'};const record={commitment:digest,registeredAt:1000n,validUntil:2000n,issuedBy:issuer,keyEpoch:1n,previousId:p.previousId,replacedBy:ZERO,revokedAt:0n,revocationKind:0n,reasonHash:ZERO},oldRecord=stage==='correct'?{...record,commitment:id('old commitment'),previousId:ZERO,replacedBy:p.credentialId,revokedAt:1000n,revocationKind:2n,reasonHash}:null;return {stage,p,digest,hash,config,tx,receipt,receiptBlock:block,abi,record,oldRecord,institution:{key:issuer,epoch:1n,revision:1n,enabled:true},block,reasonHash:stage==='correct'?reasonHash:ZERO};}
-test('v3 签发核验使用包承诺并拒绝错误交易身份/参数/事件和非有效记录',async()=>{const s=await sample('issue');validateCredentialTransaction(s);validateRecordSnapshot(s);for(const mutate of [x=>x.tx.hash=id('other'),x=>x.tx.from=address,x=>x.tx.to=issuer,x=>x.tx.value='0x1',x=>x.tx.input=abi.encodeFunctionData('issue',[x.p.institution,x.p.credentialId,id('tampered'),x.p.validUntil]),x=>x.receipt.logs=[]]){const x=await sample('issue');mutate(x);assert.throws(()=>validateCredentialTransaction(x));}const bad=await sample('issue');bad.record.revocationKind=1n;assert.throws(()=>validateRecordSnapshot(bad));});
-test('v3 原子更正核验同时绑定 ABI 原因、三事件与旧新双向关联',async()=>{const s=await sample('correct');assert.equal(validateCredentialTransaction(s).reasonHash,reasonHash);validateRecordSnapshot(s);for(const mutate of [x=>x.oldRecord.replacedBy=id('wrong next'),x=>x.oldRecord.revocationKind=1n,x=>x.oldRecord.reasonHash=id('wrong reason'),x=>x.record.previousId=id('wrong old'),x=>x.institution.epoch=2n]){const x=await sample('correct');mutate(x);assert.throws(()=>validateRecordSnapshot(x));}const wrongEvent=await sample('correct');wrongEvent.receipt.logs.pop();assert.throws(()=>validateCredentialTransaction(wrongEvent));});
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { Interface, id } from 'ethers';
+import { commitment, ZERO } from '../upgrade/protocol.js';
+import {
+  validateCredentialTransaction,
+  validateRecordSnapshot,
+} from '../scripts/verify-upgrade-credential.mjs';
+const abi = new Interface(JSON.parse(fs.readFileSync('upgrade/abi.json', 'utf8'))),
+  address = '0x' + '1'.repeat(40),
+  issuer = '0x' + '2'.repeat(40),
+  hash = id('transaction'),
+  blockHash = id('block'),
+  reasonHash = id('correction reason');
+const config = { chainId: 11155111, registryAddress: address };
+async function sample(stage) {
+  const p = {
+    schemaVersion: 3,
+    chainId: 11155111,
+    registryAddress: address,
+    institution: id('institution'),
+    issuer,
+    keyEpoch: 1,
+    credentialId: id('new'),
+    previousId: stage === 'correct' ? id('old') : ZERO,
+    title: 'TEST ONLY',
+    holderRef: 'TEST ONLY',
+    validUntil: 2000,
+  };
+  const pkg = { payload: p, salt: id('salt') },
+    digest = await commitment(pkg, config),
+    args =
+      stage === 'correct'
+        ? [p.institution, p.previousId, p.credentialId, digest, p.validUntil, reasonHash]
+        : [p.institution, p.credentialId, digest, p.validUntil];
+  const event = (name, params) => ({ address, ...abi.encodeEventLog(abi.getEvent(name), params) }),
+    logs = [event('Issued', [p.institution, p.credentialId, issuer, digest])];
+  if (stage === 'correct')
+    logs.push(
+      event('Revoked', [p.institution, p.previousId, 2, reasonHash]),
+      event('Corrected', [p.institution, p.previousId, p.credentialId]),
+    );
+  const tx = {
+      hash,
+      from: issuer,
+      to: address,
+      blockHash,
+      blockNumber: '0x10',
+      chainId: '0xaa36a7',
+      value: '0x0',
+      input: abi.encodeFunctionData(stage, args),
+    },
+    receipt = {
+      transactionHash: hash,
+      from: issuer,
+      to: address,
+      status: '0x1',
+      blockHash,
+      blockNumber: '0x10',
+      logs,
+    },
+    block = { hash: blockHash, number: '0x10', timestamp: '0x3e8' };
+  const record = {
+      commitment: digest,
+      registeredAt: 1000n,
+      validUntil: 2000n,
+      issuedBy: issuer,
+      keyEpoch: 1n,
+      previousId: p.previousId,
+      replacedBy: ZERO,
+      revokedAt: 0n,
+      revocationKind: 0n,
+      reasonHash: ZERO,
+    },
+    oldRecord =
+      stage === 'correct'
+        ? {
+            ...record,
+            commitment: id('old commitment'),
+            previousId: ZERO,
+            replacedBy: p.credentialId,
+            revokedAt: 1000n,
+            revocationKind: 2n,
+            reasonHash,
+          }
+        : null;
+  return {
+    stage,
+    p,
+    digest,
+    hash,
+    config,
+    tx,
+    receipt,
+    receiptBlock: block,
+    abi,
+    record,
+    oldRecord,
+    institution: { key: issuer, epoch: 1n, revision: 1n, enabled: true },
+    block,
+    reasonHash: stage === 'correct' ? reasonHash : ZERO,
+  };
+}
+test('v3 签发核验使用包承诺并拒绝错误交易身份/参数/事件和非有效记录', async () => {
+  const s = await sample('issue');
+  validateCredentialTransaction(s);
+  validateRecordSnapshot(s);
+  for (const mutate of [
+    (x) => (x.tx.hash = id('other')),
+    (x) => (x.tx.from = address),
+    (x) => (x.tx.to = issuer),
+    (x) => (x.tx.value = '0x1'),
+    (x) =>
+      (x.tx.input = abi.encodeFunctionData('issue', [
+        x.p.institution,
+        x.p.credentialId,
+        id('tampered'),
+        x.p.validUntil,
+      ])),
+    (x) => (x.receipt.logs = []),
+  ]) {
+    const x = await sample('issue');
+    mutate(x);
+    assert.throws(() => validateCredentialTransaction(x));
+  }
+  const bad = await sample('issue');
+  bad.record.revocationKind = 1n;
+  assert.throws(() => validateRecordSnapshot(bad));
+});
+test('v3 原子更正核验同时绑定 ABI 原因、三事件与旧新双向关联', async () => {
+  const s = await sample('correct');
+  assert.equal(validateCredentialTransaction(s).reasonHash, reasonHash);
+  validateRecordSnapshot(s);
+  for (const mutate of [
+    (x) => (x.oldRecord.replacedBy = id('wrong next')),
+    (x) => (x.oldRecord.revocationKind = 1n),
+    (x) => (x.oldRecord.reasonHash = id('wrong reason')),
+    (x) => (x.record.previousId = id('wrong old')),
+    (x) => (x.institution.epoch = 2n),
+  ]) {
+    const x = await sample('correct');
+    mutate(x);
+    assert.throws(() => validateRecordSnapshot(x));
+  }
+  const wrongEvent = await sample('correct');
+  wrongEvent.receipt.logs.pop();
+  assert.throws(() => validateCredentialTransaction(wrongEvent));
+});

@@ -20,7 +20,7 @@
 
 - 离线版：双击根目录 HTML，保留原界面、文件 SHA-256 比较、ECDSA 和八种案例。无安装、无钱包、无后端。新版本的排序编码与旧版签名格式不兼容；本地会话密钥刷新仍会失效，跨浏览器核验由 Chain 版完成。
 - Chain 版：在此目录 `npm run serve`，访问 `http://127.0.0.1:8080/chain/`。已随项目附带浏览器 ethers 库，不依赖 CDN。配置 RPC 后审核员无需连接钱包；没有 RPC 时使用钱包提供的只读请求。
-- 开发：Node 22+（本次 Node 26.5.0），`npm ci`、`npm run compile`、`npm test`。浏览器流程：`node scripts/browser-check.mjs`，默认使用 macOS Chrome；其他平台调整脚本 executablePath。测试代码及依赖只供本地开发，不发布 node_modules 或本地 RPC 服务。
+- 开发：Node 22+（本次 Node 26.5.0），`npm ci`、`npm run compile`、`npm test`。代码质量：`npm run lint`（ESLint）、`npm run format:check`（Prettier）、`npm run check:artifacts`（源码/ABI/冻结部署材料一致性）。浏览器流程：`node scripts/browser-check.mjs`；默认使用 macOS Chrome，可用 `PROOFPASS_CHROME=/path/to/chrome` 覆盖，找不到时回退 Playwright 自带 Chromium。测试代码及依赖只供本地开发，不发布 node_modules 或本地 RPC 服务。
 
 ## 版本控制与证据（2026-11-17）
 
@@ -30,6 +30,7 @@
 - 证据校验：`npm run evidence:verify` 重算全部哈希；被改动、缺失或未登记的文件都会报错并以非零码退出。
 - 部署核验：`node scripts/verify-deployment.mjs <RPC> <地址> <部署交易哈希>` 默认 dry-run，不写任何文件；确认后加 `--write` 才写 `chain/config.json` 并把证据登记进 manifest，旧配置先备份、旧证据不覆盖。
 - 交付 zip 与 `deployment/public-site/dist/` 视为生成物，不入库；需要时重新打包或挂到 GitHub Release。
+- 前端适配器已拆成 `chain/rpc.js`、`chain/deployment.js`、`chain/transaction.js` 与 `chain/adapters.js`；`chain/abi.json`、`upgrade/abi.json` 由编译脚本生成，不要手改。
 - 跳过的 `upgrade-bootstrap` 用例需要 `npm run test:vm`（`--experimental-vm-modules`）才会执行。
 
 ## 合约版本
