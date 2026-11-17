@@ -1,0 +1,11 @@
+{
+  "action": 1,
+  "key": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+  "enabled": false,
+  "credentialId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "proposer": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+  "executor": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+  "reason": "TEST ONLY: rotate Institution A signing key from Account 1 to Account 2; stable institution ID and prior certificates remain traceable.",
+  "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+  "reasonHash": "0x6ed2218fc75020da180f3fdff2540aea3cea14a0c2369d4a951e07a01f83752d"
+}

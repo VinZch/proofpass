@@ -1,0 +1,20 @@
+{
+  "recordedAt": "2026-11-04T13:03:55.115135+00:00",
+  "environment": "Actual Google Chrome with MetaMask; separate native Safari read-only session; Sepolia public testnet",
+  "credentialId": "0xec049ce6621886dc973d6b2e4ab902c39c6bdd660739845ed9f68486a27e60ac",
+  "packageFile": "sepolia-test-package.json",
+  "observations": {
+    "chromeIssue": "success receipt and automatic JSON download",
+    "safariImported": "ProofPass-ec049ce662.json",
+    "safariWalletConnected": false,
+    "safariIntegrity": "匹配",
+    "safariStatus": "有效（查询时点）",
+    "holder": "未验证",
+    "school": "未审批；演示目录匹配：是"
+  },
+  "evidenceType": "Assistant-observed live accessibility UI, not a team member screenshot; full RPC report separately saved in sepolia-issued.json",
+  "revocation": "Success receipt verified; same imported package re-queried in Safari without wallet, status 已撤销, integrity 匹配",
+  "revocationTransactionHash": "0xae54ed59077abb40b2f2abeb2ca32a0a5301a8dcf96cbcd21968ec0d6d77737b",
+  "safariRevokedReport": "sepolia-safari-revoked-report.json",
+  "revocationCheckedAt": "2026-11-04T13:08:23.660Z"
+}

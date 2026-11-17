@@ -1,0 +1,9 @@
+{
+  "mode": "testnet",
+  "chainId": 11155111,
+  "deploymentStatus": "deployed",
+  "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+  "deploymentTxHash": "0x069e1a31d7ffd37aaaa17e079c120633c7eab8bb7d1bb0a30983a51e12d72bb7",
+  "runtimeCodeHash": "0x290a4d7de547f18edd9876758adfcf27834a9808a258386f4fa2f75c427f9591",
+  "rpcUrl": "https://ethereum-sepolia.publicnode.com"
+}

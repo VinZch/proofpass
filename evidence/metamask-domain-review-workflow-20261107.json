@@ -1,0 +1,56 @@
+{
+  "checkedAt": "2026-11-07T14:06:34.491671+00:00",
+  "scope": "Read-only official support workflow research for vinzch.github.io URL risk classification; no reports, messages, wallet actions, or bypasses performed.",
+  "recommendedRoute": {
+    "provider": "MetaMask Support",
+    "entry": "https://support.metamask.io/start/how-to-contact-metamask-support/",
+    "guidance": "https://support.metamask.io/configure/wallet/security-alerts/",
+    "reason": "Official security-alerts article says URL, token and address scan warnings use Support manual review. In-alert Report an issue is currently for transaction alerts only.",
+    "steps": [
+      "Contact support",
+      "Continue without wallet",
+      "Describe URL misclassification and request human/manual review; official flow first uses Fin, then a support agent when needed"
+    ],
+    "requiredContext": [
+      "Flagged URL: https://vinzch.github.io/proofpass/ and hostname vinzch.github.io",
+      "Network: Sepolia, chain ID 11155111",
+      "Warning screenshot and exact warning wording",
+      "Project source and website links",
+      "Contract explorer link"
+    ],
+    "usefulDiagnostics": [
+      "MetaMask version",
+      "Chrome version",
+      "Operating system version",
+      "Exact reproduction steps and timestamp"
+    ],
+    "walletRequirement": "Wallet connection is recommended but optional; Continue without wallet is explicitly available.",
+    "loginRequirement": "No separate account login is documented as prerequisite in this official support entry. Live dialog requirements were not independently exercised in this subtask.",
+    "tracking": "Case may become a ticket; updates through a supplied email or reopening the chat. Keep ticket/conversation identifier.",
+    "reviewTiming": "Official guidance: reviews may take several business days depending on complexity; no guaranteed clearance time."
+  },
+  "blockaidRoute": {
+    "officialReferrer": "https://blockaid.io/contact",
+    "entry": "https://report.blockaid.io/",
+    "observedLandingChoices": [
+      "Scam",
+      "Mistake — Report a false positive result",
+      "Developer — Verify a project to prevent false malicious flags"
+    ],
+    "appropriateChoice": "Mistake for an already flagged URL; Developer may be a separate project verification workflow.",
+    "fieldsLoginAndTracking": "Not verified: public web extraction did not expose later dynamic form, direct HTTP fetch returned 403, and this subagent has no IAB surface. Parent can inspect via native Chrome without submitting.",
+    "providerAttribution": "The current alert source has not been proven to be Blockaid. MetaMask uses multiple providers, so MetaMask Support remains the primary route."
+  },
+  "notRecommendedForThisCase": {
+    "entry": "https://blockaid-false-positive-portal.metamask.io/",
+    "reason": "Landing copy describes misclassified transactions. The official current MetaMask guidance routes URL warning reviews to Support instead.",
+    "email": "Search-indexed landing copy says optional email enables report tracking, otherwise anonymous report; this does not establish that URL submissions are supported."
+  },
+  "sources": [
+    "https://support.metamask.io/configure/wallet/security-alerts/",
+    "https://support.metamask.io/start/how-to-contact-metamask-support/",
+    "https://blockaid.io/contact",
+    "https://report.blockaid.io/",
+    "https://blockaid-false-positive-portal.metamask.io/"
+  ]
+}

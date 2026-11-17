@@ -1,0 +1,39 @@
+
+> test
+> node --test tests/*.test.mjs
+
+✔ 状态 0、异常状态及钱包拒绝不会被宣称成功；禁止 ETH value (10.362417ms)
+✔ 并发提交拒绝、账户变更拒绝、失效区块与重组拒绝 (0.880375ms)
+✔ 钱包连接先取得账户授权，允许审批超过普通 RPC 时限，随后仍拒绝错误网络 (27.607541ms)
+This version of µWS is not compatible with your Node.js build:
+
+Error: Cannot find module '../binaries/uws_darwin_arm64_147.node'
+Require stack:
+- /Users/vinch/Desktop/区块链/node_modules/ganache/node_modules/@trufflesuite/uws-js-unofficial/src/uws.js
+- /Users/vinch/Desktop/区块链/node_modules/ganache/dist/node/core.js
+Falling back to a NodeJS implementation; performance may be degraded.
+
+
+✔ 真实本地 EVM：权限、命名空间、撤销、停用、错误网络和跨会话查询 (665.337ms)
+✔ 离线修复：并发、规范化、摘要长度、未知状态、独立身份及八种教学案例 (57.004625ms)
+✔ 字段重排、嵌套排序、数字与 Unicode 边界 (7.969125ms)
+✔ 修改载荷或盐导致承诺不同；拒绝假合约及多余字段 (0.967208ms)
+✔ 完整性、撤销、过期、未登记分别判断；身份未认证不得通过 (1.123583ms)
+This version of µWS is not compatible with your Node.js build:
+
+Error: Cannot find module '../binaries/uws_darwin_arm64_147.node'
+Require stack:
+- /Users/vinch/Desktop/区块链/node_modules/ganache/node_modules/@trufflesuite/uws-js-unofficial/src/uws.js
+- /Users/vinch/Desktop/区块链/node_modules/ganache/dist/node/core.js
+Falling back to a NodeJS implementation; performance may be degraded.
+
+
+✔ 升级治理：阈值、轮换、原子更正、停用后紧急撤销与隔离 (1790.737ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2124.320708

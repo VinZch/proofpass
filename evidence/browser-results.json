@@ -1,0 +1,18 @@
+{
+  "at": "2026-11-05T03:19:39.343Z",
+  "browser": "156.0.8078.81",
+  "environment": "headless Chrome + local Ganache, config intercepted only by this test; NOT public testnet",
+  "checks": [
+    "wallet role",
+    "issue receipt + download",
+    "technical verification with holder unverified",
+    "second browser context imports and queries",
+    "revocation visible across contexts",
+    "390px no horizontal overflow",
+    "unconfigured production page refuses writes",
+    "offline file:// real Web Crypto",
+    "file SHA-256 known vector, equal and unequal comparison",
+    "rewrite-all-history counterexample remains structurally valid"
+  ],
+  "pageErrors": []
+}

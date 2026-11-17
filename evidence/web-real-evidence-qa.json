@@ -1,0 +1,71 @@
+{
+  "at": "2026-11-07T08:15:34.248932+00:00",
+  "scope": "Static integration of saved Sepolia test evidence into the main teaching page and upgrade workbench; no new wallet transactions or chain queries performed.",
+  "passed": true,
+  "checks": {
+    "originalScreenshotsAndReportsUnchanged": true,
+    "originalScreenshotCount": 3,
+    "reportCount": 3,
+    "successfulTransactionMilestones": 8,
+    "rootMockGalleryImagesRemaining": 0,
+    "allReferencedLocalTargetsExist": true,
+    "duplicateHtmlIds": false,
+    "generatorIdempotent": true,
+    "gallerySwitchesAllThreeCases": true,
+    "downloadedKey2ReportByteIdentical": true,
+    "keyboardArrowEndTabEnterNavigation": true,
+    "walletControlsReturnWhenLeavingEvidenceTab": true,
+    "rootBootError": "",
+    "browserConsoleErrors": [],
+    "layoutChecks": [
+      {
+        "surface": "upgrade",
+        "width": 1280,
+        "horizontalOverflow": false
+      },
+      {
+        "surface": "upgrade",
+        "width": 1024,
+        "horizontalOverflow": false
+      },
+      {
+        "surface": "upgrade",
+        "width": 390,
+        "horizontalOverflow": false,
+        "navigation": "horizontal"
+      },
+      {
+        "surface": "main evidence",
+        "width": 1024,
+        "horizontalOverflow": false
+      },
+      {
+        "surface": "main evidence",
+        "width": 390,
+        "horizontalOverflow": false
+      }
+    ],
+    "contrastRatios": {
+      "lead": 8.73,
+      "resultBody": 7.68,
+      "revokedStatus": 9.51,
+      "resultLink": 12.15,
+      "label": 7.68
+    }
+  },
+  "evidenceBoundary": "Business content remains TEST ONLY. IAB screenshots are saved historical snapshots using the same PublicNode provider. Research interviews, cost models and team roles remain synthetic. Presentation screenshots below are UI integration QA, not new on-chain evidence.",
+  "sourceSha256": {
+    "ProofPass_跨校证书核验实验室.html": "d003426595c3e3cb9d9ebae8edb4e70f0837c317b612336df265d9d34111bbbb",
+    "upgrade/index.html": "e66cfc22ba730c209fb1fd81af89da114e0d1667e0acba825847215576ca18f0",
+    "upgrade/app.js": "7cc44d58ed51dc6cd85f3f1c01f9150d103886695808c0687cb3f4374d7afa8c",
+    "upgrade/style.css": "7d218b6ce3472a9e16a29be76d5f2587a403cc1afd4b75da25a65279683e5c02",
+    "evidence/showcase.js": "2a1e32f0be357260f18d82fe24647a9c4c09873a23a12a5ec8024d75c00f1cea",
+    "evidence/showcase.css": "511f5b8306180857090be0eef82d3dae064ee8cb621a876b4951a09cd80abcf6",
+    "scripts/build-evidence-showcase.py": "950dbe8f30005546ef0773bed60385443cc2a79222967c33e66bb1956520b04e"
+  },
+  "screenshots": [
+    "evidence/web-real-evidence-desktop.jpg",
+    "evidence/web-real-evidence-mobile.jpg",
+    "evidence/web-real-evidence-preview.jpg"
+  ]
+}

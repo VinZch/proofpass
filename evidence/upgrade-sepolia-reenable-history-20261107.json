@@ -1,0 +1,183 @@
+{
+  "at": "2026-11-07T13:54:18.273Z",
+  "passed": true,
+  "mode": "read-only",
+  "scope": "Re-enable receipt block compared with preceding block",
+  "executionTx": "0xbc78b2466fcee69a5b87ca570a9ea5cc4254f7149d8068231e8ea86c79e4ce36",
+  "blockNumber": 12084085,
+  "beforeBlockNumber": 12084084,
+  "checks": [
+    {
+      "label": "original",
+      "packagePath": "evidence/upgrade-sepolia-original-package.json",
+      "unchanged": true,
+      "before": {
+        "commitment": "0x0d37a19910ca813fe26ceea0fb58585864209ccbcc82e3ad453be8a2a58c0a63",
+        "registeredAt": 1794025056,
+        "validUntil": 1825560360,
+        "issuedBy": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "keyEpoch": 1,
+        "previousId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "replacedBy": "0xaaeb8577272d9bddac334b2a2b7473ed45d9724fc2860c4dd1b8f593b91864b9",
+        "revokedAt": 1794025248,
+        "revocationKind": 2,
+        "reasonHash": "0x50e84af899f595f3f96f48824221d85c8086d948a8a0e0067dfc936cd0cdde56"
+      },
+      "after": {
+        "commitment": "0x0d37a19910ca813fe26ceea0fb58585864209ccbcc82e3ad453be8a2a58c0a63",
+        "registeredAt": 1794025056,
+        "validUntil": 1825560360,
+        "issuedBy": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "keyEpoch": 1,
+        "previousId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "replacedBy": "0xaaeb8577272d9bddac334b2a2b7473ed45d9724fc2860c4dd1b8f593b91864b9",
+        "revokedAt": 1794025248,
+        "revocationKind": 2,
+        "reasonHash": "0x50e84af899f595f3f96f48824221d85c8086d948a8a0e0067dfc936cd0cdde56"
+      },
+      "report": {
+        "mode": "testnet",
+        "technicalPass": false,
+        "status": "已被更正版替代",
+        "integrity": true,
+        "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+        "credentialId": "0x6b47782f2cacc5fc553db2b170d43b44a8060de46e4b784b530efe71d461dad6",
+        "issuer": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "keyEpoch": 1,
+        "currentKey": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+        "institutionEnabled": true,
+        "previousId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "replacedBy": "0xaaeb8577272d9bddac334b2a2b7473ed45d9724fc2860c4dd1b8f593b91864b9",
+        "revocationKind": 2,
+        "reasonHash": "0x50e84af899f595f3f96f48824221d85c8086d948a8a0e0067dfc936cd0cdde56",
+        "holder": "未验证",
+        "school": "未审批",
+        "query": {
+          "mode": "testnet",
+          "chainId": 11155111,
+          "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+          "blockNumber": 12084085,
+          "blockHash": "0x4f2c9365b79c03a74371aff80b29e6eee6315d11b5561e5ca8c1332ee9ee5fcc",
+          "blockTimestamp": 1794059592,
+          "at": "2026-11-07T13:54:17.362Z"
+        },
+        "conclusion": "机构编号在轮换后保持不变；停用仅限制后续操作。持有人身份和学校认可仍需独立审核。"
+      }
+    },
+    {
+      "label": "corrected",
+      "packagePath": "evidence/upgrade-sepolia-corrected-package.json",
+      "unchanged": true,
+      "before": {
+        "commitment": "0xb6d06d545d49eff0619d45bf2229e80d09f3109d0d59a2d8a5ab731ce86a00f8",
+        "registeredAt": 1794025248,
+        "validUntil": 1825560360,
+        "issuedBy": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "keyEpoch": 1,
+        "previousId": "0x6b47782f2cacc5fc553db2b170d43b44a8060de46e4b784b530efe71d461dad6",
+        "replacedBy": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "revokedAt": 1794037716,
+        "revocationKind": 3,
+        "reasonHash": "0x0453b3dcdb3e5791453d7c47608ef2e14828a53302064c049e316b543459b58e"
+      },
+      "after": {
+        "commitment": "0xb6d06d545d49eff0619d45bf2229e80d09f3109d0d59a2d8a5ab731ce86a00f8",
+        "registeredAt": 1794025248,
+        "validUntil": 1825560360,
+        "issuedBy": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "keyEpoch": 1,
+        "previousId": "0x6b47782f2cacc5fc553db2b170d43b44a8060de46e4b784b530efe71d461dad6",
+        "replacedBy": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "revokedAt": 1794037716,
+        "revocationKind": 3,
+        "reasonHash": "0x0453b3dcdb3e5791453d7c47608ef2e14828a53302064c049e316b543459b58e"
+      },
+      "report": {
+        "mode": "testnet",
+        "technicalPass": false,
+        "status": "已紧急撤销",
+        "integrity": true,
+        "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+        "credentialId": "0xaaeb8577272d9bddac334b2a2b7473ed45d9724fc2860c4dd1b8f593b91864b9",
+        "issuer": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "keyEpoch": 1,
+        "currentKey": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+        "institutionEnabled": true,
+        "previousId": "0x6b47782f2cacc5fc553db2b170d43b44a8060de46e4b784b530efe71d461dad6",
+        "replacedBy": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "revocationKind": 3,
+        "reasonHash": "0x0453b3dcdb3e5791453d7c47608ef2e14828a53302064c049e316b543459b58e",
+        "holder": "未验证",
+        "school": "未审批",
+        "query": {
+          "mode": "testnet",
+          "chainId": 11155111,
+          "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+          "blockNumber": 12084085,
+          "blockHash": "0x4f2c9365b79c03a74371aff80b29e6eee6315d11b5561e5ca8c1332ee9ee5fcc",
+          "blockTimestamp": 1794059592,
+          "at": "2026-11-07T13:54:17.741Z"
+        },
+        "conclusion": "机构编号在轮换后保持不变；停用仅限制后续操作。持有人身份和学校认可仍需独立审核。"
+      }
+    },
+    {
+      "label": "key2",
+      "packagePath": "evidence/upgrade-sepolia-key2-package.json",
+      "unchanged": true,
+      "before": {
+        "commitment": "0x9120b2a34cf16cdfa1b616f2832fad5d24a542537eef92bf9c3a69d3214fcceb",
+        "registeredAt": 1794029136,
+        "validUntil": 1825560360,
+        "issuedBy": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+        "keyEpoch": 2,
+        "previousId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "replacedBy": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "revokedAt": 0,
+        "revocationKind": 0,
+        "reasonHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "after": {
+        "commitment": "0x9120b2a34cf16cdfa1b616f2832fad5d24a542537eef92bf9c3a69d3214fcceb",
+        "registeredAt": 1794029136,
+        "validUntil": 1825560360,
+        "issuedBy": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+        "keyEpoch": 2,
+        "previousId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "replacedBy": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "revokedAt": 0,
+        "revocationKind": 0,
+        "reasonHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "report": {
+        "mode": "testnet",
+        "technicalPass": true,
+        "status": "有效",
+        "integrity": true,
+        "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+        "credentialId": "0x9680d38f0728e6e14bc2040279e012a47d79f5c194ff8203a4cb5e1930125a78",
+        "issuer": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+        "keyEpoch": 2,
+        "currentKey": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+        "institutionEnabled": true,
+        "previousId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "replacedBy": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "revocationKind": 0,
+        "reasonHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "holder": "未验证",
+        "school": "未审批",
+        "query": {
+          "mode": "testnet",
+          "chainId": 11155111,
+          "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+          "blockNumber": 12084085,
+          "blockHash": "0x4f2c9365b79c03a74371aff80b29e6eee6315d11b5561e5ca8c1332ee9ee5fcc",
+          "blockTimestamp": 1794059592,
+          "at": "2026-11-07T13:54:18.132Z"
+        },
+        "conclusion": "机构编号在轮换后保持不变；停用仅限制后续操作。持有人身份和学校认可仍需独立审核。"
+      }
+    }
+  ],
+  "publicTransactionsSent": 0
+}

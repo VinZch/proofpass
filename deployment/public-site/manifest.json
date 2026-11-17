@@ -1,0 +1,101 @@
+{
+  "generatedAt": "2026-11-07T14:20:37.132484+00:00",
+  "assetVersion": "a9ad207797164c47",
+  "entry": "index.html -> ./upgrade/",
+  "target": "HTTPS static hosting, including GitHub Pages repository subpaths",
+  "scope": "Upgraded Sepolia workbench only; historical test assets, legacy demos, and local-chain entry points are excluded",
+  "fileCount": 15,
+  "totalBytes": 631256,
+  "archiveBytes": 197147,
+  "configs": {
+    "upgrade": {
+      "mode": "testnet",
+      "chainId": 11155111,
+      "deploymentStatus": "deployed",
+      "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+      "rpcUrl": "https://ethereum-sepolia.publicnode.com"
+    }
+  },
+  "validation": {
+    "checkedReferences": 17,
+    "hiddenLocalOnlyLinks": [],
+    "subpathCompatible": true
+  },
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3410,
+      "sha256": "75bdb3f67c16ae0fc679fbd0f344674f04d2a5246c5ab7fa036b9410b66018ac"
+    },
+    {
+      "path": "chain/adapters.js",
+      "bytes": 13188,
+      "sha256": "6087bf2a94e4011a2d58f2ee8e301c83959e8752e258385ff705033cae4e7cdd"
+    },
+    {
+      "path": "chain/protocol.js",
+      "bytes": 3712,
+      "sha256": "165c74a294340bc797a3be77a4f3f6f9abb955350b45c5f977371a483f667b71"
+    },
+    {
+      "path": "chain/vendor/ethers-LICENSE.md",
+      "bytes": 1075,
+      "sha256": "44eea86637405118248327fbe9d9fa95d04c7a57221c7e8c155f736db9f1b612"
+    },
+    {
+      "path": "chain/vendor/ethers.js",
+      "bytes": 522050,
+      "sha256": "b016b0c3898c78fd8156466eb1ff1f42c9df951c2f0d64c9bdf799fe745b0a6c"
+    },
+    {
+      "path": "index.html",
+      "bytes": 335,
+      "sha256": "fac179d44beac09fbcfd7d0d35eba05dbd8d307eb605294f0b1c72bb1b10b137"
+    },
+    {
+      "path": "upgrade/abi.json",
+      "bytes": 13252,
+      "sha256": "0d3904105d937352e1e4ed15e3c5b71a5ae24719265417510e3bfbf71a8d0ba6"
+    },
+    {
+      "path": "upgrade/adapter.js",
+      "bytes": 4020,
+      "sha256": "ee7ac1b9ba701bbf19de68de6c25b51a90c57358c993407a1cf50125ff906f23"
+    },
+    {
+      "path": "upgrade/app.js",
+      "bytes": 26349,
+      "sha256": "cba4ac61ebb93e1403aed947494a100dafdf388899fa7a326cee0cb2d1f11fa4"
+    },
+    {
+      "path": "upgrade/bootstrap.js",
+      "bytes": 6832,
+      "sha256": "7f6774c655d240080f8ceb2ff62f0f9e7c9c2cc1eed08ad68e66f758cd3e1055"
+    },
+    {
+      "path": "upgrade/config.json",
+      "bytes": 385,
+      "sha256": "6e051512f4f4a4fc8f9edd55343eb4f99d006db5a5d2beb04195c3def1fdc88b"
+    },
+    {
+      "path": "upgrade/index.html",
+      "bytes": 12902,
+      "sha256": "35e7514df7c863aafc1361f485b16a70789153e83178863a1893cd9107146e05"
+    },
+    {
+      "path": "upgrade/protocol.js",
+      "bytes": 3006,
+      "sha256": "5fc9020205508eca62f1758f6cad7140685d901604c17b72fa66ef1a79aa97b1"
+    },
+    {
+      "path": "upgrade/style.css",
+      "bytes": 20740,
+      "sha256": "bfb47125d8592ac123a786ab5fde96669685ec1f4c9a51348586eb54dd0a1ee5"
+    }
+  ]
+}

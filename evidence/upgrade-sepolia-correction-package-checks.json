@@ -1,0 +1,101 @@
+{
+  "at": "2026-11-07T04:27:55.394Z",
+  "mode": "public-testnet-read-only",
+  "description": "Independent RPC checks of both packages and intentionally altered title; no transaction sent.",
+  "checks": [
+    {
+      "case": "original-after-correction",
+      "report": {
+        "mode": "testnet",
+        "technicalPass": false,
+        "status": "已被更正版替代",
+        "integrity": true,
+        "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+        "credentialId": "0x6b47782f2cacc5fc553db2b170d43b44a8060de46e4b784b530efe71d461dad6",
+        "issuer": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "keyEpoch": 1,
+        "currentKey": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "institutionEnabled": true,
+        "previousId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "replacedBy": "0xaaeb8577272d9bddac334b2a2b7473ed45d9724fc2860c4dd1b8f593b91864b9",
+        "revocationKind": 2,
+        "reasonHash": "0x50e84af899f595f3f96f48824221d85c8086d948a8a0e0067dfc936cd0cdde56",
+        "holder": "未验证",
+        "school": "未审批",
+        "query": {
+          "mode": "testnet",
+          "chainId": 11155111,
+          "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+          "blockNumber": 12081292,
+          "blockHash": "0x7e15320b8fb5cf3acbdec1ac4e78f73aee6ebe7e445b0434d9a08c29f0479ad2",
+          "blockTimestamp": 1794025668,
+          "at": "2026-11-07T04:27:55.133Z"
+        },
+        "conclusion": "机构编号在轮换后保持不变；停用仅限制后续操作。持有人身份和学校认可仍需独立审核。"
+      }
+    },
+    {
+      "case": "corrected-current",
+      "report": {
+        "mode": "testnet",
+        "technicalPass": true,
+        "status": "有效",
+        "integrity": true,
+        "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+        "credentialId": "0xaaeb8577272d9bddac334b2a2b7473ed45d9724fc2860c4dd1b8f593b91864b9",
+        "issuer": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "keyEpoch": 1,
+        "currentKey": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "institutionEnabled": true,
+        "previousId": "0x6b47782f2cacc5fc553db2b170d43b44a8060de46e4b784b530efe71d461dad6",
+        "replacedBy": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "revocationKind": 0,
+        "reasonHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "holder": "未验证",
+        "school": "未审批",
+        "query": {
+          "mode": "testnet",
+          "chainId": 11155111,
+          "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+          "blockNumber": 12081292,
+          "blockHash": "0x7e15320b8fb5cf3acbdec1ac4e78f73aee6ebe7e445b0434d9a08c29f0479ad2",
+          "blockTimestamp": 1794025668,
+          "at": "2026-11-07T04:27:55.394Z"
+        },
+        "conclusion": "机构编号在轮换后保持不变；停用仅限制后续操作。持有人身份和学校认可仍需独立审核。"
+      }
+    },
+    {
+      "case": "corrected-title-tampered",
+      "report": {
+        "mode": "testnet",
+        "technicalPass": false,
+        "status": "有效",
+        "integrity": false,
+        "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+        "credentialId": "0xaaeb8577272d9bddac334b2a2b7473ed45d9724fc2860c4dd1b8f593b91864b9",
+        "issuer": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "keyEpoch": 1,
+        "currentKey": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "institutionEnabled": true,
+        "previousId": "0x6b47782f2cacc5fc553db2b170d43b44a8060de46e4b784b530efe71d461dad6",
+        "replacedBy": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "revocationKind": 0,
+        "reasonHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "holder": "未验证",
+        "school": "未审批",
+        "query": {
+          "mode": "testnet",
+          "chainId": 11155111,
+          "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+          "blockNumber": 12081292,
+          "blockHash": "0x7e15320b8fb5cf3acbdec1ac4e78f73aee6ebe7e445b0434d9a08c29f0479ad2",
+          "blockTimestamp": 1794025668,
+          "at": "2026-11-07T04:27:55.268Z"
+        },
+        "conclusion": "机构编号在轮换后保持不变；停用仅限制后续操作。持有人身份和学校认可仍需独立审核。"
+      }
+    }
+  ],
+  "passed": true
+}

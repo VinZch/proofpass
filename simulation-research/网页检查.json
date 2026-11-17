@@ -1,0 +1,13 @@
+{
+  "scope": "模拟资料的显示与导航，不是链上/调研结果",
+  "checks": [
+    "main tab and direct anchor",
+    "16 rows",
+    "15 fictional interview cards",
+    "390px no page overflow",
+    "original verification flow",
+    "existing gallery",
+    "standalone page and download targets"
+  ],
+  "pageErrors": []
+}

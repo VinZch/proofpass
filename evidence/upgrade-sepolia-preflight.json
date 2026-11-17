@@ -1,0 +1,20 @@
+{
+  "at": "2026-11-05T10:44:02.477Z",
+  "mode": "read-only",
+  "rpcUrl": "https://ethereum-sepolia.publicnode.com",
+  "chainId": 11155111,
+  "blockNumber": 12068960,
+  "blockHash": "0x6ba734eb8bddee3477b7863f194047b2148597433de248d18727485344454f20",
+  "balances": [
+    {
+      "address": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+      "balanceWei": "2484558575942197265"
+    },
+    {
+      "address": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+      "balanceWei": "9585465994369129"
+    }
+  ],
+  "thirdGovernor": "not-yet-read",
+  "transactionSent": false
+}

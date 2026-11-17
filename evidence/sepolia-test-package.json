@@ -1,0 +1,24 @@
+{
+  "payload": {
+    "schemaVersion": 2,
+    "chainId": 11155111,
+    "registryAddress": "0xdaf9d8f06bc5895a79a4cdae66ec3ea262435149",
+    "issuer": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+    "credentialId": "0xec049ce6621886dc973d6b2e4ab902c39c6bdd660739845ed9f68486a27e60ac",
+    "title": "ProofPass TEST ONLY",
+    "category": "竞赛获奖",
+    "level": "省级一等奖",
+    "holderRef": "学生甲",
+    "validUntil": 1825372799
+  },
+  "salt": "0x2f8f336ac4fc97c01bf7f067e4b817df56fa3fff4f9b6162a86f8f4e7fccb554",
+  "receipt": {
+    "state": "已入块成功",
+    "transactionHash": "0x9ec54c7cd36f54c9c49fa8f24b3f21704a8bfd123ff49fd4d3361196bd868147",
+    "blockNumber": 12062366,
+    "blockHash": "0x5cb1eaf33271567d5c90f0e7296092e5e124a42eda3133b5778db4f98c1af2ca",
+    "receiptStatus": "0x1",
+    "finality": "未确认最终性",
+    "queriedAt": "2026-11-04T12:17:50.583Z"
+  }
+}

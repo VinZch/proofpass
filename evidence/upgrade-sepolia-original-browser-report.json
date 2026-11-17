@@ -1,0 +1,28 @@
+{
+  "mode": "testnet",
+  "technicalPass": true,
+  "status": "有效",
+  "integrity": true,
+  "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+  "credentialId": "0x6b47782f2cacc5fc553db2b170d43b44a8060de46e4b784b530efe71d461dad6",
+  "issuer": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+  "keyEpoch": 1,
+  "currentKey": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+  "institutionEnabled": true,
+  "previousId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "replacedBy": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "revocationKind": 0,
+  "reasonHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "holder": "未验证",
+  "school": "未审批",
+  "query": {
+    "mode": "testnet",
+    "chainId": 11155111,
+    "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+    "blockNumber": 12081241,
+    "blockHash": "0x7c94b1df7755e651702499d77d0fa63782969488f6e4ce9e93052c2002ab565d",
+    "blockTimestamp": 1794025056,
+    "at": "2026-11-07T04:17:38.983Z"
+  },
+  "conclusion": "机构编号在轮换后保持不变；停用仅限制后续操作。持有人身份和学校认可仍需独立审核。"
+}

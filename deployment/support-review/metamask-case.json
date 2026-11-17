@@ -1,0 +1,19 @@
+{
+  "submittedAt": "2026-11-07T14:08:26Z",
+  "submittedBy": "VinZch",
+  "issueUrl": "https://github.com/MetaMask/eth-phishing-detect/issues/310171",
+  "issueNumber": 310171,
+  "repository": "MetaMask/eth-phishing-detect",
+  "status": "open-awaiting-manual-review",
+  "warningCleared": false,
+  "domain": "vinzch.github.io",
+  "applicationUrl": "https://vinzch.github.io/proofpass/upgrade/",
+  "requestFile": "deployment/support-review/metamask-request.json",
+  "authorization": "User explicitly approved submitting this prepared public GitHub issue.",
+  "checks": {
+    "publishedResourcesMatch": 13,
+    "contractRuntimeMatches": true,
+    "publicBlocklistMatches": 0
+  },
+  "scope": "No wallet protections disabled; no site migration; no credential files or wallet secrets disclosed."
+}

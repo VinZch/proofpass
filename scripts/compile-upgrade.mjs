@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import solc from 'solc';
+const name='ProofPassGoverned';
+const input={language:'Solidity',sources:{[name+'.sol']:{content:fs.readFileSync('contracts/'+name+'.sol','utf8')}},settings:{optimizer:{enabled:true,runs:200},evmVersion:'shanghai',outputSelection:{'*':{'*':['abi','evm.bytecode.object','evm.deployedBytecode.object']}}}};
+const output=JSON.parse(solc.compile(JSON.stringify(input)));
+for(const error of output.errors??[]) console.log(error.formattedMessage);
+if(output.errors?.some(e=>e.severity==='error')) process.exit(1);
+const c=output.contracts[name+'.sol'][name];
+fs.mkdirSync('upgrade',{recursive:true}); fs.mkdirSync('artifacts',{recursive:true});
+fs.writeFileSync('artifacts/'+name+'.json',JSON.stringify({compiler:solc.version(),abi:c.abi,bytecode:'0x'+c.evm.bytecode.object,runtimeBytecode:'0x'+c.evm.deployedBytecode.object},null,2));
+fs.writeFileSync('artifacts/governed-compiler-input.json',JSON.stringify(input,null,2));
+fs.writeFileSync('upgrade/abi.json',JSON.stringify(c.abi,null,2));
+console.log('Compiled '+name+' (separate deployment; original registry unchanged).');

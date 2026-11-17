@@ -1,0 +1,34 @@
+{
+  "payload": {
+    "schemaVersion": 3,
+    "chainId": 11155111,
+    "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+    "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+    "issuer": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+    "keyEpoch": 2,
+    "credentialId": "0xda67b303c23c0a6d1015368f36b2bf4d6a640e2b2709dd1a7d7271b63784dd20",
+    "previousId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "title": "ProofPass 流程验证凭证（仅测试）",
+    "holderRef": "FLOW-CHECK-20261107",
+    "validUntil": 1825594560
+  },
+  "salt": "0xa9c6339e0898eecadf0d4dd2259352e20c491214f52ed895cf8bc056ef104f30",
+  "receipt": {
+    "transactionHash": "0xaa3d35be9e8d7392b878c4f13360f0476df509efb1e157ffd65bdf208a6b1839",
+    "from": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+    "expectedAccount": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+    "chainId": 11155111,
+    "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+    "to": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+    "phase": "confirmed",
+    "confirmed": true,
+    "functionName": "issue",
+    "value": "0x0",
+    "state": "已入块成功",
+    "blockNumber": 12084101,
+    "blockHash": "0xfaa0ee16f6c52cb1aca919b731a4901c576f43a8c5f6502d661846995ee7fa8f",
+    "receiptStatus": "0x1",
+    "finality": "未确认最终性",
+    "queriedAt": "2026-11-07T13:56:27.386Z"
+  }
+}

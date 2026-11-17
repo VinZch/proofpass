@@ -1,0 +1,104 @@
+{
+  "data_origin": "SIMULATED_NOT_EMPIRICAL",
+  "members": [
+    {
+      "id": "TEAM-1",
+      "data_origin": "SIMULATED_NOT_EMPIRICAL",
+      "member": "模拟成员甲",
+      "role": "需求访谈、流程整理",
+      "planned_hours": 8,
+      "status": "仅排练角色分配；不是实际工作量或完成记录"
+    },
+    {
+      "id": "TEAM-2",
+      "data_origin": "SIMULATED_NOT_EMPIRICAL",
+      "member": "模拟成员乙",
+      "role": "前端讲解、16 项案例组织",
+      "planned_hours": 10,
+      "status": "仅排练角色分配；不是实际工作量或完成记录"
+    },
+    {
+      "id": "TEAM-3",
+      "data_origin": "SIMULATED_NOT_EMPIRICAL",
+      "member": "模拟成员丙",
+      "role": "合约、钱包操作与回执说明",
+      "planned_hours": 10,
+      "status": "仅排练角色分配；不是实际工作量或完成记录"
+    },
+    {
+      "id": "TEAM-4",
+      "data_origin": "SIMULATED_NOT_EMPIRICAL",
+      "member": "模拟成员丁",
+      "role": "截图取证、汇报与归档",
+      "planned_hours": 8,
+      "status": "仅排练角色分配；不是实际工作量或完成记录"
+    }
+  ],
+  "qa": [
+    {
+      "id": "QA-01",
+      "data_origin": "SIMULATED_NOT_EMPIRICAL",
+      "question": "为什么需要区块链？",
+      "answer": "当参与方不愿由单一运营者独占状态记录时，共享可复查登记可能有价值；现有渠道足够时不必新增链。模拟耗时不能证明链优于中心化。"
+    },
+    {
+      "id": "QA-02",
+      "data_origin": "SIMULATED_NOT_EMPIRICAL",
+      "question": "网页里的数据是真实调研吗？",
+      "answer": "模拟研究页的访谈、工时和结果均为人工构造；真实链上交易另有回执文件，不能混用。"
+    },
+    {
+      "id": "QA-03",
+      "data_origin": "SIMULATED_NOT_EMPIRICAL",
+      "question": "现在是真实上链还是本地模拟？",
+      "answer": "基础版与升级版均有各自的 Sepolia 部署和回执；升级版核心业务链路已实际执行。离线教学页与本模拟研究页不发送交易，预设实验仍是模拟。"
+    },
+    {
+      "id": "QA-04",
+      "data_origin": "SIMULATED_NOT_EMPIRICAL",
+      "question": "两家机构是否真实参与？",
+      "answer": "基础版两测试地址验证了权限隔离；升级版由同一本机 MetaMask 的三个账户演示 2/3 阈值治理，均不证明现实机构正式接入。"
+    },
+    {
+      "id": "QA-05",
+      "data_origin": "SIMULATED_NOT_EMPIRICAL",
+      "question": "有效凭证是否证明本人持有？",
+      "answer": "不能。当前没有完成独立身份绑定和挑战签名，因此显示持有人未验证。"
+    },
+    {
+      "id": "QA-06",
+      "data_origin": "SIMULATED_NOT_EMPIRICAL",
+      "question": "链上有效是否必须获学校认可？",
+      "answer": "不是。技术核验与接收学校规则、正式审批分别处理。"
+    },
+    {
+      "id": "QA-07",
+      "data_origin": "SIMULATED_NOT_EMPIRICAL",
+      "question": "有授权的机构录入错误怎么办？",
+      "answer": "技术检查可能通过；需要源头复核、撤销、更正和争议处理。链不能自行判断事实。"
+    },
+    {
+      "id": "QA-08",
+      "data_origin": "SIMULATED_NOT_EMPIRICAL",
+      "question": "撤销是否删除了数据？",
+      "answer": "不删除历史。原承诺和事件仍可查，新的查询会读取撤销状态。"
+    },
+    {
+      "id": "QA-09",
+      "data_origin": "SIMULATED_NOT_EMPIRICAL",
+      "question": "私钥丢失或泄露怎么办？",
+      "answer": "升级版已在 Sepolia 实际验证密钥轮换、停用和两票紧急撤销；现实事故仍需核实影响范围和正式岗位授权。测试没有发生真实私钥泄露，也不证明三方机构参与。"
+    },
+    {
+      "id": "QA-10",
+      "data_origin": "SIMULATED_NOT_EMPIRICAL",
+      "question": "模拟材料能算完成验收吗？",
+      "answer": "只能用于排版、排练与需求讨论。真实访谈、成员截图和现场问答仍需要实际完成。"
+    }
+  ],
+  "ai_statement": {
+    "known_assistance": "AI 已协助实现代码、测试、证据整理及模拟材料；用户完成钱包最终确认。",
+    "simulated_content": "本目录全部访谈、角色分配、耗时、对照输出是模拟材料。",
+    "not_claimed": "未代替团队真实访谈、现场取证、真实成员贡献或学校认定。"
+  }
+}

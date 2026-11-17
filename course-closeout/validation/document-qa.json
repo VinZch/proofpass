@@ -1,0 +1,176 @@
+{
+  "at": "2026-11-07T08:38:04.107712+00:00",
+  "type": "DOCX_EXISTING_RENDER_VISUAL_QA",
+  "passed": true,
+  "totalPagesReviewed": 9,
+  "method": "Every supplied PNG page was opened with view_image and visually inspected; no re-rendering or document editing was performed by this reviewer.",
+  "renderEnvironmentReportedByParent": {
+    "FONTCONFIG_FILE": "/private/tmp/proofpass-fonts.conf",
+    "soffice": "/Users/vinch/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libreoffice-headless/libreoffice/LibreOfficeDev.app/Contents/MacOS/soffice"
+  },
+  "scope": "Visual QA of the supplied final render: Chinese glyph visibility, page count, clipping, overflow, figure fit and table integrity. This is not new blockchain or fieldwork evidence.",
+  "documents": [
+    {
+      "path": "course-closeout/ProofPass_课程结项报告.docx",
+      "sha256": "b68d110861edd8792c57eb558a526a219066c6da960a2d03a62d878940e81c70",
+      "expectedPages": 8,
+      "renderedPages": 8,
+      "allPagesVisuallyReviewed": true,
+      "passed": true,
+      "pages": [
+        {
+          "page": 1,
+          "renderPath": "/private/tmp/proofpass-closeout-report-qa/page-1.png",
+          "sha256": "26da5f65c2decce02634f5d860d2613c3b4b367efe1b106d846ca387f0de6e32",
+          "width": 1547,
+          "height": 2002,
+          "viewImageReviewed": true,
+          "chineseTextVisible": true,
+          "visibleMissingGlyphs": false,
+          "textClippingOrOverflow": false,
+          "imageClipping": false,
+          "brokenOrSplitTables": false,
+          "overlappingContent": false,
+          "passed": true
+        },
+        {
+          "page": 2,
+          "renderPath": "/private/tmp/proofpass-closeout-report-qa/page-2.png",
+          "sha256": "f4ab9ba4184b74c9a2b519dd07e8516fc6a557abd3b5210f6a86c8e8922bd574",
+          "width": 1547,
+          "height": 2002,
+          "viewImageReviewed": true,
+          "chineseTextVisible": true,
+          "visibleMissingGlyphs": false,
+          "textClippingOrOverflow": false,
+          "imageClipping": false,
+          "brokenOrSplitTables": false,
+          "overlappingContent": false,
+          "passed": true
+        },
+        {
+          "page": 3,
+          "renderPath": "/private/tmp/proofpass-closeout-report-qa/page-3.png",
+          "sha256": "7670c4ac2b2ba14a4d80be2592944e4112a7821e8cc84629334ff6b6b790a995",
+          "width": 1547,
+          "height": 2002,
+          "viewImageReviewed": true,
+          "chineseTextVisible": true,
+          "visibleMissingGlyphs": false,
+          "textClippingOrOverflow": false,
+          "imageClipping": false,
+          "brokenOrSplitTables": false,
+          "overlappingContent": false,
+          "passed": true
+        },
+        {
+          "page": 4,
+          "renderPath": "/private/tmp/proofpass-closeout-report-qa/page-4.png",
+          "sha256": "d0248bb0c76487abf50c9e8ec2ee8f93be6eef3ec35dbe369ce596d3db259989",
+          "width": 1547,
+          "height": 2002,
+          "viewImageReviewed": true,
+          "chineseTextVisible": true,
+          "visibleMissingGlyphs": false,
+          "textClippingOrOverflow": false,
+          "imageClipping": false,
+          "brokenOrSplitTables": false,
+          "overlappingContent": false,
+          "passed": true
+        },
+        {
+          "page": 5,
+          "renderPath": "/private/tmp/proofpass-closeout-report-qa/page-5.png",
+          "sha256": "3c8309c01d9b528b36a9704db47902980d313150dfc7ac966ee12e4ce291cbac",
+          "width": 1547,
+          "height": 2002,
+          "viewImageReviewed": true,
+          "chineseTextVisible": true,
+          "visibleMissingGlyphs": false,
+          "textClippingOrOverflow": false,
+          "imageClipping": false,
+          "brokenOrSplitTables": false,
+          "overlappingContent": false,
+          "passed": true
+        },
+        {
+          "page": 6,
+          "renderPath": "/private/tmp/proofpass-closeout-report-qa/page-6.png",
+          "sha256": "8d6f1359dc51a1cfe2b52c4621d3ab88be00e09811e289a754e5610c42170536",
+          "width": 1547,
+          "height": 2002,
+          "viewImageReviewed": true,
+          "chineseTextVisible": true,
+          "visibleMissingGlyphs": false,
+          "textClippingOrOverflow": false,
+          "imageClipping": false,
+          "brokenOrSplitTables": false,
+          "overlappingContent": false,
+          "passed": true
+        },
+        {
+          "page": 7,
+          "renderPath": "/private/tmp/proofpass-closeout-report-qa/page-7.png",
+          "sha256": "e92bc14d3764fcccc73764457abe7ae46b1c8324768871f6400a62706794a860",
+          "width": 1547,
+          "height": 2002,
+          "viewImageReviewed": true,
+          "chineseTextVisible": true,
+          "visibleMissingGlyphs": false,
+          "textClippingOrOverflow": false,
+          "imageClipping": false,
+          "brokenOrSplitTables": false,
+          "overlappingContent": false,
+          "passed": true
+        },
+        {
+          "page": 8,
+          "renderPath": "/private/tmp/proofpass-closeout-report-qa/page-8.png",
+          "sha256": "0d1d28eb4cb5c7e8176c74d999c4dab7365c130b1980c228a35a96978a7543c5",
+          "width": 1547,
+          "height": 2002,
+          "viewImageReviewed": true,
+          "chineseTextVisible": true,
+          "visibleMissingGlyphs": false,
+          "textClippingOrOverflow": false,
+          "imageClipping": false,
+          "brokenOrSplitTables": false,
+          "overlappingContent": false,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "path": "course-closeout/ProofPass_成员分工与AI使用说明.docx",
+      "sha256": "7a21ef1d05bb4af855752476fa368599a95d5e224387e36cccf947297a6b7fd1",
+      "expectedPages": 1,
+      "renderedPages": 1,
+      "allPagesVisuallyReviewed": true,
+      "passed": true,
+      "pages": [
+        {
+          "page": 1,
+          "renderPath": "/private/tmp/proofpass-closeout-ai-qa/page-1.png",
+          "sha256": "72079cecfa2fbfafe1d177022800e449fc95935716164cc8678c78bd8fb0b05f",
+          "width": 1547,
+          "height": 2002,
+          "viewImageReviewed": true,
+          "chineseTextVisible": true,
+          "visibleMissingGlyphs": false,
+          "textClippingOrOverflow": false,
+          "imageClipping": false,
+          "brokenOrSplitTables": false,
+          "overlappingContent": false,
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "observations": [
+    "Report is 8 pages and member/AI statement is 1 page, with visible Chinese headings, body text and table text.",
+    "All inspected table rows remain contained on their pages; no visible content overlap or truncation was found.",
+    "Report page 6 contains a full uncropped technical screenshot at reduced size; caption and surrounding explanatory text are intact. Full-resolution original remains linked for detailed reading.",
+    "Member and interview blanks are intentionally unfilled; visual QA does not certify that team fieldwork or member confirmation has been completed."
+  ],
+  "issues": []
+}

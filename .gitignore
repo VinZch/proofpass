@@ -1,0 +1,22 @@
+# 依赖与本地工具
+node_modules/
+.pnpm-store/
+.DS_Store
+
+# 测试 / 构建产物（可随时重生成，不进入版本库）
+artifacts/test-output/
+deployment/public-site/dist/
+deployment/*.zip
+
+# 本地草稿与渲染缓存（保留 .work/build_documents.py 与访谈建议）
+.work/render_*/
+.work/final_*/
+.work/fonts/
+.work/font-cache/
+.work/fonts.conf
+
+# GitHub Pages 发布副本：作为独立仓库维护，见 deployment/README-public.md
+deployment/github-pages/
+
+# 交付快照：由源码重新打包，附件放 GitHub Releases，不重复入库
+ProofPass_*.zip

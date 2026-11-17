@@ -1,0 +1,200 @@
+{
+  "at": "2026-11-04T13:40:16.261Z",
+  "chainId": 11155111,
+  "registryAddress": "0xdaf9d8f06bc5895a79a4cdae66ec3ea262435149",
+  "stage": "after-issue",
+  "block": {
+    "number": 12062772,
+    "hash": "0x8f4415cb649396f5fc41042a1ad01ec3178275815e3d66001ca989d80bb5e346",
+    "timestamp": 1793799612
+  },
+  "institutionA": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+  "institutionB": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+  "aEnabled": true,
+  "bEnabled": true,
+  "records": {
+    "a": {
+      "commitment": "0x46d68ea27753551bfe4ba9d61a856b6ee31c946754af7a71fc16ac2405694f73",
+      "registeredAt": 1793794668,
+      "validUntil": 1825372799,
+      "revoked": true
+    },
+    "b": {
+      "commitment": "0x0fafca15f193eb96ac258403d837dcecafdbbdb67b9c1393a0f055926355fb60",
+      "registeredAt": 1793799456,
+      "validUntil": 1825372799,
+      "revoked": false
+    }
+  },
+  "checks": [
+    {
+      "label": "B cannot grant itself signing rights",
+      "kind": "eth_call simulation on actual public state; NOT a broadcast transaction",
+      "request": {
+        "from": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+        "to": "0xdaf9d8f06bc5895a79a4cdae66ec3ea262435149",
+        "data": "0x495289be0000000000000000000000003242e9b46a6f43283bff0d91c92de8545f1950090000000000000000000000000000000000000000000000000000000000000001",
+        "value": "0x0"
+      },
+      "expectedRevert": "admin/zero",
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": 3,
+          "message": "execution reverted: admin/zero",
+          "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000a61646d696e2f7a65726f00000000000000000000000000000000000000000000"
+        }
+      },
+      "passed": true
+    },
+    {
+      "label": "B cannot disable A",
+      "kind": "eth_call simulation on actual public state; NOT a broadcast transaction",
+      "request": {
+        "from": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+        "to": "0xdaf9d8f06bc5895a79a4cdae66ec3ea262435149",
+        "data": "0x495289be000000000000000000000000cdf9996213efdfc6014f9ab4c3554cd4e6e398ac0000000000000000000000000000000000000000000000000000000000000000",
+        "value": "0x0"
+      },
+      "expectedRevert": "admin/zero",
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": 3,
+          "message": "execution reverted: admin/zero",
+          "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000a61646d696e2f7a65726f00000000000000000000000000000000000000000000"
+        }
+      },
+      "passed": true
+    },
+    {
+      "label": "A cannot issue zero ID",
+      "kind": "eth_call simulation on actual public state; NOT a broadcast transaction",
+      "request": {
+        "from": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "to": "0xdaf9d8f06bc5895a79a4cdae66ec3ea262435149",
+        "data": "0x6fda78f10000000000000000000000000000000000000000000000000000000000000000c8c3f2731f55c0a64f02cfce03386e3c19f345ca898f1758accff3ec4f514fa6000000000000000000000000000000000000000000000000000000006ccc693c",
+        "value": "0x0"
+      },
+      "expectedRevert": "issuer/empty",
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": 3,
+          "message": "execution reverted: issuer/empty",
+          "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c6973737565722f656d7074790000000000000000000000000000000000000000"
+        }
+      },
+      "passed": true
+    },
+    {
+      "label": "A cannot issue zero commitment",
+      "kind": "eth_call simulation on actual public state; NOT a broadcast transaction",
+      "request": {
+        "from": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "to": "0xdaf9d8f06bc5895a79a4cdae66ec3ea262435149",
+        "data": "0x6fda78f1193aea16863bf62e03e0452427a2e665cc90ecd0366522f9744369c130de2f390000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006ccc693c",
+        "value": "0x0"
+      },
+      "expectedRevert": "issuer/empty",
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": 3,
+          "message": "execution reverted: issuer/empty",
+          "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c6973737565722f656d7074790000000000000000000000000000000000000000"
+        }
+      },
+      "passed": true
+    },
+    {
+      "label": "A cannot issue an expired credential",
+      "kind": "eth_call simulation on actual public state; NOT a broadcast transaction",
+      "request": {
+        "from": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "to": "0xdaf9d8f06bc5895a79a4cdae66ec3ea262435149",
+        "data": "0x6fda78f1193aea16863bf62e03e0452427a2e665cc90ecd0366522f9744369c130de2f39c8c3f2731f55c0a64f02cfce03386e3c19f345ca898f1758accff3ec4f514fa60000000000000000000000000000000000000000000000000000000000000001",
+        "value": "0x0"
+      },
+      "expectedRevert": "expiry/duplicate",
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": 3,
+          "message": "execution reverted: expiry/duplicate",
+          "data": "0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000106578706972792f6475706c696361746500000000000000000000000000000000"
+        }
+      },
+      "passed": true
+    },
+    {
+      "label": "A cannot overwrite or reactivate existing revoked ID",
+      "kind": "eth_call simulation on actual public state; NOT a broadcast transaction",
+      "request": {
+        "from": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+        "to": "0xdaf9d8f06bc5895a79a4cdae66ec3ea262435149",
+        "data": "0x6fda78f1ec049ce6621886dc973d6b2e4ab902c39c6bdd660739845ed9f68486a27e60acc8c3f2731f55c0a64f02cfce03386e3c19f345ca898f1758accff3ec4f514fa6000000000000000000000000000000000000000000000000000000006ccc693c",
+        "value": "0x0"
+      },
+      "expectedRevert": "expiry/duplicate",
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": 3,
+          "message": "execution reverted: expiry/duplicate",
+          "data": "0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000106578706972792f6475706c696361746500000000000000000000000000000000"
+        }
+      },
+      "passed": true
+    },
+    {
+      "label": "B cannot overwrite its existing ID",
+      "kind": "eth_call simulation on actual public state; NOT a broadcast transaction",
+      "request": {
+        "from": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+        "to": "0xdaf9d8f06bc5895a79a4cdae66ec3ea262435149",
+        "data": "0x6fda78f1ec049ce6621886dc973d6b2e4ab902c39c6bdd660739845ed9f68486a27e60acc8c3f2731f55c0a64f02cfce03386e3c19f345ca898f1758accff3ec4f514fa6000000000000000000000000000000000000000000000000000000006ccc693c",
+        "value": "0x0"
+      },
+      "expectedRevert": "expiry/duplicate",
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": 3,
+          "message": "execution reverted: expiry/duplicate",
+          "data": "0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000106578706972792f6475706c696361746500000000000000000000000000000000"
+        }
+      },
+      "passed": true
+    },
+    {
+      "label": "B revoke only addresses B namespace",
+      "kind": "eth_call simulation on actual public state; NOT a broadcast transaction",
+      "request": {
+        "from": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+        "to": "0xdaf9d8f06bc5895a79a4cdae66ec3ea262435149",
+        "data": "0xb75c7dc6ec049ce6621886dc973d6b2e4ab902c39c6bdd660739845ed9f68486a27e60ac",
+        "value": "0x0"
+      },
+      "expectedRevert": null,
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": "0x"
+      },
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "eth_call sender is a simulation parameter, not proof of wallet control",
+    "Only wallet-signed successful transactions establish independent account write evidence",
+    "Two test accounts do not establish real-world institutional identities"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "mode": "testnet",
+  "chainId": 11155111,
+  "chainName": "Sepolia",
+  "rpcUrl": "https://ethereum-sepolia.publicnode.com",
+  "registryAddress": "0xdaf9d8f06bc5895a79a4cdae66ec3ea262435149",
+  "deploymentTxHash": "0x31295221993f326284ec0d5f16c7cc5978fddbc831a6a648897e2d6169677473",
+  "runtimeCodeHash": "0xe78d184febd310ae8838745377afc6f537cb982cca3b983d0e66578edbdb665c",
+  "deploymentStatus": "deployed",
+  "maxBlockAgeSeconds": 300,
+  "policyVersion": "B-school-demo-1"
+}

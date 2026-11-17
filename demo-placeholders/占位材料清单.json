@@ -1,0 +1,21 @@
+{
+  "artifactType": "SIMULATED_PLACEHOLDER",
+  "acceptanceEvidence": false,
+  "createdDate": "2026-11-05",
+  "files": {
+    "images/01_部署成功_模拟占位.png": "386d07f218ad9992ab0f67468cfd7899d0837f8720948c86da320b8231e3e191",
+    "images/02_机构授权_模拟占位.png": "e389848493385d3cea52703004a192a7f72bb56b4fb5d70a76f983a179638bc2",
+    "images/03_签发成功_模拟占位.png": "83411b877bb7b8bda7b8474f0f252bc240b3bf5c893bb1b5bb87578464b470b7",
+    "images/04_独立核验有效_模拟占位.png": "1bc8c738019cd5ad6c24d834c436b56b48a13abe4d0b87d7311bb592189bb6aa",
+    "images/05_篡改被发现_模拟占位.png": "be5d36e626a45bda10207022841d25c5570acae8bbb76eea1fb7eeae3d5b494f",
+    "images/06_撤销成功_模拟占位.png": "9275f227c4a2daafff614c5f72bb90fb6f4cbc8c747a6a38c1170eae7b9c0bab",
+    "images/07_撤销后复查_模拟占位.png": "cabca30b9782e97253074974a4464cb7677318bd8b323237ba05c6c858f6536b",
+    "images/08_机构权限隔离_模拟占位.png": "615d5561c3d02670d9d68cfe368b496136e965ce5754cb3c6ab93c47a642c553",
+    "render.mjs": "75d145936d465dc9d5d3bd6e4e9af577eb8217c2f480c1bfcda68d530dbade56",
+    "使用说明与替换清单.md": "e54384e558880ebb1408e408e67cc0deaa6d61232fa12728f6bbe2bb16ebde40",
+    "八图总览.jpg": "1d6d8e32bfe4c5f1b65996c43be77ba33f801412b6386dffef41ffdc24fbf325",
+    "模拟数据.json": "9cb3983450479ea28b0f07ff3b5162eadc77563470b3b1ef2f117cbddf26eefa",
+    "渲染检查.json": "9a792c1040a88156196bec7a26330c208822afc1a932c1378bf30b0138c55a71",
+    "演示占位页.html": "b8a23c6e656e8ac65e4a79642fad354206700b1adbf13c64a4bbd8fd7128f27b"
+  }
+}

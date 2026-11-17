@@ -1,0 +1,24 @@
+{
+  "payload": {
+    "schemaVersion": 2,
+    "chainId": 11155111,
+    "registryAddress": "0x93c64a79a1013c08faf22bf879ea3dec4cead2f8",
+    "issuer": "0x82a256d23fd747a586e1e4dce31c2243baf3ea61",
+    "credentialId": "0x6bd98a70009327ad31d3453e6a45d495ea4ecc127458056f8f8581c8bc32dc2a",
+    "title": "高校创新设计挑战赛",
+    "category": "竞赛获奖",
+    "level": "省级一等奖",
+    "holderRef": "学生甲",
+    "validUntil": 1825459199
+  },
+  "salt": "0x5d23a80977f5b2e3fb32158da159e6eb297f813d5b46a26b2fb8c11c438378a0",
+  "receipt": {
+    "state": "已入块成功",
+    "transactionHash": "0x60bea7dfc93be5d3ed294038726caf011d8d61d4fd9dc14868b8913ac2bf7973",
+    "blockNumber": 3,
+    "blockHash": "0x773ead9711267dbfdb81d5654139c585fe07b6ca6cae43813874ca24f1a2f653",
+    "receiptStatus": "0x1",
+    "finality": "已达 finalized 区块",
+    "queriedAt": "2026-11-05T03:19:33.317Z"
+  }
+}

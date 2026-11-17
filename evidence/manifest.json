@@ -1,0 +1,959 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-17T08:27:56.071Z",
+  "files": {
+    "browser-chain-desktop.png": {
+      "sha256": "2c6312a0725b6e1f694210510915c32739cce856fe4030c0e2fe8dc45e50d24a",
+      "size": 370876,
+      "recordedAt": "2026-11-05T03:19:33.785Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "browser-chain-mobile.png": {
+      "sha256": "71b1a726ce8f192216760c82259ed8180e53412eede9e656a66bda42191df121",
+      "size": 306740,
+      "recordedAt": "2026-11-05T03:19:34.549Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "browser-offline.png": {
+      "sha256": "9bc5ae61d5e3e5005dd3ecd8ff58a8dfd84c255c0821bd72b3be37e13389f913",
+      "size": 707397,
+      "recordedAt": "2026-11-05T03:19:36.817Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "browser-results.json": {
+      "sha256": "1cab05ad0fb195f5b14299d3460a3793b5614053289fabc253c64f8ce9016494",
+      "size": 670,
+      "recordedAt": "2026-11-05T03:19:39.344Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "browser-run.log": {
+      "sha256": "2f884d39954c33b9ceadd12d825ae462cf0f6b930d46e44619fb6e6ff577738c",
+      "size": 468,
+      "recordedAt": "2026-11-04T12:19:16.670Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "browser-test-package.json": {
+      "sha256": "b9752b2ca1272df2829a72832536c821b866b8bd8b105c5e857d598319fefa10",
+      "size": 906,
+      "recordedAt": "2026-11-05T03:19:33.342Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "connection-fix-validation.json": {
+      "sha256": "95cbc1a7b77a9b79c3d67a4604be646b9e00407cff929a2237286f0c7252330d",
+      "size": 610,
+      "recordedAt": "2026-11-04T13:03:55.116Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "delivery-manifest.json": {
+      "sha256": "c0e2cdb4f2b6103cf892ccc5d37d149c05bcc80c722bb537a9ae7dd853186ac7",
+      "size": 52696,
+      "recordedAt": "2026-11-07T08:17:41.211Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "dependency-audit.json": {
+      "sha256": "5ef4ef60df984accac30c42e3a61ec190cf3472e320d6a327cbee951aecc16d7",
+      "size": 47843,
+      "recordedAt": "2026-11-03T11:29:04.035Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "gallery-integration-check.json": {
+      "sha256": "87ae08d01498e6efc16830dc3b873b03f95119f2a2beead110280fe8fa31807e",
+      "size": 554,
+      "recordedAt": "2026-11-05T02:46:14.632Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "local-evm.json": {
+      "sha256": "c3e81aa7f91d81038306d28d72ba794accef79666320ed284224311fce41c367",
+      "size": 3502,
+      "recordedAt": "2026-11-17T08:20:07.383Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "metamask-domain-check-20261107.json": {
+      "sha256": "ca321ac4b65e841f5d34e30498192ab175b3029d03134f99f6ffd9de7c3512ae",
+      "size": 1855,
+      "recordedAt": "2026-11-07T13:46:01.734Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "metamask-domain-list-recheck-20261107.json": {
+      "sha256": "e080908039d09f3a183d19a7126fdfd00b005364558869a8f40bde5a89d4a6fc",
+      "size": 682,
+      "recordedAt": "2026-11-07T14:07:12.141Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "metamask-domain-review-workflow-20261107.json": {
+      "sha256": "d6fc8ed59f492e52f160b0667429d1b6c7bac9733e434c743dd66b28bc2fb654",
+      "size": 3448,
+      "recordedAt": "2026-11-07T14:06:34.492Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-browser-check.json": {
+      "sha256": "7976e9740cfc8e651532b4fa7c3d86b11b04b8333f76a20564bfbeae56532fac",
+      "size": 1154,
+      "recordedAt": "2026-11-04T13:10:34.041Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-deployment.json": {
+      "sha256": "a3f871d8dbc0d42e98b967dab0712eacd9dec7a9bfe692a5081f3feda96c287d",
+      "size": 14539,
+      "recordedAt": "2026-11-04T11:36:32.821Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-institution-b-authorization.json": {
+      "sha256": "21d705ecb060f461dc05ebbb8d63800a200895b83d0b9ccc3e317784ba58c982",
+      "size": 17665,
+      "recordedAt": "2026-11-04T13:26:43.628Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-institution-b-funding.json": {
+      "sha256": "ab343c3f0443cfa7151f7925840138757528ecb7f4a636434c65befc92411a52",
+      "size": 15923,
+      "recordedAt": "2026-11-04T13:30:41.066Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-institution-b-issue.json": {
+      "sha256": "67464fddbdf0f2fa8e4c015cae216326343bf6eb188451c8cc66262414e04abc",
+      "size": 16921,
+      "recordedAt": "2026-11-04T13:40:09.594Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-institution-b-package.json": {
+      "sha256": "bf14360005963f11038c1da7e28b944e01f090d22e5cc65fb84ffe97412f4173",
+      "size": 919,
+      "recordedAt": "2026-11-04T13:40:09.595Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-institution-b-plan.json": {
+      "sha256": "53ddd1f1071f32e61ece6bd23762de967cc3d82fbd4bf581453a6f7aa6e96406",
+      "size": 1075,
+      "recordedAt": "2026-11-04T13:50:29.930Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-institution-b-revoke.json": {
+      "sha256": "1d121aa33e27e1f1e7701b60d4f0a8bf728000165ee6765cf7f7edf078b1c928",
+      "size": 13970,
+      "recordedAt": "2026-11-04T13:48:32.393Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-institution-b-safari-active.json": {
+      "sha256": "4b7300eab246a1adb4bd637983b6d2d1a91dfd6a4fdb1867d5d347e977468aa1",
+      "size": 881,
+      "recordedAt": "2026-11-04T13:43:59.538Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-institution-b-safari-revoked.json": {
+      "sha256": "4c5c4b6d45961bab3d3b8a3743ebddd5e163b60711e4ba175494b7922b6ec87e",
+      "size": 840,
+      "recordedAt": "2026-11-04T13:50:29.929Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-issued.json": {
+      "sha256": "eb99c62f307a0bb3da9fb342f491293d6cd2ca3e5427bf67e4a17d2d36633e2d",
+      "size": 18703,
+      "recordedAt": "2026-11-04T12:44:13.967Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-issuer-authorization.json": {
+      "sha256": "ef6a5b789de3d8498dee0175ac87dae6ebd4ef52b981bdb60c3847be67878d07",
+      "size": 18848,
+      "recordedAt": "2026-11-04T11:54:41.295Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-permissions-after-authorization.json": {
+      "sha256": "6752d527bd374358151b2c291c9cc1fb28a6a2d6d4a7f445a1ce34800bc1776d",
+      "size": 8708,
+      "recordedAt": "2026-11-04T13:26:51.281Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-permissions-after-issue.json": {
+      "sha256": "82c2e17abed43f7766c57edefb1b625a6cb4b812d867b6bd038d0e2c758941e2",
+      "size": 8716,
+      "recordedAt": "2026-11-04T13:40:16.264Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-permissions-after-revoke.json": {
+      "sha256": "d71dd5a83dbf5cd7d8296b4c5ef9a4e5aadbc9b856a1450ca6adc53c450a12db",
+      "size": 9035,
+      "recordedAt": "2026-11-04T13:48:34.234Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-permissions-before-authorization.json": {
+      "sha256": "7939217d89cda33feb4c16b2d18c09e340518894340bbf867eda21cef2a186a7",
+      "size": 9029,
+      "recordedAt": "2026-11-04T13:17:39.110Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-revoked.json": {
+      "sha256": "52fa43297817aab25b131b5505c9be532ea8b64af8957470fa0d5ed348e86ef9",
+      "size": 19882,
+      "recordedAt": "2026-11-04T13:07:51.700Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-safari-revoked-report.json": {
+      "sha256": "6e06f78a2ccb468b1c292150a75da5027d210d9ebaecdc5610f26421bb8892f4",
+      "size": 840,
+      "recordedAt": "2026-11-04T13:10:34.041Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "sepolia-test-package.json": {
+      "sha256": "a6df0c0e921da80ad102a2bda272a0aa591c9ddc27890f0b25d7570bf72c88f8",
+      "size": 900,
+      "recordedAt": "2026-11-04T12:44:11.843Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "showcase.css": {
+      "sha256": "511f5b8306180857090be0eef82d3dae064ee8cb621a876b4951a09cd80abcf6",
+      "size": 6311,
+      "recordedAt": "2026-11-07T08:12:17.731Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "showcase.js": {
+      "sha256": "2a1e32f0be357260f18d82fe24647a9c4c09873a23a12a5ec8024d75c00f1cea",
+      "size": 1921,
+      "recordedAt": "2026-11-07T08:12:17.714Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "simulation-integration-validation.json": {
+      "sha256": "7a3bee4f69dac9b312d893574ff272e3246689db41afcf7ff6a61ddc51902afb",
+      "size": 636,
+      "recordedAt": "2026-11-05T02:55:18.381Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "source-document-check.json": {
+      "sha256": "133ad9b0a841f07f654158c477feaf00e0707058a9086db0847b35d96b3c5fce",
+      "size": 8315,
+      "recordedAt": "2026-11-03T11:28:15.525Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "test-run.log": {
+      "sha256": "a7f710e8ade6f8a5f6f558c4cf5c334c35d6a1fc24ff1b35fb4d91cff39f3770",
+      "size": 1224,
+      "recordedAt": "2026-11-03T11:28:59.485Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-base-browser-regression.log": {
+      "sha256": "2f884d39954c33b9ceadd12d825ae462cf0f6b930d46e44619fb6e6ff577738c",
+      "size": 468,
+      "recordedAt": "2026-11-05T03:19:39.344Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-browser-governance.png": {
+      "sha256": "000d17fd6f6f26b66631c708b24b36318ed7e91a257557b035f35a02f7a70903",
+      "size": 200431,
+      "recordedAt": "2026-11-05T07:00:35.652Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-browser-mobile.png": {
+      "sha256": "f09fa771b3aaeba94589926b6c12b304dedc89d8363238cff9dfebd81e1b01ee",
+      "size": 173716,
+      "recordedAt": "2026-11-05T07:00:38.583Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-browser-pending.png": {
+      "sha256": "fc89e85a2348a317cae4f2b9e0c74ea66c537a4d1be67b0da8dca5d7c091e98e",
+      "size": 191764,
+      "recordedAt": "2026-11-05T07:00:38.863Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-browser-results.json": {
+      "sha256": "37d3fa05b51031572581d10b1eb26debc28dcb4e20eb642a1b4a256dc7649ed7",
+      "size": 2953,
+      "recordedAt": "2026-11-05T07:00:39.038Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-browser-run.log": {
+      "sha256": "24a995bd5d535464c87254cb9f8e6ee31dbd5c6b9623a6417deb45b78a0f629e",
+      "size": 426,
+      "recordedAt": "2026-11-05T03:19:40.648Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-browser-verify.png": {
+      "sha256": "756a8f9d96c6b636467d74beba4f499e2c96e6ad85ee5416059390e86dc88e03",
+      "size": 216198,
+      "recordedAt": "2026-11-05T07:00:38.406Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-idle-chain.json": {
+      "sha256": "ed76ca15abca67e6ab5cee1da1549a6546186aab2a8c6ae8383628a8ff3b031b",
+      "size": 183,
+      "recordedAt": "2026-11-05T06:07:07.201Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-layout-check.log": {
+      "sha256": "9e099a57fc456b631d04a7beb733083c7fa2cd6d4426a076dc1044a35a3904fd",
+      "size": 903,
+      "recordedAt": "2026-11-05T07:51:20.956Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-layout-desktop.png": {
+      "sha256": "5fdd42dd1a77c2761393c01d75cef7fc7aa589c23fe3e633eb824b2fa0d286cf",
+      "size": 292769,
+      "recordedAt": "2026-11-05T10:23:41.818Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-layout-mobile.png": {
+      "sha256": "a7e95be3f18d64a379b1c1ca497bcb7a1fc256a77a5e3630c3fae06cca425856",
+      "size": 222808,
+      "recordedAt": "2026-11-05T10:23:42.149Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-layout-ui.json": {
+      "sha256": "105e6903aa74a455c5c96f0b23c91cd74b5157071933e5ddf8666b2edf7ece13",
+      "size": 1122,
+      "recordedAt": "2026-11-05T10:23:42.163Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-local-evm.json": {
+      "sha256": "eed897ff95ccf08f207eb1b63e57853234b6f646f277605b1873c85d1b131d80",
+      "size": 3149,
+      "recordedAt": "2026-11-17T08:20:07.386Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-polish-functional.log": {
+      "sha256": "24a995bd5d535464c87254cb9f8e6ee31dbd5c6b9623a6417deb45b78a0f629e",
+      "size": 426,
+      "recordedAt": "2026-11-05T03:43:26.550Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-polish-ui.json": {
+      "sha256": "8fd63b0a0c18edd816a7840bf6135fc51cf9b44a13360708523cd2d1bc6be9d3",
+      "size": 487,
+      "recordedAt": "2026-11-05T03:45:37.309Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-polished-desktop.png": {
+      "sha256": "34362990742bea091004a4f6a4bb154e979a2b6e1d5173fc83f358dfbef68304",
+      "size": 203874,
+      "recordedAt": "2026-11-05T03:45:36.766Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-polished-mobile.png": {
+      "sha256": "661f13dcf97c2a37d96a235a236f51cb06b416359a9fe01600fdf87e8e38a570",
+      "size": 180244,
+      "recordedAt": "2026-11-05T03:45:37.288Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-predeployment-tests.log": {
+      "sha256": "3df0f9c73a2c82332d77a0a60a61f3caa197c994103595890f82ee92b1b6c72b",
+      "size": 1841,
+      "recordedAt": "2026-11-05T10:42:12.311Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-redesign-desktop.png": {
+      "sha256": "45623afde0055ed74f4e4d28b39d1d680e6779aa3967c35430fa2568abdb77b8",
+      "size": 192784,
+      "recordedAt": "2026-11-05T06:05:03.908Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-redesign-functional.log": {
+      "sha256": "24a995bd5d535464c87254cb9f8e6ee31dbd5c6b9623a6417deb45b78a0f629e",
+      "size": 426,
+      "recordedAt": "2026-11-05T06:08:20.987Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-redesign-mobile.png": {
+      "sha256": "4c1d189e394fc3789503d008d5e099f56462092d15fd6131654f69a759d1916f",
+      "size": 166583,
+      "recordedAt": "2026-11-05T06:05:04.470Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-redesign-ui.json": {
+      "sha256": "1efcc36394fad837dd7cb6ee6dce631d3180ca2cb8931e49342a7b99781234ec",
+      "size": 619,
+      "recordedAt": "2026-11-05T06:05:04.509Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-relaxed-desktop.png": {
+      "sha256": "3167be367cedb60bba435a49d2959adb774e6573705b981ed0bc86bd099fa78b",
+      "size": 179280,
+      "recordedAt": "2026-11-05T06:57:12.816Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-relaxed-functional.log": {
+      "sha256": "24a995bd5d535464c87254cb9f8e6ee31dbd5c6b9623a6417deb45b78a0f629e",
+      "size": 426,
+      "recordedAt": "2026-11-05T07:00:39.038Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-relaxed-mobile.png": {
+      "sha256": "3a0200494e3d481a001ce30d71d07ed3e2abd9c5dc18be33599206e499a612c2",
+      "size": 152135,
+      "recordedAt": "2026-11-05T06:57:13.337Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-relaxed-ui.json": {
+      "sha256": "6057d44e2a52a09372c4039d886de6bab39533418255ed479ea2e719beee54af",
+      "size": 686,
+      "recordedAt": "2026-11-05T06:57:13.379Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-rounded-desktop.png": {
+      "sha256": "b9d8cfe3ee59582c7064d9c4bff54078405e407e069625d55cf9eb4969223cad",
+      "size": 251140,
+      "recordedAt": "2026-11-05T03:30:57.555Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-rounded-mobile.png": {
+      "sha256": "4c756ed20fe1da30bd33fe47502d38d6515a5052590a23e1b77dd4ce9bc4951c",
+      "size": 244774,
+      "recordedAt": "2026-11-05T03:30:57.625Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-rounded-ui.json": {
+      "sha256": "1cc3c409dc1e7177be6aa6549bd11cb62fc6d18137e24005933c04f76b1b4b02",
+      "size": 215,
+      "recordedAt": "2026-11-05T03:29:23.704Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-corrected-browser-report.json": {
+      "sha256": "68b05119913925fc14eeb78173aae9f48fc9e6ca114fab6376f5943ff46a5819",
+      "size": 1226,
+      "recordedAt": "2026-11-07T04:22:23.919Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-corrected-package.json": {
+      "sha256": "f7d6dfa4b3335dffd766ddd89f65ba85aa68d9a884472066ce1a4811a2de2a7f",
+      "size": 1071,
+      "recordedAt": "2026-11-07T04:22:23.919Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-corrected.json": {
+      "sha256": "76525e4c78531f4f061cf00e582bfd4c5067585a8cb4899e9c43179d99fec4ac",
+      "size": 41963,
+      "recordedAt": "2026-11-07T04:22:42.690Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-correction-package-checks.json": {
+      "sha256": "c32fb2f941f9a839e410f7d2cd6638d19e1eeab2263e8b5f06c123ff3921b7ec",
+      "size": 4619,
+      "recordedAt": "2026-11-07T04:27:55.398Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-deployment.json": {
+      "sha256": "151d473a56a350d54dfc2c93701b83cd26573d05edd5c4fd0d04c146304dfa9a",
+      "size": 38302,
+      "recordedAt": "2026-11-07T04:26:07.339Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-emergency-revoke-audit.json": {
+      "sha256": "3a117cccad78cb3b9996fc2b20f9b5c17bc321d2e579367a8fcdfa0404955c1a",
+      "size": 153071,
+      "recordedAt": "2026-11-07T07:49:30.685Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-emergency-revoke-executed.json": {
+      "sha256": "56756899b456b7ae87aaffb3f3d2f5d61829f7b2386dcf605cd16e35d2c8016d",
+      "size": 187292,
+      "recordedAt": "2026-11-07T07:49:32.475Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-emergency-revoke-pending.json": {
+      "sha256": "c49339906496eda495538d86995e8282970effa87113685339c2baefde5cab47",
+      "size": 57756,
+      "recordedAt": "2026-11-07T05:42:34.018Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-emergency-revoke-two-votes.json": {
+      "sha256": "56ab563af2c12ecfb8cbfb7722ca50a60f2d3f45bbf1b1388d80f675052f2cf6",
+      "size": 240337,
+      "recordedAt": "2026-11-07T05:49:39.293Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-governance-executed.json": {
+      "sha256": "0b65ed5acc846bfeda860df5f7410a75ade8aab33cb3f5330ac953fe3f22ed92",
+      "size": 34584,
+      "recordedAt": "2026-11-07T04:15:33.436Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-governance-initial.json": {
+      "sha256": "d00b3081ea8e8b6d410a351bb1d18f00d8c9c08a4497172d108289facd283b23",
+      "size": 17420,
+      "recordedAt": "2026-11-07T04:03:57.453Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-governance-one-vote.json": {
+      "sha256": "ab410764f35c4384b98f46c49cafc96e6e2ca71af2a1ba141ab4a80804de34bc",
+      "size": 18528,
+      "recordedAt": "2026-11-07T04:11:09.180Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-governance-two-votes.json": {
+      "sha256": "62e9b5ec2341b11c187ac2a9653a225b1d3f4a187f325887a2528556afc2f66e",
+      "size": 31941,
+      "recordedAt": "2026-11-07T04:14:38.273Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-independent-browser-acceptance.json": {
+      "sha256": "d974cf04c87085230808440fb46ec6c72c5c8003930d020f3bd836fd71fa45d8",
+      "size": 213825,
+      "recordedAt": "2026-11-07T07:59:56.775Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-independent-corrected-revoked-report.json": {
+      "sha256": "31431aaf6175ae7b7e5b8088c43878bfcf168ac9eb3ca488da02283fc598b61d",
+      "size": 1237,
+      "recordedAt": "2026-11-07T07:58:20.522Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-independent-key2-valid-report.json": {
+      "sha256": "a6aa58269ac18ee1d9f5b8c3bc38c0905d7da5b86f13ebd35e80163c343df1a4",
+      "size": 1227,
+      "recordedAt": "2026-11-07T07:58:20.523Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-independent-key2.jpg": {
+      "sha256": "7bae5e3fa548273689c2d2e191a2c8571ad957d905a7068fb2c7cae19e245315",
+      "size": 137812,
+      "recordedAt": "2026-11-07T07:58:09.817Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-independent-original-replaced-report.json": {
+      "sha256": "29a3c81ac60842a583860eb62bdde3e541bb71701688b4644dc42f745b65be95",
+      "size": 1243,
+      "recordedAt": "2026-11-07T07:58:20.522Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-independent-original.jpg": {
+      "sha256": "3edafb31ccdb668f08772e669363ae554d15f19e5178ac7b293f608ba266f36d",
+      "size": 141162,
+      "recordedAt": "2026-11-07T07:57:44.508Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-independent-revoked.jpg": {
+      "sha256": "c45d4e32e783788f9b36e19b9e4a4311cbd837ae89e9164458aef88d56e8c532",
+      "size": 140763,
+      "recordedAt": "2026-11-07T07:57:27.382Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-issued.json": {
+      "sha256": "16bc0fd85540577ae2b7f580648a899a46f99ac36f005fa3653f25995b75fe2b",
+      "size": 32478,
+      "recordedAt": "2026-11-07T04:20:40.886Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-key-rotation-current-check.json": {
+      "sha256": "24bedaf10fd027935b217e8e84e31f7b7c9c8ae2771b6fca25d3d708b6308ac0",
+      "size": 16326,
+      "recordedAt": "2026-11-07T05:23:27.996Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-key-rotation-permissions.json": {
+      "sha256": "5ddac42dba5d43fdc1a927e8fb254695277258e4a613b948a66c9f89e2c2a63f",
+      "size": 79050,
+      "recordedAt": "2026-11-07T05:23:12.061Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-key2-browser-report.json": {
+      "sha256": "ccd3e28e771e117ec44798095afbda25c88f776c5429592d78bbeab89eaaf506",
+      "size": 1226,
+      "recordedAt": "2026-11-07T05:27:01.758Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-key2-issued.json": {
+      "sha256": "edd7ddb964a6d1cc4d6c3d1466c361035a2a67ebe1fde45cfb4796601b568140",
+      "size": 36316,
+      "recordedAt": "2026-11-07T05:27:24.252Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-key2-package.json": {
+      "sha256": "8975f7920c5171265bff170ba14b10cc986df9828bad71237f9f3903c33443ad",
+      "size": 1062,
+      "recordedAt": "2026-11-07T05:27:01.758Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-original-browser-report.json": {
+      "sha256": "64465c0346c3c296b4e8125cb544d38d91c37508b9cdce9a37b6e24af764a6e3",
+      "size": 1226,
+      "recordedAt": "2026-11-07T04:19:00.947Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-original-package.json": {
+      "sha256": "eb0aceffcbee3e29c0053ed4ff115a83f4f3fdb71e5ee1652a23e657384d2fe4",
+      "size": 1071,
+      "recordedAt": "2026-11-07T04:19:00.946Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-preflight.json": {
+      "sha256": "629f09efa00b95897379c65352ec32041e8cc020b0fc3346584d2fe423d620e8",
+      "size": 568,
+      "recordedAt": "2026-11-05T10:44:02.479Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-reenable-approved-20261107.json": {
+      "sha256": "595d81455cf54cba6207273a27796280b43315de2b19d89b1ee92ba7063ff2dc",
+      "size": 71315,
+      "recordedAt": "2026-11-07T13:52:20.849Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-reenable-expected-20261107.json": {
+      "sha256": "5221afba96774b32b9652e192fafaac5950e0bdfdb71379c787f762c3ba435e7",
+      "size": 484,
+      "recordedAt": "2026-11-07T13:53:41.951Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-reenable-history-20261107.json": {
+      "sha256": "b31bafeac2b6526981325eb61dfeaeafe20ea881966e440731fb27e58a93fc26",
+      "size": 8656,
+      "recordedAt": "2026-11-07T13:54:18.275Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-reenable-preflight-20261107.json": {
+      "sha256": "672af27d75c122a494eb894525e94abba14821a4bdbe0725cd70f1efcd03d710",
+      "size": 5893,
+      "recordedAt": "2026-11-07T13:41:00.943Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-reenable-proposed-20261107.json": {
+      "sha256": "6bb836d2ce0fade946b756df279a700a098c4dbef27d79d34ba90ad00d93e8b9",
+      "size": 59504,
+      "recordedAt": "2026-11-07T13:48:54.549Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-reenabled-20261107.json": {
+      "sha256": "63c12323eaef1689c46260fb64d27a06f7de713ed5aae7a291feeadf5bb75933",
+      "size": 93934,
+      "recordedAt": "2026-11-07T13:53:47.137Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-reenabled-e2e-20261107.json": {
+      "sha256": "6f77a199bb93d66f1c8eaea04a856c6eaa728d3af223f6ba84fa3cc7a50456f0",
+      "size": 1466,
+      "recordedAt": "2026-11-07T14:00:04.278Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-reenabled-issued-chain-20261107.json": {
+      "sha256": "4fd5bc18ddfcbab7ac06633c673708d03afb0cac14d74dfd6467fcefcc411270",
+      "size": 17907,
+      "recordedAt": "2026-11-07T13:57:04.659Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-reenabled-issued-verified-20261107.json": {
+      "sha256": "00880b05afd2c5495282f9484edc5b0166b84cf941c0d50f33e65f3e8603fe5b",
+      "size": 32830,
+      "recordedAt": "2026-11-07T13:58:00.090Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-reenabled-live-verification-20261107.json": {
+      "sha256": "c72cd7f62c0ea8cb80db10a9b5a67f7f57c2444ab3a870807da94dd7836025cc",
+      "size": 2894,
+      "recordedAt": "2026-11-07T13:58:07.064Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-reenabled-package-20261107.json": {
+      "sha256": "4acb7d8a9660f1e7be6d53d429a8411a56a459748291590756c528f2248761a3",
+      "size": 1441,
+      "recordedAt": "2026-11-07T13:57:29.170Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-reenabled-public-browser-report-20261107.json": {
+      "sha256": "4460b1025a5f98d886ad7e53c94d68a272a7305d42e265cd45057decdd1688c7",
+      "size": 1226,
+      "recordedAt": "2026-11-07T14:00:04.278Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-rotation-executed.json": {
+      "sha256": "45ceb119d54cb962ecddb7ea105fa5dac846b80b5bee69e336f3d967a7ae5b4c",
+      "size": 88535,
+      "recordedAt": "2026-11-07T05:23:14.188Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-rotation-pending.json": {
+      "sha256": "cb8590f26ed6675d244802ff92ffe80a3d97eb372e2c3d58973f7f03246a9fb1",
+      "size": 48609,
+      "recordedAt": "2026-11-07T04:29:48.934Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-rotation-two-votes.json": {
+      "sha256": "8d7f7d2a2d07c886ea59793f3db1268970c8607052ccab4c7588e53c1f454e77",
+      "size": 74644,
+      "recordedAt": "2026-11-07T04:30:36.119Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-suspension-executed.json": {
+      "sha256": "e8fb0ac2782f35bb62d58fa42607623a86965f660b36e47c98bd404db7cfddfb",
+      "size": 140789,
+      "recordedAt": "2026-11-07T05:34:11.743Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-suspension-pending.json": {
+      "sha256": "7f94fdf88f81b7818e46eb810d0b15f7713cbc73923f919a0a3324f81aca72b9",
+      "size": 48417,
+      "recordedAt": "2026-11-07T05:30:54.074Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-suspension-permissions.json": {
+      "sha256": "07ba00ee49196233dbab42fb9e9b48d5f95467641ea75c4184ee76cc14eeaf61",
+      "size": 141910,
+      "recordedAt": "2026-11-07T05:34:11.309Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-sepolia-suspension-two-votes.json": {
+      "sha256": "9b6048e4879b6ef227774565916e57d49dd5a007711e5a6ec680d8cf8ebca661",
+      "size": 169073,
+      "recordedAt": "2026-11-07T05:33:27.768Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-tech-check.log": {
+      "sha256": "9e099a57fc456b631d04a7beb733083c7fa2cd6d4426a076dc1044a35a3904fd",
+      "size": 903,
+      "recordedAt": "2026-11-05T07:47:32.448Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-tech-contrast.json": {
+      "sha256": "82e68731d6650864661a77bf91d22bb70125871442b1ca18c994ae94dca5c953",
+      "size": 136,
+      "recordedAt": "2026-11-05T07:47:51.809Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-tech-desktop.png": {
+      "sha256": "46fddcbec54cce6bfd344cc6b07a5aeb3de2ff7bc765f2a838c4b15b611ac863",
+      "size": 270559,
+      "recordedAt": "2026-11-05T07:47:31.750Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-tech-mobile.png": {
+      "sha256": "432601011f96b7aa2ec1e2e7f05cc9effafcda0fbcde977ba3395aa39da740b4",
+      "size": 207840,
+      "recordedAt": "2026-11-05T07:47:32.399Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-tech-ui.json": {
+      "sha256": "10f3a1994d083d70a3ac9e08362420af10bf025c9569b624fc1bb51ee3f1c20b",
+      "size": 686,
+      "recordedAt": "2026-11-05T07:47:32.448Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-test-run.log": {
+      "sha256": "3d7606a90d41962b9781b1849466e3a13aac52a933908be9c6fd481ba8ad09c6",
+      "size": 1840,
+      "recordedAt": "2026-11-05T03:16:41.201Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-type-check.log": {
+      "sha256": "9e099a57fc456b631d04a7beb733083c7fa2cd6d4426a076dc1044a35a3904fd",
+      "size": 903,
+      "recordedAt": "2026-11-05T10:23:42.163Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-type-desktop.png": {
+      "sha256": "5fdd42dd1a77c2761393c01d75cef7fc7aa589c23fe3e633eb824b2fa0d286cf",
+      "size": 292769,
+      "recordedAt": "2026-11-05T10:31:32.725Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-type-mobile.png": {
+      "sha256": "a7e95be3f18d64a379b1c1ca497bcb7a1fc256a77a5e3630c3fae06cca425856",
+      "size": 222808,
+      "recordedAt": "2026-11-05T10:31:32.725Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "upgrade-type-ui.json": {
+      "sha256": "105e6903aa74a455c5c96f0b23c91cd74b5157071933e5ddf8666b2edf7ece13",
+      "size": 1122,
+      "recordedAt": "2026-11-05T10:31:32.725Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "web-real-evidence-desktop.jpg": {
+      "sha256": "a158585047993e82419120e1685584edfb7d4ae545740fed7cd8baf81af72360",
+      "size": 260691,
+      "recordedAt": "2026-11-07T08:17:16.110Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "web-real-evidence-mobile.jpg": {
+      "sha256": "9f3a76e2e756afc81d6d8679d39bf07adc77c7bad8fcc1e34e2d75c4c6d2955c",
+      "size": 214647,
+      "recordedAt": "2026-11-07T08:13:15.490Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "web-real-evidence-preview.jpg": {
+      "sha256": "1a3cd719eb7e2ea5a535077d40e9176fcbdcd519769fbf1acc6684f0b13061c2",
+      "size": 108998,
+      "recordedAt": "2026-11-07T08:17:15.906Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "web-real-evidence-qa.json": {
+      "sha256": "99a705fa1ad49f8737c518a832e3bf6325af0b3685850796ac1d93b3adaef32b",
+      "size": 2732,
+      "recordedAt": "2026-11-07T08:15:44.077Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "website-clean-interface-20261107.jpg": {
+      "sha256": "6aa99daf9e9f42a97fdf39197a73edb5d36f75ac4bd3c7d2fa4b5f5ae37e27e3",
+      "size": 89892,
+      "recordedAt": "2026-11-07T11:31:06.135Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "website-connection-check-20261107.json": {
+      "sha256": "10f964fe72af6cf4e34a81a61ee67ed79cb3b00dc045e05013a5b03c22369424",
+      "size": 1439,
+      "recordedAt": "2026-11-07T13:29:41.811Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "website-functional-public-20261107.png": {
+      "sha256": "b6e46060d46e2dae861b46ade34baa5025bf01e68ffa6cbae8f39d187e93cc60",
+      "size": 265773,
+      "recordedAt": "2026-11-07T13:38:41.402Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "website-functional-tests-20261107.log": {
+      "sha256": "0910bff042e2a7b8088b56ad6497c6f0d336c3aaadc6bf16b31cde30bfaa1907",
+      "size": 6834,
+      "recordedAt": "2026-11-07T13:35:11.946Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "website-public-copy-cleanup-20261107.png": {
+      "sha256": "9fa471c30e9da3fbaf54177405fac4151521a597870af5c8144102cb851eea3e",
+      "size": 87667,
+      "recordedAt": "2026-11-07T13:20:43.932Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "website-recovery-qa-20261107.jpg": {
+      "sha256": "ea8e8207c128254e7f707ba6d36707696b814b9e0e7538d365401a19f0f3c3b0",
+      "size": 113997,
+      "recordedAt": "2026-11-07T10:08:20.451Z",
+      "note": "backfill",
+      "commit": null
+    },
+    "website-recovery-qa-20261107.json": {
+      "sha256": "6acf8d8e909301e7439cca49c5580d6f14fd54d20d5e32ef0558dc7ef79f62ab",
+      "size": 2042,
+      "recordedAt": "2026-11-07T10:08:44.104Z",
+      "note": "backfill",
+      "commit": null
+    }
+  },
+  "policy": "evidence/ 只允许 scripts/evidence.mjs record 写入；测试产物写入 artifacts/test-output/。verify 会重算 sha256 并报告改动。"
+}

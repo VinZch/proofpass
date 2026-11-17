@@ -1,0 +1,115 @@
+{
+  "at": "2026-11-07T08:38:45.737Z",
+  "method": "IAB UI via CUA",
+  "desktop": [
+    {
+      "images": [],
+      "overflow": false,
+      "title": "让凭证状态可追溯，让认可决定有依据。",
+      "url": "#slide-1",
+      "visible": "slide-1",
+      "w": 1280
+    },
+    {
+      "images": [],
+      "overflow": false,
+      "title": "改变记录与核验方式，不跳过学校的审核责任。",
+      "url": "#slide-2",
+      "visible": "slide-2",
+      "w": 1280
+    },
+    {
+      "images": [],
+      "overflow": false,
+      "title": "链上留状态与关联，真实材料留在授权边界内。",
+      "url": "#slide-3",
+      "visible": "slide-3",
+      "w": 1280
+    },
+    {
+      "images": [
+        {
+          "height": 1807,
+          "ok": true,
+          "width": 1280
+        },
+        {
+          "height": 1807,
+          "ok": true,
+          "width": 1280
+        },
+        {
+          "height": 1782,
+          "ok": true,
+          "width": 1280
+        }
+      ],
+      "overflow": false,
+      "title": "三份凭证包，三个可复核的历史状态。",
+      "url": "#slide-4",
+      "visible": "slide-4",
+      "w": 1280
+    },
+    {
+      "images": [],
+      "overflow": false,
+      "title": "先讲判断，再用证据回答“为什么”。",
+      "url": "#slide-5",
+      "visible": "slide-5",
+      "w": 1280
+    },
+    {
+      "images": [],
+      "overflow": false,
+      "title": "已证明状态流程能运行，尚未证明真实场景更高效。",
+      "url": "#slide-6",
+      "visible": "slide-6",
+      "w": 1280
+    }
+  ],
+  "mobile": [
+    {
+      "hash": "#slide-1",
+      "overflow": false,
+      "w": 390
+    },
+    {
+      "hash": "#slide-2",
+      "overflow": false,
+      "w": 390
+    },
+    {
+      "hash": "#slide-3",
+      "overflow": false,
+      "w": 390
+    },
+    {
+      "hash": "#slide-4",
+      "overflow": false,
+      "w": 390
+    },
+    {
+      "hash": "#slide-5",
+      "overflow": false,
+      "w": 390
+    },
+    {
+      "hash": "#slide-6",
+      "overflow": false,
+      "w": 390
+    }
+  ],
+  "hubMobile": {
+    "overflow": false,
+    "width": 390
+  },
+  "keyboard": {
+    "Home": "#slide-1",
+    "ArrowRight": "#slide-2",
+    "End": "#slide-6"
+  },
+  "reportDownload": "/Users/vinch/Downloads/ProofPass_课程结项报告.docx",
+  "printPreviewChecked": false,
+  "scope": "New course-closeout pages only; no new wallet transaction or RPC query.",
+  "passed": true
+}

@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-05",
+  "syntheticMaterials": {
+    "coreCases": 16,
+    "extensionScenarios": 8,
+    "fictionalInterviewRoles": 15,
+    "modelRows": 48,
+    "governanceTopics": 5,
+    "fictionalTeamRoles": 4,
+    "qa": 10
+  },
+  "actualValidation": {
+    "npmTestGroupsPassed": 8,
+    "npmTestGroupsFailed": 0,
+    "browserChecks": "simulation-research/网页检查.json",
+    "dataChecks": "simulation-research/生成校验.json",
+    "visualReview": [
+      "desktop tab",
+      "390px mobile tab"
+    ]
+  },
+  "realInterviewsConducted": false,
+  "newPublicChainTransactions": false,
+  "publicTestnetAcceptanceComplete": false
+}

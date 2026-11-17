@@ -1,0 +1,72 @@
+[
+  {
+    "id": "SIM-FLOW-01",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "step": "准备与提交",
+    "owner": "虚构学生",
+    "active_minutes": 8,
+    "waiting_minutes": 0,
+    "output": "凭证包/附件与用途说明",
+    "assumption": "示例含异常询证；步骤顺序相加，非所有材料必经"
+  },
+  {
+    "id": "SIM-FLOW-02",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "step": "来源查询",
+    "owner": "虚构审核员",
+    "active_minutes": 4,
+    "waiting_minutes": 2,
+    "output": "官方来源或可信记录查询",
+    "assumption": "示例含异常询证；步骤顺序相加，非所有材料必经"
+  },
+  {
+    "id": "SIM-FLOW-03",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "step": "持有人核实",
+    "owner": "虚构审核员",
+    "active_minutes": 5,
+    "waiting_minutes": 10,
+    "output": "独立身份核对记录",
+    "assumption": "示例含异常询证；步骤顺序相加，非所有材料必经"
+  },
+  {
+    "id": "SIM-FLOW-04",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "step": "异常询证",
+    "owner": "虚构签发管理岗",
+    "active_minutes": 12,
+    "waiting_minutes": 240,
+    "output": "补充材料或待复核结论",
+    "assumption": "示例含异常询证；步骤顺序相加，非所有材料必经"
+  },
+  {
+    "id": "SIM-FLOW-05",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "step": "状态复查",
+    "owner": "虚构审核员",
+    "active_minutes": 3,
+    "waiting_minutes": 1,
+    "output": "带时间和区块的状态记录",
+    "assumption": "示例含异常询证；步骤顺序相加，非所有材料必经"
+  },
+  {
+    "id": "SIM-FLOW-06",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "step": "校内认定",
+    "owner": "虚构接收学校",
+    "active_minutes": 6,
+    "waiting_minutes": 60,
+    "output": "按本校规则作认定",
+    "assumption": "示例含异常询证；步骤顺序相加，非所有材料必经"
+  },
+  {
+    "id": "SIM-FLOW-07",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "step": "结果留痕与通知",
+    "owner": "虚构审核员",
+    "active_minutes": 2,
+    "waiting_minutes": 0,
+    "output": "结论、理由与申诉入口",
+    "assumption": "示例含异常询证；步骤顺序相加，非所有材料必经"
+  }
+]

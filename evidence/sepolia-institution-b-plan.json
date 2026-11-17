@@ -1,0 +1,21 @@
+{
+  "chainId": 11155111,
+  "registryAddress": "0xdaf9d8f06bc5895a79a4cdae66ec3ea262435149",
+  "institutionA": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+  "institutionB": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+  "credentialId": "0xec049ce6621886dc973d6b2e4ab902c39c6bdd660739845ed9f68486a27e60ac",
+  "commitment": "0x0fafca15f193eb96ac258403d837dcecafdbbdb67b9c1393a0f055926355fb60",
+  "validUntil": 1825372799,
+  "package": "evidence/sepolia-institution-b-package.json",
+  "fundingSepETH": "0.01",
+  "status": "completed: authorization, funding, B signed issue/revoke, namespace comparisons, independent Safari Active and Revoked checks",
+  "expected": [
+    "B authorized by existing admin",
+    "B signs issue using A same ID but its own commitment",
+    "A record remains byte-for-byte unchanged including revoked=true",
+    "B duplicate issue fails",
+    "B signs revoke; A unchanged",
+    "B record becomes revoked without affecting A"
+  ],
+  "scope": "Two distinct wallet addresses in one MetaMask installation; no real institutional identity attestation"
+}

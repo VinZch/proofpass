@@ -1,0 +1,25 @@
+{
+  "payload": {
+    "schemaVersion": 3,
+    "chainId": 11155111,
+    "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+    "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+    "issuer": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+    "keyEpoch": 1,
+    "credentialId": "0x6b47782f2cacc5fc553db2b170d43b44a8060de46e4b784b530efe71d461dad6",
+    "previousId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "title": "ProofPass Governed TEST ONLY - Skill Certificate v1",
+    "holderRef": "TEST-LEARNER-001",
+    "validUntil": 1825560360
+  },
+  "salt": "0x363b8478b2d9e412ff0482115790a680c7a7d1acd84452cc036af936af3813b0",
+  "receipt": {
+    "state": "已入块成功",
+    "transactionHash": "0xf22f84d2a8fff0daf3156b6b7fb257cb1ca439ca6e23f19679e9413c46ca1f5a",
+    "blockNumber": 12081241,
+    "blockHash": "0x7c94b1df7755e651702499d77d0fa63782969488f6e4ce9e93052c2002ab565d",
+    "receiptStatus": "0x1",
+    "finality": "未确认最终性",
+    "queriedAt": "2026-11-07T04:17:38.069Z"
+  }
+}

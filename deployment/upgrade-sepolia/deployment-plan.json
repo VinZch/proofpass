@@ -1,0 +1,477 @@
+{
+  "status": "core-governance-and-independent-browser-technical-flow-verified",
+  "chainId": 11155111,
+  "contract": "ProofPassGoverned",
+  "compiler": "0.8.38+commit.1835d247.Emscripten.clang",
+  "optimizer": {
+    "enabled": true,
+    "runs": 200
+  },
+  "evmVersion": "shanghai",
+  "threshold": 2,
+  "governorsDraft": [
+    {
+      "account": "Account 1",
+      "address": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+      "source": "Existing Sepolia evidence; address included in verified constructor on 2026-11-07",
+      "status": "included-in-verified-constructor"
+    },
+    {
+      "account": "Account 2",
+      "address": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+      "source": "Existing Sepolia evidence; address included in verified constructor on 2026-11-07",
+      "status": "included-in-verified-constructor"
+    },
+    {
+      "account": "Account 3",
+      "address": "0xeE778D5339dd8f9D1CecE5aD458f0805809B63Bc",
+      "source": "MetaMask Account 3 Ethereum QR/address UI on 2026-11-07",
+      "status": "included-in-verified-constructor"
+    }
+  ],
+  "independentRealInstitutions": false,
+  "valueWei": "0",
+  "publicTestnetDeployed": true,
+  "sourceSha256": "2dfa285f47b05fe08d014c384ab13d46447981a1dc65ad290277e77d2ee4a6c5",
+  "bytecodeSha256": "14329501f8cd877e45ff79dd71adab9be7053c6ebbad50f2bc37dd2645f3aff3",
+  "predeploymentTests": {
+    "passed": 9,
+    "failed": 0,
+    "log": "evidence/upgrade-predeployment-tests.log"
+  },
+  "governors": [
+    "0xcDF9996213eFdfC6014F9ab4c3554CD4E6e398Ac",
+    "0x3242e9b46a6f43283BfF0d91c92dE8545F195009",
+    "0xeE778D5339dd8f9D1CecE5aD458f0805809B63Bc"
+  ],
+  "preparedAt": "2026-11-07",
+  "deployer": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+  "walletDisplayedFeeSepoliaETH": "0.0163",
+  "feeNote": "Wallet estimate observed 2026-11-07; final fee may change",
+  "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+  "deploymentTxHash": "0x069e1a31d7ffd37aaaa17e079c120633c7eab8bb7d1bb0a30983a51e12d72bb7",
+  "deploymentBlock": 12081167,
+  "verifiedAt": "2026-11-07T04:26:07.338Z",
+  "businessAcceptance": "technical-flow-complete",
+  "finality": {
+    "status": "finalized",
+    "checkedAt": "2026-11-07T04:26:07.195Z",
+    "finalizedBlock": 12081208,
+    "finalizedBlockHash": "0x98ef044223ed15cd3df4597a731639a27946f6a570d30c4f4081cec6953702ae",
+    "scope": "deployment transaction only; later transaction finality is recorded separately"
+  },
+  "deploymentEvidence": "evidence/upgrade-sepolia-deployment.json",
+  "governanceProposal": {
+    "proposalId": 1,
+    "transactionHash": "0xad82988f9d636249ae55e00ff3630b6b3f152d1dad5c730ea6560d8ff646a05b",
+    "approvalTransactionHash": "0xe17e4816246894a34d0d4ee3520f6f422805f569a9afcb2d506732f86d8db07f",
+    "executionTransactionHash": "0x16028e6dbc7c3097fcdb902862385a0bb773eb20516d433d8d5b2cd1902f3551",
+    "executionBlock": 12081228,
+    "snapshotBlock": 12081230,
+    "snapshotBlockHash": "0x5f875e998d5d9a61e8dcf9b1cf0df2dab41227cefa95efc233119804a8dedecb",
+    "snapshotAt": "2026-11-07T04:15:32.852Z",
+    "approvals": 2,
+    "threshold": 2,
+    "executed": true,
+    "status": "executed-and-institution-admitted",
+    "evidence": "evidence/upgrade-sepolia-governance-executed.json",
+    "priorStageEvidence": [
+      "evidence/upgrade-sepolia-governance-one-vote.json",
+      "evidence/upgrade-sepolia-governance-two-votes.json"
+    ]
+  },
+  "updatedAt": "2026-11-07T08:00:49.403Z",
+  "rotationProposal": {
+    "proposalId": 2,
+    "status": "executed-and-core-state-verified",
+    "action": "Rotate",
+    "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+    "currentKey": "0x3242e9b46a6f43283BfF0d91c92dE8545F195009",
+    "proposedKey": "0x3242e9b46a6f43283BfF0d91c92dE8545F195009",
+    "proposedKeyApplied": true,
+    "reasonHash": "0x6ed2218fc75020da180f3fdff2540aea3cea14a0c2369d4a951e07a01f83752d",
+    "deadline": "1794111863",
+    "deadlineAsiaShanghai": "2026-11-08T12:24:23+08:00",
+    "proposalTransactionHash": "0xe797b811939edcbb977889529d2c3a289c89b221b361558874b402754ef7b17e",
+    "approvalTransactionHash": "0x6964f35e174e76c6fc2a7295c2a21c0117a92d90e1b4113b514706dc717750a2",
+    "executionTransactionHash": "0xdd4c86215d20f259a12aaba848ecc7cdd9daf420b2238ec96f8af71b177d10de",
+    "snapshotBlock": 12081540,
+    "snapshotBlockHash": "0xa3b350d22f46ee4ce7f674a6c1afb8686a82bb6264404dbc078e58a6eb71829e",
+    "snapshotAt": "2026-11-07T05:23:14.184Z",
+    "approvals": 2,
+    "threshold": 2,
+    "executed": true,
+    "epoch": 2,
+    "revision": 2,
+    "evidence": "evidence/upgrade-sepolia-rotation-executed.json",
+    "priorStageEvidence": [
+      "evidence/upgrade-sepolia-rotation-pending.json",
+      "evidence/upgrade-sepolia-rotation-two-votes.json"
+    ],
+    "expected": "deployment/upgrade-sepolia/rotation-expected.json",
+    "finality": {
+      "status": "pending",
+      "checkedAt": "2026-11-07T05:23:14.183Z"
+    },
+    "executionBlock": 12081540,
+    "proposalCreationPriorStateRevalidated": false,
+    "historicalReadUnavailable": [
+      {
+        "method": "eth_call",
+        "to": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+        "data": "0x95829738aff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+        "blockTag": "0xb8587b",
+        "rpcSource": "https://ethereum-sepolia.publicnode.com",
+        "error": "{\"code\":-32000,\"message\":\"historical state f2fc1ca9b1dba05e4dfde810a44ff7fa78a9df79aad78bf8f1efaad2fdc69d4a is not available\"}",
+        "scope": "Additional proposal-creation prior state could not be re-read. Execution prior-state validation remains mandatory."
+      }
+    ],
+    "verificationScope": "Successful governance transactions, events, approvals, mandatory execution prior-state and post-state validated; proposal-creation prior-state was unavailable and is not claimed revalidated.",
+    "permissions": {
+      "oldKeyRejected": "active issuer",
+      "newKeySimulationResult": "0x",
+      "simulationsAreTransactions": false,
+      "oldAndNewKeyInstitutionReserved": true,
+      "originalPackageTraceable": true,
+      "correctedPackageStillValid": true,
+      "receiptBlockEvidence": "evidence/upgrade-sepolia-key-rotation-permissions.json",
+      "currentSnapshotEvidence": "evidence/upgrade-sepolia-key-rotation-current-check.json",
+      "currentSnapshotBlock": 12081567
+    },
+    "actualNewKeyIssue": true
+  },
+  "publicTestnetMilestones": {
+    "institutionAdmission": {
+      "complete": true,
+      "proposalId": 1,
+      "evidence": "evidence/upgrade-sepolia-governance-executed.json"
+    },
+    "credentialIssuance": {
+      "complete": true,
+      "transactionHash": "0xf22f84d2a8fff0daf3156b6b7fb257cb1ca439ca6e23f19679e9413c46ca1f5a",
+      "block": 12081241,
+      "credentialId": "0x6b47782f2cacc5fc553db2b170d43b44a8060de46e4b784b530efe71d461dad6",
+      "evidence": "evidence/upgrade-sepolia-issued.json",
+      "finality": {
+        "status": "pending",
+        "checkedAt": "2026-11-07T04:20:40.881Z",
+        "blockNumber": "0xb85818",
+        "blockHash": "0x520f5d5ba2bd5ee1418103ea91e17dfd4d6cb432ab227fca52aaf7b7572a2bb1"
+      }
+    },
+    "atomicCorrection": {
+      "complete": true,
+      "transactionHash": "0xdb362701670cf4fbf88c3dd0568c1b76683ff86f6ab6ac497b8e8009349e0adc",
+      "block": 12081257,
+      "previousId": "0x6b47782f2cacc5fc553db2b170d43b44a8060de46e4b784b530efe71d461dad6",
+      "credentialId": "0xaaeb8577272d9bddac334b2a2b7473ed45d9724fc2860c4dd1b8f593b91864b9",
+      "oldRevocationKind": 2,
+      "bidirectionalLinksVerified": true,
+      "evidence": "evidence/upgrade-sepolia-corrected.json",
+      "finality": {
+        "status": "pending",
+        "checkedAt": "2026-11-07T04:22:42.687Z",
+        "blockNumber": "0xb85818",
+        "blockHash": "0x520f5d5ba2bd5ee1418103ea91e17dfd4d6cb432ab227fca52aaf7b7572a2bb1"
+      }
+    },
+    "packageChecks": {
+      "complete": true,
+      "checks": 3,
+      "snapshotBlock": 12081292,
+      "evidence": "evidence/upgrade-sepolia-correction-package-checks.json",
+      "scope": "original replaced; corrected active; altered title rejected; read-only RPC, not cross-browser acceptance"
+    },
+    "keyRotation": {
+      "complete": true,
+      "proposalId": 2,
+      "stage": "executed",
+      "transactionHash": "0xdd4c86215d20f259a12aaba848ecc7cdd9daf420b2238ec96f8af71b177d10de",
+      "block": 12081540,
+      "evidence": "evidence/upgrade-sepolia-rotation-executed.json",
+      "scope": "Governance rotation execution and read-only permissions/old-package checks. Actual epoch2 credential issue is separate and completed with its own receipt evidence: evidence/upgrade-sepolia-key2-issued.json.",
+      "permissionsEvidence": "evidence/upgrade-sepolia-key-rotation-permissions.json",
+      "currentSnapshotEvidence": "evidence/upgrade-sepolia-key-rotation-current-check.json"
+    },
+    "suspensionAndEmergencyRevoke": {
+      "complete": true,
+      "suspensionComplete": true,
+      "emergencyRevocationComplete": true,
+      "stage": "both-executed-and-verified"
+    },
+    "independentCrossBrowserAcceptance": {
+      "complete": true,
+      "browser": "ChatGPT in-app browser (IAB)",
+      "newIndependentTab": true,
+      "walletConnected": false,
+      "independentRpcProvider": false,
+      "rpcSource": "https://ethereum-sepolia.publicnode.com",
+      "evidence": "evidence/upgrade-sepolia-independent-browser-acceptance.json",
+      "verifiedAt": "2026-11-07T07:59:56.767Z",
+      "reportCount": 3,
+      "reports": [
+        {
+          "case": "corrected-emergency-revoked",
+          "report": "evidence/upgrade-sepolia-independent-corrected-revoked-report.json",
+          "screenshot": "evidence/upgrade-sepolia-independent-revoked.jpg",
+          "block": 12082327,
+          "status": "已紧急撤销",
+          "integrity": true,
+          "technicalPass": false,
+          "institutionEnabled": false
+        },
+        {
+          "case": "original-replaced",
+          "report": "evidence/upgrade-sepolia-independent-original-replaced-report.json",
+          "screenshot": "evidence/upgrade-sepolia-independent-original.jpg",
+          "block": 12082330,
+          "status": "已被更正版替代",
+          "integrity": true,
+          "technicalPass": false,
+          "institutionEnabled": false
+        },
+        {
+          "case": "key2-unaffected-valid",
+          "report": "evidence/upgrade-sepolia-independent-key2-valid-report.json",
+          "screenshot": "evidence/upgrade-sepolia-independent-key2.jpg",
+          "block": 12082332,
+          "status": "有效",
+          "integrity": true,
+          "technicalPass": true,
+          "institutionEnabled": false
+        }
+      ],
+      "scope": "Independent browser environment and saved reports, with fixed-block RPC/commitment recomputation. Same configured RPC provider; no independent provider-consensus claim.",
+      "safariReportSaved": false,
+      "safariNote": "Earlier Safari pre-revocation observation and failed export remain historical; final saved reports are from IAB, not Safari."
+    },
+    "teamFieldEvidence": {
+      "complete": false
+    },
+    "newKeyCredentialIssuance": {
+      "complete": true,
+      "actualNewKeyIssue": true,
+      "stage": "issued-and-verified",
+      "transactionHash": "0xf80fc89cb6482fbcd2c170842168487402c57b05489db98e5dfa582b4616dfbf",
+      "block": 12081578,
+      "credentialId": "0x9680d38f0728e6e14bc2040279e012a47d79f5c194ff8203a4cb5e1930125a78",
+      "issuer": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+      "keyEpoch": 2,
+      "evidence": "evidence/upgrade-sepolia-key2-issued.json",
+      "package": "evidence/upgrade-sepolia-key2-package.json",
+      "browserReport": "evidence/upgrade-sepolia-key2-browser-report.json",
+      "finality": {
+        "status": "pending",
+        "checkedAt": "2026-11-07T05:27:24.250Z"
+      }
+    },
+    "institutionSuspension": {
+      "complete": true,
+      "proposalId": 3,
+      "executionTransactionHash": "0x0249250047638fffbeca7a24dc701a1a26c88c4936066b10eb13996f95793db1",
+      "block": 12081617,
+      "evidence": "evidence/upgrade-sepolia-suspension-executed.json",
+      "permissionsEvidence": "evidence/upgrade-sepolia-suspension-permissions.json",
+      "scope": "Institution disabled; issue/revoke/correct denied in eth_call; three prior credential records unchanged."
+    },
+    "emergencyRevocation": {
+      "complete": true,
+      "proposalId": 4,
+      "stage": "executed-and-target-revocation-verified",
+      "evidence": "evidence/upgrade-sepolia-emergency-revoke-executed.json",
+      "executionTransactionHash": "0xbecd392071c5f8744d07a151d21baf82da58df1a7d17ecbaf6940cbee37fc39b",
+      "approvals": 2,
+      "block": 12082287,
+      "auditEvidence": "evidence/upgrade-sepolia-emergency-revoke-audit.json",
+      "packageStatuses": [
+        "已被更正版替代",
+        "已紧急撤销",
+        "有效"
+      ]
+    }
+  },
+  "remainingAcceptance": [
+    "Genuine team field screenshots, participation/interview evidence and现场演示 materials are still required",
+    "Real holder identity verification and official school approval remain outside this technical acceptance; same-local-wallet accounts do not establish independent real institutions"
+  ],
+  "nextStep": {
+    "status": "technical-flow-complete-real-world-evidence-pending",
+    "actions": [
+      "Collect genuine team现场 screenshots/participation records and actual interviews if required",
+      "Complete real-world holder identity verification and school approval outside the technical test workflow"
+    ],
+    "note": "No wallet transaction or technical cross-browser report remains pending in the verified test flow. Synthetic demo materials and automated browser screenshots are not team现场 evidence."
+  },
+  "actualNewKeyIssue": true,
+  "suspensionProposal": {
+    "proposalId": 3,
+    "action": "SetEnabled",
+    "status": "executed",
+    "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+    "reasonHash": "0x8b139b89670b04148d4a6841e1b2d152a22218872986789b9d1897095361b756",
+    "deadline": "1794115699",
+    "approvals": 2,
+    "threshold": 2,
+    "executed": true,
+    "proposalTransactionHash": "0x6b4c041df1a2f859b59290a46b7b3e6b80101c3ad2f61304bccd031cf2092888",
+    "approvalTransactionHashes": [
+      "0x8e81ea296f3192a4dc3a6fdfbe6a947052ebf120571234b882da2e51c082492c"
+    ],
+    "executionTransactionHash": "0x0249250047638fffbeca7a24dc701a1a26c88c4936066b10eb13996f95793db1",
+    "snapshotBlock": 12081617,
+    "snapshotBlockHash": "0xd2f906ec8cb137d96882cae3a05827f68ecf19c4c1349bc303a8718c857e9ab7",
+    "snapshotAt": "2026-11-07T05:34:11.740Z",
+    "institutionSnapshot": {
+      "key": "0x3242e9b46a6f43283BfF0d91c92dE8545F195009",
+      "epoch": "2",
+      "revision": "3",
+      "enabled": false
+    },
+    "finality": {
+      "status": "pending",
+      "checkedAt": "2026-11-07T05:34:11.739Z"
+    },
+    "evidence": "evidence/upgrade-sepolia-suspension-executed.json",
+    "priorStageEvidence": [
+      "evidence/upgrade-sepolia-suspension-pending.json",
+      "evidence/upgrade-sepolia-suspension-two-votes.json"
+    ],
+    "permissionsEvidence": "evidence/upgrade-sepolia-suspension-permissions.json",
+    "writeMethodsSimulated": [
+      "issue",
+      "revoke",
+      "correct"
+    ],
+    "beforeSimulationResult": "0x",
+    "afterSimulationRevert": "active issuer",
+    "simulationsAreTransactions": false,
+    "historicalRecordsUnchanged": 3
+  },
+  "emergencyRevocationProposal": {
+    "proposalId": 4,
+    "action": "EmergencyRevoke",
+    "status": "executed-and-target-revocation-verified",
+    "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+    "reasonHash": "0x0453b3dcdb3e5791453d7c47608ef2e14828a53302064c049e316b543459b58e",
+    "deadline": "1794116149",
+    "approvals": 2,
+    "threshold": 2,
+    "executed": true,
+    "proposalTransactionHash": "0x91b4ead0b93614163d315f5bfce77febb8ab3b66226d4e8340ca5a3f812f29ed",
+    "approvalTransactionHashes": [
+      "0xbb313624349ff4bbc4c72995e66e98f1b5f3460cee9172348c7f8c0d9944a3d6"
+    ],
+    "executionTransactionHash": "0xbecd392071c5f8744d07a151d21baf82da58df1a7d17ecbaf6940cbee37fc39b",
+    "snapshotBlock": 12082287,
+    "snapshotBlockHash": "0xcb03ee32bd6006647c7a583d12103a0fa536dd658b57719715cf80b64bfa4287",
+    "snapshotAt": "2026-11-07T07:49:32.474Z",
+    "institutionSnapshot": {
+      "key": "0x3242e9b46a6f43283BfF0d91c92dE8545F195009",
+      "epoch": "2",
+      "revision": "4",
+      "enabled": false
+    },
+    "finality": {
+      "status": "pending",
+      "checkedAt": "2026-11-07T07:49:32.473Z"
+    },
+    "evidence": "evidence/upgrade-sepolia-emergency-revoke-executed.json",
+    "targetCredentialId": "0xaaeb8577272d9bddac334b2a2b7473ed45d9724fc2860c4dd1b8f593b91864b9",
+    "expected": "deployment/upgrade-sepolia/emergency-revoke-expected.json",
+    "emergencyRevocationCompleted": true,
+    "priorStageEvidence": [
+      "evidence/upgrade-sepolia-emergency-revoke-pending.json",
+      "evidence/upgrade-sepolia-emergency-revoke-two-votes.json"
+    ],
+    "executionBlock": 12082287,
+    "targetRecordRevocationKind": 3,
+    "targetRecordChangedFields": [
+      "revokedAt",
+      "revocationKind",
+      "reasonHash"
+    ],
+    "unrelatedRecordsUnchanged": 2,
+    "auditEvidence": "evidence/upgrade-sepolia-emergency-revoke-audit.json",
+    "packageStatuses": [
+      "已被更正版替代",
+      "已紧急撤销",
+      "有效"
+    ],
+    "proposalCreationPriorStateRevalidated": false,
+    "historicalReadUnavailable": [
+      {
+        "method": "eth_call",
+        "to": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+        "data": "0x95829738aff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+        "blockTag": "0xb859e1",
+        "rpcSource": "https://ethereum-sepolia.publicnode.com",
+        "error": "{\"code\":-32000,\"message\":\"historical state 2aeb8296d17618468d879190a6dd15cae5ee5502f23bdd84ce3bf93c903ad187 is not available\"}",
+        "scope": "Additional proposal-creation prior state could not be re-read. Execution prior-state validation remains mandatory."
+      }
+    ],
+    "verificationScope": "Successful governance transactions, events, approvals, mandatory execution prior-state and post-state validated; proposal-creation prior-state was unavailable and is not claimed revalidated."
+  },
+  "independentBrowserObservation": {
+    "browser": "Safari",
+    "nativeUiObservation": true,
+    "reportSaved": false,
+    "independentBrowserReportComplete": false,
+    "credentialId": "0xaaeb8577272d9bddac334b2a2b7473ed45d9724fc2860c4dd1b8f593b91864b9",
+    "observedBlock": 12081643,
+    "observedStatus": "有效",
+    "observedIntegrity": true,
+    "observedInstitutionEnabled": false,
+    "source": "Root agent native Safari UI observation; export operation timed out and no downloaded report was saved.",
+    "evidenceFile": null,
+    "scope": "Historical Safari UI observation before emergency revocation; no saved report and not evidence of the post-revocation state."
+  },
+  "publicTestnetCoreBusinessFlowComplete": true,
+  "publicTestnetTechnicalAcceptanceComplete": true,
+  "realWorldAcceptance": "pending",
+  "independentBrowserAcceptance": {
+    "complete": true,
+    "browser": "ChatGPT in-app browser (IAB)",
+    "newIndependentTab": true,
+    "walletConnected": false,
+    "independentRpcProvider": false,
+    "rpcSource": "https://ethereum-sepolia.publicnode.com",
+    "evidence": "evidence/upgrade-sepolia-independent-browser-acceptance.json",
+    "verifiedAt": "2026-11-07T07:59:56.767Z",
+    "reportCount": 3,
+    "reports": [
+      {
+        "case": "corrected-emergency-revoked",
+        "report": "evidence/upgrade-sepolia-independent-corrected-revoked-report.json",
+        "screenshot": "evidence/upgrade-sepolia-independent-revoked.jpg",
+        "block": 12082327,
+        "status": "已紧急撤销",
+        "integrity": true,
+        "technicalPass": false,
+        "institutionEnabled": false
+      },
+      {
+        "case": "original-replaced",
+        "report": "evidence/upgrade-sepolia-independent-original-replaced-report.json",
+        "screenshot": "evidence/upgrade-sepolia-independent-original.jpg",
+        "block": 12082330,
+        "status": "已被更正版替代",
+        "integrity": true,
+        "technicalPass": false,
+        "institutionEnabled": false
+      },
+      {
+        "case": "key2-unaffected-valid",
+        "report": "evidence/upgrade-sepolia-independent-key2-valid-report.json",
+        "screenshot": "evidence/upgrade-sepolia-independent-key2.jpg",
+        "block": 12082332,
+        "status": "有效",
+        "integrity": true,
+        "technicalPass": true,
+        "institutionEnabled": false
+      }
+    ],
+    "scope": "Independent browser environment and saved reports, with fixed-block RPC/commitment recomputation. Same configured RPC provider; no independent provider-consensus claim.",
+    "safariReportSaved": false,
+    "safariNote": "Earlier Safari pre-revocation observation and failed export remain historical; final saved reports are from IAB, not Safari."
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "at": "2026-11-05T07:00:39.037Z",
+  "mode": "local-evm",
+  "chainId": 31337,
+  "publicTestnetDeployed": false,
+  "checks": [
+    {
+      "name": "清楚标明本机链而非 Sepolia",
+      "passed": true
+    },
+    {
+      "name": "issue 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "页面签发并核验有效",
+      "passed": true
+    },
+    {
+      "name": "issue 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "更正版下载包含前版编号",
+      "passed": true
+    },
+    {
+      "name": "query 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "previous 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "上一版显示已替代",
+      "passed": true
+    },
+    {
+      "name": "next 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "下一版返回新版编号",
+      "passed": true
+    },
+    {
+      "name": "propose 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "一票执行在页面被拒绝",
+      "passed": true
+    },
+    {
+      "name": "read-proposal 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "approve 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "execute 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "轮换后机构显示密钥 v2",
+      "passed": true
+    },
+    {
+      "name": "旧签发密钥被 UI 阻止",
+      "passed": true
+    },
+    {
+      "name": "verify 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "轮换后的历史凭证仍有效",
+      "passed": true
+    },
+    {
+      "name": "propose 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "read-proposal 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "approve 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "execute 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "propose 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "read-proposal 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "approve 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "execute 操作未报错",
+      "passed": true
+    },
+    {
+      "name": "第二浏览器导入后读取紧急撤销状态",
+      "passed": true
+    },
+    {
+      "name": "页面识别内容篡改",
+      "passed": true
+    },
+    {
+      "name": "390px 页面没有横向溢出",
+      "passed": true
+    },
+    {
+      "name": "未部署入口明确显示本机启动方法",
+      "passed": true
+    },
+    {
+      "name": "本机 RPC 拒绝外站 Origin",
+      "passed": true
+    },
+    {
+      "name": "原网页可直接打开第八栏",
+      "passed": true
+    },
+    {
+      "name": "原网页升级入口窄屏无横向溢出",
+      "passed": true
+    },
+    {
+      "name": "没有浏览器脚本异常",
+      "passed": true
+    }
+  ],
+  "count": 35,
+  "errors": []
+}

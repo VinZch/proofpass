@@ -1,0 +1,44 @@
+{
+  "checkedAt": "2026-11-07T13:45:31.579071+00:00",
+  "mode": "read-only public-domain reputation lookup",
+  "results": {
+    "vinzchScan": {
+      "url": "https://dapp-scanning.api.cx.metamask.io/v2/scan?url=vinzch.github.io",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "githubRootScan": {
+      "url": "https://dapp-scanning.api.cx.metamask.io/v2/scan?url=github.io",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "stalelist": {
+      "url": "https://phishing-detection.api.cx.metamask.io/v1/stalelist",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  },
+  "note": "No wallet access, no warnings bypassed, no report submitted.",
+  "officialRepositoryList": {
+    "url": "https://raw.githubusercontent.com/MetaMask/eth-phishing-detect/main/src/config.json",
+    "checkedAt": "2026-11-07T13:46:01.726307+00:00",
+    "sha256": "27349255903b82baa4dffdcba6760cc8ed5b9c153e7b0aa725fb97946a428d7e",
+    "blocklistCount": 117045,
+    "hostMatches": [],
+    "relatedMatches": [],
+    "fuzzylist": [
+      "cryptokitties.co",
+      "etherscan.io",
+      "launchpad.ethereum.org",
+      "makerfoundation.com",
+      "metamask.io",
+      "myetherwallet.com",
+      "opensea.io",
+      "satoshilabs.com"
+    ],
+    "tolerance": 1
+  },
+  "sources": [
+    "https://support.metamask.io/stay-safe/safety-in-web3/deceptive-site-ahead-when-trying-to-connect-to-a-site/",
+    "https://github.com/MetaMask/core/blob/main/packages/phishing-controller/src/PhishingController.ts",
+    "https://github.com/MetaMask/core/blob/main/packages/phishing-controller/src/utils.ts"
+  ],
+  "conclusion": "No matching public repository blacklist entry found for vinzch.github.io or github.io. This does not establish safety or a false positive: live API requests returned 403 and MetaMask also uses remote URL scanning. No evidence that all github.io is blocked."
+}

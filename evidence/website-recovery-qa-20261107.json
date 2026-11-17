@@ -1,0 +1,41 @@
+{
+  "at": "2026-11-07T18:08:44.102937+08:00",
+  "scope": "Website state recovery and blockchain adapter hardening. No public-chain writes. Existing contract, ABI, config and historical evidence unchanged.",
+  "changedSourceFiles": {
+    "chain/adapters.js": "b6b9915b2a6bd7bee425f5d2d9aa5e6b58c86467f3d41154f1c80b05f248df39",
+    "tests/adapter.test.mjs": "d861cad8bc37c65d27ba3596d8a3e9e47f64d96e044d8c452d04f6fb033cac2e",
+    "tests/upgrade-bootstrap.test.mjs": "7e57182ff7dd878f23f5406b965b1d56ec74a295d8800c6b040ed85c0f7fc4c8",
+    "tests/upgrade-ui-state.test.mjs": "6e3229af57c23b20ab7d876ae4b1fe0c7775bd8b49d04fd93b91fe72aacda320",
+    "upgrade/app.js": "02e07e0fed659f1077c4948da8bfe0af52fe55e836e2c7516c568220f42fcb61",
+    "upgrade/bootstrap.js": "f788e9f3c34eaf21fde916263bbf422fad276178046ccfce53ad72301d65cbc8",
+    "upgrade/index.html": "b5a56edf35a7ce13bca882ff85e9da09c19a148cc786b5b9d1dc81c681282f91"
+  },
+  "regression": {
+    "adapter_protocol_offline_and_audits": 23,
+    "ui_state_including_subtests": 13,
+    "isolated_local_evm": 2,
+    "bootstrap_with_experimental_vm_modules": 5,
+    "failed": 0
+  },
+  "liveBrowser": {
+    "site": "http://127.0.0.1:8080/upgrade/",
+    "network": "Sepolia",
+    "chainId": 11155111,
+    "queriedBlock": 12082966,
+    "queryTimeShown": "2026-11-07 18:07:11 Asia/Shanghai",
+    "recordStatus": "有效",
+    "keyEpoch": 2,
+    "institutionEnabled": false,
+    "invalidIdClearsPreviousResult": true,
+    "queryFailureReplacesOldResult": true,
+    "noWalletErrorRecoversControls": true,
+    "consoleErrors": [],
+    "screenshot": "evidence/website-recovery-qa-20261107.jpg"
+  },
+  "limits": [
+    "No new wallet transaction was submitted.",
+    "file:// browser navigation blocked by browser protocol policy; its fallback is covered by Node VM code tests only.",
+    "Viewport override did not produce 390px; only the observed 1280px desktop layout is verified in this pass.",
+    "A status lookup does not verify original credential contents, holder identity or school approval."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "action": 2,
+  "key": "0x0000000000000000000000000000000000000000",
+  "enabled": false,
+  "credentialId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "proposer": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+  "executor": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+  "reason": "TEST ONLY: suspend Institution A to verify signing restrictions and governed emergency revocation.",
+  "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+  "reasonHash": "0x8b139b89670b04148d4a6841e1b2d152a22218872986789b9d1897095361b756"
+}

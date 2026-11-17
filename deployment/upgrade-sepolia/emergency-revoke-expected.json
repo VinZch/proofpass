@@ -1,0 +1,11 @@
+{
+  "action": 3,
+  "key": "0x0000000000000000000000000000000000000000",
+  "enabled": false,
+  "credentialId": "0xaaeb8577272d9bddac334b2a2b7473ed45d9724fc2860c4dd1b8f593b91864b9",
+  "proposer": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+  "executor": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+  "reason": "TEST ONLY: revoke the corrected test credential after institution suspension through two-of-three governance.",
+  "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+  "reasonHash": "0x0453b3dcdb3e5791453d7c47608ef2e14828a53302064c049e316b543459b58e"
+}

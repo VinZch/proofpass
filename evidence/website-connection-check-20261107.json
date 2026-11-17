@@ -1,0 +1,60 @@
+{
+  "at": "2026-11-07T13:29:41.808Z",
+  "mode": "read-only",
+  "chainId": 11155111,
+  "contract": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+  "deploymentVerified": true,
+  "codeMatchesArtifact": true,
+  "threshold": 2,
+  "governors": [
+    {
+      "address": "0xcDF9996213eFdfC6014F9ab4c3554CD4E6e398Ac",
+      "enabled": true
+    },
+    {
+      "address": "0x3242e9b46a6f43283BfF0d91c92dE8545F195009",
+      "enabled": true
+    },
+    {
+      "address": "0xeE778D5339dd8f9D1CecE5aD458f0805809B63Bc",
+      "enabled": true
+    }
+  ],
+  "latestBlock": 12083966,
+  "latestBlockAgeSeconds": 17,
+  "packages": [
+    {
+      "label": "original",
+      "status": "已被更正版替代",
+      "integrity": true,
+      "block": 12083966,
+      "institutionEnabled": false,
+      "currentKey": "0x3242e9b46a6f43283bff0d91c92de8545f195009"
+    },
+    {
+      "label": "corrected",
+      "status": "已紧急撤销",
+      "integrity": true,
+      "block": 12083966,
+      "institutionEnabled": false,
+      "currentKey": "0x3242e9b46a6f43283bff0d91c92de8545f195009"
+    },
+    {
+      "label": "key2",
+      "status": "有效",
+      "integrity": true,
+      "block": 12083966,
+      "institutionEnabled": false,
+      "currentKey": "0x3242e9b46a6f43283bff0d91c92de8545f195009"
+    }
+  ],
+  "proposal4": {
+    "executed": true,
+    "approvals": 2
+  },
+  "cors": {
+    "status": 204,
+    "allowOrigin": "*"
+  },
+  "publicTransactionsSent": 0
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "GAP-01",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "gap": "技术截图与团队现场材料",
+    "filler": "../evidence/upgrade-sepolia-independent-browser-acceptance.json",
+    "coverage": "主网页已改用 3 张真实 Sepolia 独立浏览器技术截图；8 张模拟图保留为历史排练材料",
+    "actual_acceptance": "技术报告与截图已保存；团队现场及参与者材料仍未完成"
+  },
+  {
+    "id": "GAP-02",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "gap": "利益相关方访谈",
+    "filler": "模拟访谈.json",
+    "coverage": "15 段虚构角色脚本：学生6、审核员4、教师3、签发管理岗2",
+    "actual_acceptance": "没有实际招募或访谈"
+  },
+  {
+    "id": "GAP-03",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "gap": "现行流程与耗时",
+    "filler": "模拟流程.json",
+    "coverage": "7 步流程；主动工时与等待时间分列",
+    "actual_acceptance": "非现实学校流程"
+  },
+  {
+    "id": "GAP-04",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "gap": "签发岗位与准入依据",
+    "filler": "模拟治理.json",
+    "coverage": "5 项治理假设与 D 类虚构管理岗位补充",
+    "actual_acceptance": "没有真实机构授权证明"
+  },
+  {
+    "id": "GAP-05",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "gap": "8 类 × 2 变体实验",
+    "filler": "模拟案例.json",
+    "coverage": "16 条场景与预设展示结论",
+    "actual_acceptance": "不是16项实测实验报告"
+  },
+  {
+    "id": "GAP-06",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "gap": "过期、误签、轮换等扩展",
+    "filler": "模拟扩展场景.json",
+    "coverage": "8 条模拟扩展场景；当前能力说明已对照 Sepolia 实测证据更新",
+    "actual_acceptance": "轮换、更正、停用、紧急撤销另有实测证据；本表预设场景未逐项运行，持有人挑战等仍未实现"
+  },
+  {
+    "id": "GAP-07",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "gap": "公平比较与成本",
+    "filler": "模拟对照模型.json",
+    "coverage": "16任务 × 3方案 = 48条假设记录，公式可复算",
+    "actual_acceptance": "没有三后端实测基准"
+  },
+  {
+    "id": "GAP-08",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "gap": "分工、演示与问答",
+    "filler": "模拟分工与答辩.json",
+    "coverage": "4个排练角色、10条问答、AI说明",
+    "actual_acceptance": "实际成员姓名和工作量待记录"
+  }
+]

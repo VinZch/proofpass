@@ -1,0 +1,66 @@
+[
+  {
+    "id": "EXT-01",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "scenario": "凭证过期",
+    "expected": "已登记但当前时间超过 validUntil，应显示已过期",
+    "implementation": "现有协议可判断；本条为模拟样例",
+    "execution": "未执行的模拟扩展场景；已完成的技术测试另有独立回执证据"
+  },
+  {
+    "id": "EXT-02",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "scenario": "授权机构误签",
+    "expected": "来源、承诺、状态可能都正常，但现实奖项错误",
+    "implementation": "现有技术检查不能判断事实真假",
+    "execution": "未执行的模拟扩展场景；已完成的技术测试另有独立回执证据"
+  },
+  {
+    "id": "EXT-03",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "scenario": "签发密钥轮换",
+    "expected": "保留旧签发历史，限制旧密钥新写入",
+    "implementation": "基础版未支持；升级版已在 Sepolia 执行轮换，旧密钥签发 eth_call 被拒，新密钥已另行实际签发 epoch=2 凭证",
+    "execution": "未执行的模拟扩展场景；已完成的技术测试另有独立回执证据"
+  },
+  {
+    "id": "EXT-04",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "scenario": "签发密钥失陷",
+    "expected": "隔离泄露密钥并按人工核实处置受影响记录",
+    "implementation": "升级版已在 Sepolia 完成停用与 2/3 阈值紧急撤销；这验证技术处置路径，不是发生过真实私钥泄露",
+    "execution": "未执行的模拟扩展场景；已完成的技术测试另有独立回执证据"
+  },
+  {
+    "id": "EXT-05",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "scenario": "证书更正",
+    "expected": "撤销旧 ID、签发新 ID、建立版本关联",
+    "implementation": "升级版已在 Sepolia 实际完成原子更正，核验旧/新记录双向关联；本条模拟案例未另行执行",
+    "execution": "未执行的模拟扩展场景；已完成的技术测试另有独立回执证据"
+  },
+  {
+    "id": "EXT-06",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "scenario": "持有人挑战重放",
+    "expected": "校验随机挑战、接收方、用途、期限和唯一性",
+    "implementation": "持有人挑战与重放绑定尚未实现，本条为设计演示",
+    "execution": "未执行的模拟扩展场景；已完成的技术测试另有独立回执证据"
+  },
+  {
+    "id": "EXT-07",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "scenario": "RPC 返回异常枚举",
+    "expected": "异常结果不得回退为有效",
+    "implementation": "本地错误处理已测试；本条为模拟样例",
+    "execution": "未执行的模拟扩展场景；已完成的技术测试另有独立回执证据"
+  },
+  {
+    "id": "EXT-08",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "scenario": "2/3 阈值准入",
+    "expected": "三个治理账户中两个批准机构准入，普通签发仍由当前机构密钥负责",
+    "implementation": "升级版已在 Sepolia 完成两票准入；三个账户来自同一本机 MetaMask，不是三家现实机构",
+    "execution": "未执行的模拟扩展场景；已完成的技术测试另有独立回执证据"
+  }
+]

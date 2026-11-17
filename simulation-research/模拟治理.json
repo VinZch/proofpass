@@ -1,0 +1,42 @@
+[
+  {
+    "id": "GOV-01",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "topic": "节点",
+    "rule": "方案假设：虚构学校甲、乙与签发机构协作。现有 Sepolia 由公共网络维护，机构只是合约用户。",
+    "current": "公共测试网合约已部署；没有自建联盟链验证节点",
+    "pending": "机构是否愿意共同运营需访谈"
+  },
+  {
+    "id": "GOV-02",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "topic": "准入",
+    "rule": "模拟流程：提交机构资格→线下核实岗位授权→确认公开地址→治理提案与批准→保留授权记录。",
+    "current": "升级版已在 Sepolia 完成机构编号与密钥准入；合约不验证真实机构资质",
+    "pending": "资格材料与正式发证岗位均未取得"
+  },
+  {
+    "id": "GOV-03",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "topic": "权限",
+    "rule": "模拟责任：治理成员管理准入与密钥；机构签发/撤销自己的记录；学校只读核验并独立认定。",
+    "current": "升级版已在 Sepolia 验证 2/3 阈值准入、轮换、停用及紧急撤销；三个治理账户属于同一本机 MetaMask",
+    "pending": "三家独立机构参与和真实制度审批均未完成"
+  },
+  {
+    "id": "GOV-04",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "topic": "纠错",
+    "rule": "模拟流程：核实误签→原子更正→检查新旧版本关联→通知接收方。",
+    "current": "升级版已在 Sepolia 完成原子更正与双向版本关联；自动通知未实现",
+    "pending": "错误责任和处理时限是假设"
+  },
+  {
+    "id": "GOV-05",
+    "data_origin": "SIMULATED_NOT_EMPIRICAL",
+    "topic": "仲裁",
+    "rule": "模拟流程：签发事实由签发方核查；校内认定由接收学校申诉程序处理；跨方争议依另行约定。",
+    "current": "系统不自动裁决事实和权利",
+    "pending": "没有真实校际协议或仲裁承诺"
+  }
+]

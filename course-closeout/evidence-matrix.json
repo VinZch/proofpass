@@ -1,0 +1,1173 @@
+{
+  "schemaVersion": 1,
+  "title": "ProofPass 课程结项：16 个合成任务的技术证据覆盖矩阵",
+  "generatedAt": "2026-11-07T08:32:13.370704+00:00",
+  "reviewMode": "只读核对现有文件；本次未运行新链交易、未新增实验、未改写原模拟材料",
+  "requirements": [
+    {
+      "path": "audit_source/requirements/学期项目指导书-区块链与智慧校园.txt",
+      "lines": "32,48,49",
+      "requirement": "至少三位真实利益相关方访谈；同意与匿名化；本校现场材料、链上取证及现场问答由团队亲自完成，成员分工与 AI 使用需披露。"
+    },
+    {
+      "path": "audit_source/requirements/选题申报书.txt",
+      "lines": "22—25,31—45",
+      "requirement": "八类场景每类两个变体共 16 个合成任务；计划 4—6 名审核业务参与者比较三种流程；主动时间与总历时分开；统计正确/错误通过、正确拦截、错误拒绝、待复核并保留分母。"
+    }
+  ],
+  "definitions": {
+    "已有技术证据": "至少一项相关技术断言有保存的运行日志或公网核验记录；可能仅部分对应具体业务变体，不能算该任务的人测完成。",
+    "仅模拟": "具体业务条件为教学或场景预设，缺少真实身份/学校决定/授权等业务实证；允许引用限制边界。",
+    "待实际实验": "有相关底层实现或预设，但尚无该变体所需的成对文件/缓存故障完整操作记录。",
+    "publicEthCall": "在真实公开链状态上模拟调用；不广播、不证明发件地址钱包控制。",
+    "humanStudy": "16 个是任务数量，不是 16 名参与者；未见逐参与者原始执行记录，因此结果、时间和人员字段均为空。"
+  },
+  "summary": {
+    "scenarioCount": 8,
+    "variantCount": 16,
+    "coverageCounts": {
+      "已有技术证据": 9,
+      "仅模拟": 4,
+      "待实际实验": 3
+    },
+    "humanStudyCompletedVariants": null,
+    "humanStudyCompletedVariantsNote": "未见可核查的逐参与者原始记录，不能填 16/16 或通过率；不对团队在文件外完成的工作作推断。",
+    "allLegacyEmpiricalPassValuesNull": true,
+    "newExperimentsPerformedInThisReview": false,
+    "interpretation": "覆盖数量只统计本矩阵的证据类别，绝不是实验成功率或已完成任务数。"
+  },
+  "teamMustSupply": [
+    {
+      "item": "真实调研",
+      "details": "至少三位真实利益相关方的同意、匿名纪要、日期地点角色和原始依据；本校现场照片/系统截图；不得将模拟访谈作为真实调查。"
+    },
+    {
+      "item": "参与者任务实验",
+      "details": "按申报书招募计划与可行性执行 16 合成任务及三流程对照，交错顺序；若只做模拟实验明确标注，保留原始输出、任务分母、人工操作与等待时间。"
+    },
+    {
+      "item": "规则与身份依据",
+      "details": "两类证书的可查询官方渠道、现实签发机构核实、接收学校规则版本，以及持有人/授权核查步骤。"
+    },
+    {
+      "item": "未执行具体变体",
+      "details": "图像重压缩、水印或排版变化、旧快照过期并查询失败；如主张自然到期覆盖，另补到期前后复查。"
+    },
+    {
+      "item": "成员信息与披露",
+      "details": "成员姓名、学院、实际分工、AI 使用与现场问答由团队自行填写；本矩阵不虚构。"
+    }
+  ],
+  "commonLimitations": [
+    "现有 public-testnet 验收是真实 Sepolia 技术证据，但凭证业务内容仍为虚构 TEST ONLY。",
+    "独立 IAB/Chrome/Safari 会话不自动等于独立 RPC；v3 IAB 验收明确使用同一 publicnode 供应商。",
+    "既有测试日志是保存的历史运行记录；本次未重跑，日期与环境应以各记录为准。",
+    "没有来自三流程同口径参与者实验的实测时间/成本/正确率，因此不能据此声称区块链比中心化方案更高效。",
+    "原 16 行模拟任务及 empirical_pass=null 均保留；对应技术证据不能回填为已完成的人测。"
+  ],
+  "rows": [
+    {
+      "id": "SIM-01A",
+      "scenario": "有效",
+      "variant": "竞赛证书首次提交",
+      "fixture": "来源受信、内容未改、状态有效",
+      "expectedOutcome": "来源/完整性/状态通过；持有人未验证；学校未审批",
+      "coverageStatus": "已有技术证据",
+      "coverageStrength": "部分对应；真实公网技术核验",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "v3 新密钥凭证在查询区块 12082332 完整性匹配、状态有效、technicalPass=true；身份与校内审批仍未完成。",
+      "evidence": [
+        {
+          "path": "evidence/upgrade-sepolia-independent-key2-valid-report.json",
+          "kind": "公网只读核验报告",
+          "anchor": "/technicalPass;/status;/integrity;/holder;/school;/query",
+          "observedAssertion": "true；有效；true；未验证；未审批；blockNumber=12082332"
+        },
+        {
+          "path": "evidence/upgrade-sepolia-independent-key2.jpg",
+          "kind": "真实浏览器截图",
+          "anchor": "整体页面",
+          "observedAssertion": "独立 IAB 中该凭证的核验页面；截图来源由验收记录说明"
+        },
+        {
+          "path": "evidence/upgrade-sepolia-independent-browser-acceptance.json",
+          "kind": "公网跨浏览器验收记录",
+          "anchor": "/checks/2;/walletConnected;/independentRpcProvider",
+          "observedAssertion": "key2-unaffected-valid passed=true；walletConnected=false；independentRpcProvider=false"
+        }
+      ],
+      "limitations": [
+        "链上凭证使用 TEST ONLY 虚构业务内容，不是已核实的真实竞赛证书。",
+        "报告仅代表记录中的查询时点；机构停用不自动撤销既有凭证。"
+      ],
+      "pendingExperiment": [
+        "团队执行竞赛首次提交任务，记录独立身份核查、认定结果与处理时间。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/0",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-01B",
+      "scenario": "有效",
+      "variant": "技能证书换浏览器导入",
+      "fixture": "结构相同，JSON 字段重排",
+      "expectedOutcome": "规范化后承诺一致；身份和学校审批仍未完成",
+      "coverageStatus": "已有技术证据",
+      "coverageStrength": "部分对应；规范化单元测试及跨浏览器机制",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "字段重排不改变承诺；另一浏览器可导入凭证读取有效状态。",
+      "evidence": [
+        {
+          "path": "tests/protocol.test.mjs",
+          "kind": "本地单元测试代码",
+          "anchor": "第 5 行；字段重排、嵌套排序、数字与 Unicode 边界",
+          "observedAssertion": "反转 payload 键顺序后 commitment 相等"
+        },
+        {
+          "path": "evidence/test-run.log",
+          "kind": "已保存测试运行日志",
+          "anchor": "字段重排、嵌套排序、数字与 Unicode 边界",
+          "observedAssertion": "该测试通过；该次日志 7 个测试通过"
+        },
+        {
+          "path": "evidence/sepolia-institution-b-safari-active.json",
+          "kind": "公网 Safari 核验报告",
+          "anchor": "/technicalPass;/status;/query",
+          "observedAssertion": "technicalPass=true；Active；blockNumber=12062786"
+        },
+        {
+          "path": "evidence/browser-results.json",
+          "kind": "本机浏览器/Ganache 测试结果",
+          "anchor": "/environment;/checks",
+          "observedAssertion": "包含 second browser context imports and queries；明确不是公网测试"
+        }
+      ],
+      "limitations": [
+        "字段重排测试与跨浏览器测试是分开的机制证据。",
+        "未见“技能证书换浏览器导入”这一特定变体的参与者记录；不能据此声称技能证书业务已完成实测。"
+      ],
+      "pendingExperiment": [
+        "制作标为虚构的技能证书包；由参与者换浏览器导入并保存原始操作与判断记录。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/1",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-02A",
+      "scenario": "篡改",
+      "variant": "修改奖项等级",
+      "fixture": "一等奖改为特等奖，保留原承诺",
+      "expectedOutcome": "完整性不匹配，拒绝技术通过",
+      "coverageStatus": "已有技术证据",
+      "coverageStrength": "部分对应；公网标题篡改与离线等级篡改",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "原承诺不变时改动内容可被发现；实际公网负例改的是 title，离线教学例改的是等级。",
+      "evidence": [
+        {
+          "path": "evidence/upgrade-sepolia-correction-package-checks.json",
+          "kind": "公网只读负例核验",
+          "anchor": "/checks/2",
+          "observedAssertion": "corrected-title-tampered：integrity=false、technicalPass=false；状态仍有效；未发交易"
+        },
+        {
+          "path": "ProofPass_跨校证书核验实验室.html",
+          "kind": "离线教学案例实现",
+          "anchor": "runCase(1)，第 212 行",
+          "observedAssertion": "将 level 改为 特等奖（被改写）后调用 assess"
+        },
+        {
+          "path": "tests/offline.test.mjs",
+          "kind": "本地测试代码",
+          "anchor": "第 4 行；runCase(1)",
+          "observedAssertion": "八个教学案例中该例预期 bad"
+        },
+        {
+          "path": "evidence/test-run.log",
+          "kind": "已保存测试运行日志",
+          "anchor": "离线修复：并发、规范化、摘要长度、未知状态、独立身份及八种教学案例",
+          "observedAssertion": "对应测试通过"
+        }
+      ],
+      "limitations": [
+        "公网报告不含奖项 level 的特定修改；v3 载荷目前以 title 承载展示标题。",
+        "教学样例的签名检测不等于真实审核员能正确处置所有篡改。"
+      ],
+      "pendingExperiment": [
+        "按相同原件制作等级篡改变体，保存修改前后包、核验输出及参与者是否错误通过。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/2",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-02B",
+      "scenario": "篡改",
+      "variant": "替换随机盐",
+      "fixture": "原内容不改，只替换盐",
+      "expectedOutcome": "完整性不匹配，拒绝技术通过",
+      "coverageStatus": "已有技术证据",
+      "coverageStrength": "直接机制证据；本地单元测试",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "仅更换随机盐会改变承诺。",
+      "evidence": [
+        {
+          "path": "tests/protocol.test.mjs",
+          "kind": "本地单元测试代码",
+          "anchor": "第 6 行；修改载荷或盐导致承诺不同；拒绝假合约及多余字段",
+          "observedAssertion": "恢复 title 后替换 salt，assert.notEqual(commitment,digest)"
+        },
+        {
+          "path": "evidence/test-run.log",
+          "kind": "已保存测试运行日志",
+          "anchor": "修改载荷或盐导致承诺不同；拒绝假合约及多余字段",
+          "observedAssertion": "该测试通过"
+        }
+      ],
+      "limitations": [
+        "该证据是本地密码学单元测试；未见专门的盐替换公网页面报告。",
+        "原 SIM-02B 的 empirical_pass 仍为空。"
+      ],
+      "pendingExperiment": [
+        "参与者导入盐被替换的等价包，记录错误提示、处置和时间；保存原包与变体。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/3",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-03A",
+      "scenario": "假机构",
+      "variant": "未授权地址签发",
+      "fixture": "DEMO-OUTSIDER 直接请求 issue",
+      "expectedOutcome": "合约应拒绝；不能以自述名称授信",
+      "coverageStatus": "已有技术证据",
+      "coverageStrength": "直接权限机制证据；公网 eth_call",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "未经授权的 B 地址无法签发，也不能给自己授予权限。",
+      "evidence": [
+        {
+          "path": "evidence/sepolia-permissions-before-authorization.json",
+          "kind": "公网状态上的 eth_call 模拟",
+          "anchor": "/checks/0;/checks/6",
+          "observedAssertion": "B 自授权限返回 admin/zero；Unauthorized or disabled B cannot issue 返回 issuer/empty；passed=true"
+        },
+        {
+          "path": "tests/contract.test.mjs",
+          "kind": "本机 Ganache 测试代码",
+          "anchor": "真实本地 EVM：权限、命名空间、撤销、停用、错误网络和跨会话查询",
+          "observedAssertion": "stranger.setIssuer 和 stranger.issue 均 assert.rejects"
+        },
+        {
+          "path": "evidence/test-run.log",
+          "kind": "已保存测试运行日志",
+          "anchor": "真实本地 EVM：权限、命名空间、撤销、停用、错误网络和跨会话查询",
+          "observedAssertion": "对应本机测试通过"
+        }
+      ],
+      "limitations": [
+        "公网拒绝断言通过 eth_call 读取真实链状态验证，未广播失败交易；from 参数不能证明钱包控制。",
+        "地址授权不证明现实学校或签发机构身份，机构准入仍需线下核实。"
+      ],
+      "pendingExperiment": [
+        "参与者接收自称机构的伪冒材料，记录其是否检查可信来源、是否正确转人工复核。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/4",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-03B",
+      "scenario": "假机构",
+      "variant": "替换成陌生合约",
+      "fixture": "包中 registryAddress 指向 DEMO-FAKE",
+      "expectedOutcome": "可信配置校验应拒绝导入",
+      "coverageStatus": "已有技术证据",
+      "coverageStrength": "直接配置校验机制；本地单元测试",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "凭证声明陌生合约地址时，配置校验拒绝该包。",
+      "evidence": [
+        {
+          "path": "tests/protocol.test.mjs",
+          "kind": "本地单元测试代码",
+          "anchor": "第 6 行；修改载荷或盐导致承诺不同；拒绝假合约及多余字段",
+          "observedAssertion": "替换 registryAddress 后 validatePackage 抛错"
+        },
+        {
+          "path": "chain/protocol.js",
+          "kind": "v2 实现",
+          "anchor": "validatePackage",
+          "observedAssertion": "schemaVersion/chainId/registryAddress 必须匹配可信配置"
+        },
+        {
+          "path": "evidence/test-run.log",
+          "kind": "已保存测试运行日志",
+          "anchor": "修改载荷或盐导致承诺不同；拒绝假合约及多余字段",
+          "observedAssertion": "该测试通过"
+        }
+      ],
+      "limitations": [
+        "校验的是部署配置边界，不是现实机构认证。",
+        "未见 SIM-03B 的参与者导入及处置原始记录。"
+      ],
+      "pendingExperiment": [
+        "保留可信包与陌生合约包，由参与者完成导入和异常处置记录。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/5",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-04A",
+      "scenario": "冒用持证人",
+      "variant": "他人持有有效凭证包",
+      "fixture": "虚构学生乙出示虚构学生甲的包",
+      "expectedOutcome": "前三项技术检查可通过；持有人仍未验证",
+      "coverageStatus": "仅模拟",
+      "coverageStrength": "业务冒用情景未实测；有未验证边界证据",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "公网报告明确持有人未验证；离线例通过预设 expectedHolder 不同演示不匹配。",
+      "evidence": [
+        {
+          "path": "evidence/upgrade-sepolia-independent-key2-valid-report.json",
+          "kind": "公网报告中的限制",
+          "anchor": "/holder;/school",
+          "observedAssertion": "未验证；未审批，不能当作身份认证成功"
+        },
+        {
+          "path": "ProofPass_跨校证书核验实验室.html",
+          "kind": "教学模拟实现",
+          "anchor": "assess 的 holderMatch；runCase(3)",
+          "observedAssertion": "字符串 expectedHolder 与 holderRef 比较；案例预设为学生乙"
+        },
+        {
+          "path": "simulation-research/模拟案例.json",
+          "kind": "未执行模拟任务",
+          "anchor": "/6",
+          "observedAssertion": "SIM-04A；empirical_pass=null；未执行"
+        }
+      ],
+      "limitations": [
+        "未实现可靠的现实身份绑定或持有人随机 challenge 防重放；页面可读取有效包不代表提交者就是本人。",
+        "已有“未验证”提示不能证明系统已阻止冒用。"
+      ],
+      "pendingExperiment": [
+        "团队制定独立身份核验流程；用获得同意的虚构角色执行本人/他人出示任务并记录结果。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/6",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-04B",
+      "scenario": "冒用持证人",
+      "variant": "转发已过期授权",
+      "fixture": "出示材料内宣称授权已过期",
+      "expectedOutcome": "当前 Chain 不实现出示授权验证；不得声称已自动阻止冒用",
+      "coverageStatus": "仅模拟",
+      "coverageStrength": "仅场景预设；出示授权机制未完成",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "该变体自身写明当前 Chain 未实现出示授权验证。",
+      "evidence": [
+        {
+          "path": "simulation-research/模拟案例.json",
+          "kind": "未执行模拟任务",
+          "anchor": "/7",
+          "observedAssertion": "SIM-04B expected：不得声称已自动阻止冒用；empirical_pass=null"
+        },
+        {
+          "path": "upgrade/protocol.js",
+          "kind": "v3 当前核验边界",
+          "anchor": "validatePackage/verifyPackage",
+          "observedAssertion": "载荷字段未包含一次性 challenge、接收方或出示授权期限；报告 holder=未验证"
+        }
+      ],
+      "limitations": [
+        "凭证有效期不等于持有人出示授权有效期。",
+        "不能用已过期凭证测试替代“转发过期授权/重放”测试。"
+      ],
+      "pendingExperiment": [
+        "完成或明确排除出示授权、防重放机制；在现状下记录“无法自动判定，需独立身份/授权核查”，不得预填通过。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/7",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-05A",
+      "scenario": "撤销或过期",
+      "variant": "原包撤销后复查",
+      "fixture": "内容不变；记录 revoked=true",
+      "expectedOutcome": "完整性匹配、状态已撤销、技术不通过",
+      "coverageStatus": "已有技术证据",
+      "coverageStrength": "直接公网撤销后跨浏览器复查",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "相同凭证包内容仍匹配，但撤销后的状态不再技术通过。",
+      "evidence": [
+        {
+          "path": "evidence/sepolia-institution-b-safari-revoked.json",
+          "kind": "v2 公网 Safari 报告",
+          "anchor": "/integrity;/status;/technicalPass;/query",
+          "observedAssertion": "匹配；已撤销；false；blockNumber=12062815"
+        },
+        {
+          "path": "evidence/upgrade-sepolia-independent-corrected-revoked-report.json",
+          "kind": "v3 公网 IAB 报告",
+          "anchor": "/integrity;/status;/technicalPass;/query",
+          "observedAssertion": "true；已紧急撤销；false；blockNumber=12082327"
+        },
+        {
+          "path": "evidence/upgrade-sepolia-independent-revoked.jpg",
+          "kind": "真实浏览器截图",
+          "anchor": "整体页面",
+          "observedAssertion": "紧急撤销后导入核验页面"
+        },
+        {
+          "path": "evidence/upgrade-sepolia-independent-browser-acceptance.json",
+          "kind": "跨浏览器验收记录",
+          "anchor": "/checks/0;/walletConnected",
+          "observedAssertion": "corrected-emergency-revoked passed=true；未连接钱包"
+        }
+      ],
+      "limitations": [
+        "公网测试对象均为虚构 TEST ONLY 凭证，不是实际学生证书。",
+        "记录证明指定查询区块的状态，不是统计意义的撤销传播延迟或可用性研究。"
+      ],
+      "pendingExperiment": [
+        "参与者使用保存原包复查；记录撤销前后决策及计时口径。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/8",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-05B",
+      "scenario": "撤销或过期",
+      "variant": "重复撤销同一记录",
+      "fixture": "原签发方再次请求 revoke",
+      "expectedOutcome": "合约应回退；原摘要与历史保持",
+      "coverageStatus": "已有技术证据",
+      "coverageStrength": "直接重复撤销机制；过期另有单元覆盖",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "B 已撤销后再次 revoke 的 eth_call 被拒绝；记录命名空间保持隔离。",
+      "evidence": [
+        {
+          "path": "evidence/sepolia-permissions-after-revoke.json",
+          "kind": "公网状态上的 eth_call 模拟",
+          "anchor": "/checks/7;/records",
+          "observedAssertion": "B revoke only addresses B namespace；passed=true；对已撤销 B 记录调用回退"
+        },
+        {
+          "path": "tests/protocol.test.mjs",
+          "kind": "本地过期判定补充证据",
+          "anchor": "第 7 行",
+          "observedAssertion": "mock blockTimestamp 到 validUntil 后 status=已过期"
+        },
+        {
+          "path": "evidence/sepolia-permissions-before-authorization.json",
+          "kind": "公网状态上的 eth_call 模拟",
+          "anchor": "/checks/4",
+          "observedAssertion": "拒绝签发已过期凭证；不是自然到期后的再次查询"
+        }
+      ],
+      "limitations": [
+        "本行保留既有 SIM-05B“重复撤销”变体；它不是过期用户任务。",
+        "过期有 mock 时间边界及拒绝过期签发证据，未见等待公网凭证自然到期后复查的记录。",
+        "重复撤销负例为 eth_call，不是广播失败交易。"
+      ],
+      "pendingExperiment": [
+        "团队执行重复撤销的异常处置任务；若报告声称覆盖自然到期，另补到期前后核验记录，不将拒绝签发过期凭证算作等价。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/9",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-06A",
+      "scenario": "真实但规则不符",
+      "variant": "等级不在目录内",
+      "fixture": "校级参与奖，前三项有效",
+      "expectedOutcome": "技术可通过；演示目录不匹配，不等于最终审批",
+      "coverageStatus": "仅模拟",
+      "coverageStrength": "演示目录逻辑；无真实校规审批",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "离线案例把有效但不在演示目录的材料标为待核；真实学校未审批。",
+      "evidence": [
+        {
+          "path": "ProofPass_跨校证书核验实验室.html",
+          "kind": "演示规则实现",
+          "anchor": "policyFor；runCase(5)",
+          "observedAssertion": "硬编码省级一等奖/高级技能两个演示条件；不认定案例使用虚构资料"
+        },
+        {
+          "path": "tests/offline.test.mjs",
+          "kind": "教学案例测试代码",
+          "anchor": "第 4 行；runCase(5)",
+          "observedAssertion": "预期 wait；这是程序判断，不是学校实际审批"
+        },
+        {
+          "path": "chain/protocol.js",
+          "kind": "演示规则边界",
+          "anchor": "verifyPackage 返回 school/policyVersion",
+          "observedAssertion": "未审批；演示目录匹配：是/否"
+        },
+        {
+          "path": "simulation-research/模拟案例.json",
+          "kind": "未执行模拟任务",
+          "anchor": "/10",
+          "observedAssertion": "SIM-06A；未执行；empirical_pass=null"
+        }
+      ],
+      "limitations": [
+        "没有真实学校规则来源与生效版本的正式核验记录。",
+        "当前 v3 技术核验不包含真实学校认可决策。"
+      ],
+      "pendingExperiment": [
+        "团队补接收学校适用目录、版本与出处；由审核角色判定这份真实但不符合用途的虚构材料。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/10",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-06B",
+      "scenario": "真实但规则不符",
+      "variant": "接收学校规则不同",
+      "fixture": "虚构 A 校目录接受，虚构 B 校目录不接受",
+      "expectedOutcome": "技术事实不变；不同学校独立认定，规则切换仅设计示例",
+      "coverageStatus": "仅模拟",
+      "coverageStrength": "两校不同规则为设计预设",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "A 接受、B 不接受目前仅为假定条件。",
+      "evidence": [
+        {
+          "path": "simulation-research/模拟案例.json",
+          "kind": "未执行模拟任务",
+          "anchor": "/11",
+          "observedAssertion": "SIM-06B：规则切换仅设计示例；empirical_pass=null"
+        },
+        {
+          "path": "audit_source/requirements/选题申报书.txt",
+          "kind": "计划要求",
+          "anchor": "第 9、19—20、38 行",
+          "observedAssertion": "技术真实性与学校认定分开；拟比较规则不同的任务"
+        }
+      ],
+      "limitations": [
+        "没有两所真实学校针对同一凭证的实际审批结果。",
+        "演示条件不能作为跨校规则差异的田野证据。"
+      ],
+      "pendingExperiment": [
+        "团队填写两套可追溯适用规则，保留同一技术事实下两种认定及其理由；必要时明确仅为模拟规则实验。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/11",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-07A",
+      "scenario": "转存扫描",
+      "variant": "同一图像重新压缩",
+      "fixture": "语义未改但文件字节改变",
+      "expectedOutcome": "文件哈希不同；不能仅据此认定伪造",
+      "coverageStatus": "待实际实验",
+      "coverageStrength": "文件字节差异机制已测；具体图像重压缩未测",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "已验证 abc 与 abcd 文件哈希不同；没有相同图像重压缩样本的实测记录。",
+      "evidence": [
+        {
+          "path": "scripts/browser-check.mjs",
+          "kind": "本机浏览器测试代码",
+          "anchor": "第 27—33 行",
+          "observedAssertion": "a.txt/b.txt 均 abc 一致；changed.txt=abcd 不一致；SHA-256 已知向量匹配"
+        },
+        {
+          "path": "evidence/browser-results.json",
+          "kind": "本机浏览器测试结果",
+          "anchor": "/checks",
+          "observedAssertion": "file SHA-256 known vector, equal and unequal comparison"
+        },
+        {
+          "path": "ProofPass_跨校证书核验实验室.html",
+          "kind": "教学模拟实现",
+          "anchor": "runCase(6)，第 219 行",
+          "observedAssertion": "扫描重存案例直接构造“指纹变化、待人工”结果"
+        },
+        {
+          "path": "simulation-research/模拟案例.json",
+          "kind": "未执行模拟任务",
+          "anchor": "/12",
+          "observedAssertion": "SIM-07A；未执行"
+        }
+      ],
+      "limitations": [
+        "文本字节变更测试不能冒充图像重压缩实验。",
+        "哈希差异只能证明字节不同，不能据此判断证书内容伪造。"
+      ],
+      "pendingExperiment": [
+        "团队准备脱敏/虚构原图与重新压缩图，保留两份文件及 SHA-256，记录语义核对与人工复核结论。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/12",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-07B",
+      "scenario": "转存扫描",
+      "variant": "水印或排版变化",
+      "fixture": "重新导出文件且未改变所述奖项",
+      "expectedOutcome": "转人工核对；若结构化 payload 改变则另按承诺规则核验",
+      "coverageStatus": "待实际实验",
+      "coverageStrength": "仅场景设计；未见水印/重排版样本记录",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "现有任务卡要求转人工核对；不存在该具体文件处理链的实测输出。",
+      "evidence": [
+        {
+          "path": "simulation-research/模拟案例.json",
+          "kind": "未执行模拟任务",
+          "anchor": "/13",
+          "observedAssertion": "SIM-07B：水印或排版变化；empirical_pass=null"
+        },
+        {
+          "path": "audit_source/requirements/选题申报书.txt",
+          "kind": "边界要求",
+          "anchor": "第 29 行",
+          "observedAssertion": "扫描、重存、导出可能改变哈希，不能仅因不一致就标假"
+        },
+        {
+          "path": "scripts/browser-check.mjs",
+          "kind": "有限机制证据",
+          "anchor": "第 27—33 行",
+          "observedAssertion": "仅有文本文件相等/不等比对，不含水印或排版变化"
+        }
+      ],
+      "limitations": [
+        "尚无成对文件、水印/导出参数、官方查询或人工判断记录。",
+        "结构化载荷篡改与文件外观变化必须分开评价。"
+      ],
+      "pendingExperiment": [
+        "团队保留同一内容加水印/重新排版前后文件，实际执行人工复核及官方来源核查，并记录错误拒绝是否出现。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/13",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-08A",
+      "scenario": "状态不可得",
+      "variant": "RPC 读取超时",
+      "fixture": "未获得可信最新记录",
+      "expectedOutcome": "显示无法确认/待复核，不默认通过",
+      "coverageStatus": "已有技术证据",
+      "coverageStrength": "直接本地故障注入机制",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "挂起 RPC 会超时失败；未知/离线状态在离线教学核验中保持待复核，不默认有效。",
+      "evidence": [
+        {
+          "path": "tests/contract.test.mjs",
+          "kind": "本地故障注入测试",
+          "anchor": "尾部 timeoutMs:20 断言",
+          "observedAssertion": "readProvider.request 永不返回时 getDeploymentInfo 拒绝并包含“超时”"
+        },
+        {
+          "path": "tests/offline.test.mjs",
+          "kind": "本地异常状态测试",
+          "anchor": "第 4 行",
+          "observedAssertion": "unknown/unexpected-status/offline 的 verdict 均为 wait，不渲染有效"
+        },
+        {
+          "path": "evidence/test-run.log",
+          "kind": "已保存测试运行日志",
+          "anchor": "真实本地 EVM；离线修复两个测试",
+          "observedAssertion": "上述测试通过"
+        },
+        {
+          "path": "chain/adapters.js",
+          "kind": "故障处理实现",
+          "anchor": "rpc，第 27 行",
+          "observedAssertion": "超时错误说明无法确认链上状态"
+        }
+      ],
+      "limitations": [
+        "这是可控本地故障注入，不是公网 RPC 宕机时长或用户恢复效率的实测。",
+        "未取得状态不能判定证书假冒或撤销。"
+      ],
+      "pendingExperiment": [
+        "在受控本地/模拟环境断开状态服务，记录审核员是否待复核、是否重复提交及恢复后的再查结果。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/14",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    },
+    {
+      "id": "SIM-08B",
+      "scenario": "状态不可得",
+      "variant": "缓存超过新鲜度",
+      "fixture": "保留旧的有效报告但查询失败",
+      "expectedOutcome": "不得显示最新有效；旧报告只代表历史时点",
+      "coverageStatus": "待实际实验",
+      "coverageStrength": "已有过旧区块单元测试与 60 秒失效代码；完整缓存故障流程待测",
+      "coverageMeaning": "对应机制已有何种证据；不表示该合成任务已完成人测",
+      "supportedAssertion": "旧区块会被拒绝；v3 页面实现 60 秒后使报告失效，但未见此变体完整执行记录。",
+      "evidence": [
+        {
+          "path": "tests/adapter.test.mjs",
+          "kind": "本地故障注入测试",
+          "anchor": "第 6 行；失效区块与重组拒绝",
+          "observedAssertion": "timestamp=1 的 block 被“区块过旧”拒绝；前后 hash 不一致被重组拒绝"
+        },
+        {
+          "path": "evidence/test-run.log",
+          "kind": "已保存测试运行日志",
+          "anchor": "并发提交拒绝、账户变更拒绝、失效区块与重组拒绝",
+          "observedAssertion": "该测试通过"
+        },
+        {
+          "path": "upgrade/app.js",
+          "kind": "当前实现代码",
+          "anchor": "verify，第 51 行",
+          "observedAssertion": "核验后 setTimeout 60000 调用 invalidateReport，提示重新查询"
+        },
+        {
+          "path": "simulation-research/模拟案例.json",
+          "kind": "未执行模拟任务",
+          "anchor": "/15",
+          "observedAssertion": "SIM-08B：保留旧有效报告但查询失败；empirical_pass=null"
+        }
+      ],
+      "limitations": [
+        "过旧区块 mock 拒绝不等于实际等待 60 秒再断网的端到端测试。",
+        "历史有效报告只能代表其查询时点，不能作为最新有效结论。"
+      ],
+      "pendingExperiment": [
+        "先核验有效包，等待快照过期并使查询失败，保存失效前后 UI/导出行为和参与者是否错误沿用旧结论。"
+      ],
+      "legacySimulation": {
+        "path": "simulation-research/模拟案例.json",
+        "jsonPointer": "/15",
+        "dataOrigin": "SIMULATED_NOT_EMPIRICAL",
+        "execution": "未执行；展示结论由场景规则预设",
+        "empiricalPass": null
+      },
+      "humanStudy": {
+        "status": "待实际实验：未见该任务的参与者执行原始记录",
+        "participantCode": null,
+        "operator": null,
+        "date": null,
+        "workflowOrder": null,
+        "actualOutcome": null,
+        "activeMinutes": null,
+        "elapsedMinutes": null,
+        "resubmissionRounds": null,
+        "channelSwitches": null,
+        "inquiryCount": null,
+        "manualReviewCount": null,
+        "empiricalPass": null,
+        "recordPath": null
+      }
+    }
+  ],
+  "sourceManifest": [
+    {
+      "path": "ProofPass_跨校证书核验实验室.html",
+      "sha256AtReview": "d003426595c3e3cb9d9ebae8edb4e70f0837c317b612336df265d9d34111bbbb"
+    },
+    {
+      "path": "audit_source/requirements/学期项目指导书-区块链与智慧校园.txt",
+      "sha256AtReview": "bafd144e554e996b891704fdf9969c9c731dbfe554dee32dd529afce7779173e"
+    },
+    {
+      "path": "audit_source/requirements/选题申报书.txt",
+      "sha256AtReview": "de91af5f72d3669d4ed42acd63fb808f5b6ab8364be49fb2af95f406e04e777e"
+    },
+    {
+      "path": "chain/adapters.js",
+      "sha256AtReview": "aa6141421a83436299c4f9d8fcf06e182462d6b246e03064ee5c7c4a9cdfe03a"
+    },
+    {
+      "path": "chain/protocol.js",
+      "sha256AtReview": "165c74a294340bc797a3be77a4f3f6f9abb955350b45c5f977371a483f667b71"
+    },
+    {
+      "path": "evidence/browser-results.json",
+      "sha256AtReview": "1cab05ad0fb195f5b14299d3460a3793b5614053289fabc253c64f8ce9016494"
+    },
+    {
+      "path": "evidence/sepolia-institution-b-safari-active.json",
+      "sha256AtReview": "4b7300eab246a1adb4bd637983b6d2d1a91dfd6a4fdb1867d5d347e977468aa1"
+    },
+    {
+      "path": "evidence/sepolia-institution-b-safari-revoked.json",
+      "sha256AtReview": "4c5c4b6d45961bab3d3b8a3743ebddd5e163b60711e4ba175494b7922b6ec87e"
+    },
+    {
+      "path": "evidence/sepolia-permissions-after-revoke.json",
+      "sha256AtReview": "d71dd5a83dbf5cd7d8296b4c5ef9a4e5aadbc9b856a1450ca6adc53c450a12db"
+    },
+    {
+      "path": "evidence/sepolia-permissions-before-authorization.json",
+      "sha256AtReview": "7939217d89cda33feb4c16b2d18c09e340518894340bbf867eda21cef2a186a7"
+    },
+    {
+      "path": "evidence/test-run.log",
+      "sha256AtReview": "a7f710e8ade6f8a5f6f558c4cf5c334c35d6a1fc24ff1b35fb4d91cff39f3770"
+    },
+    {
+      "path": "evidence/upgrade-sepolia-correction-package-checks.json",
+      "sha256AtReview": "c32fb2f941f9a839e410f7d2cd6638d19e1eeab2263e8b5f06c123ff3921b7ec"
+    },
+    {
+      "path": "evidence/upgrade-sepolia-independent-browser-acceptance.json",
+      "sha256AtReview": "d974cf04c87085230808440fb46ec6c72c5c8003930d020f3bd836fd71fa45d8"
+    },
+    {
+      "path": "evidence/upgrade-sepolia-independent-corrected-revoked-report.json",
+      "sha256AtReview": "31431aaf6175ae7b7e5b8088c43878bfcf168ac9eb3ca488da02283fc598b61d"
+    },
+    {
+      "path": "evidence/upgrade-sepolia-independent-key2-valid-report.json",
+      "sha256AtReview": "a6aa58269ac18ee1d9f5b8c3bc38c0905d7da5b86f13ebd35e80163c343df1a4"
+    },
+    {
+      "path": "evidence/upgrade-sepolia-independent-key2.jpg",
+      "sha256AtReview": "7bae5e3fa548273689c2d2e191a2c8571ad957d905a7068fb2c7cae19e245315"
+    },
+    {
+      "path": "evidence/upgrade-sepolia-independent-revoked.jpg",
+      "sha256AtReview": "c45d4e32e783788f9b36e19b9e4a4311cbd837ae89e9164458aef88d56e8c532"
+    },
+    {
+      "path": "scripts/browser-check.mjs",
+      "sha256AtReview": "eae77dda9498fc71117c01a00b69500455f2dc2b2ff20ec1120ff437530b40b8"
+    },
+    {
+      "path": "simulation-research/模拟案例.json",
+      "sha256AtReview": "ec7310ab65188c3095298728e206a9462880f96a57b0471f53ab9471b4efdc56"
+    },
+    {
+      "path": "tests/adapter.test.mjs",
+      "sha256AtReview": "1fa8f0187db67d63086d1425017ab5a079cb89040e79c783647e4af8726850c3"
+    },
+    {
+      "path": "tests/contract.test.mjs",
+      "sha256AtReview": "42c494ce57fd29876f6e5f09e2afe73148b7525581d8cc39b376df61a96b3f61"
+    },
+    {
+      "path": "tests/offline.test.mjs",
+      "sha256AtReview": "d925d1bf9fe9c37390f3439b0c87447ec7208bdd7c04b10e2a24fb978f1ca8ba"
+    },
+    {
+      "path": "tests/protocol.test.mjs",
+      "sha256AtReview": "b35bfe6454b5b7d7a5f5c7263129db7c1f148d947096bacaec4ebed1ff61c221"
+    },
+    {
+      "path": "upgrade/app.js",
+      "sha256AtReview": "7cc44d58ed51dc6cd85f3f1c01f9150d103886695808c0687cb3f4374d7afa8c"
+    },
+    {
+      "path": "upgrade/protocol.js",
+      "sha256AtReview": "297bb07beb50f5049a53adfeb39fd6637eb9ac1aca7f9fcf65048da5f1446f95"
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "method": "Original HTML JavaScript executed unmodified except removal of its automatic init() call. Node.js Web Crypto; stubbed DOM. Controlled state manipulation, no external service. Browser UI testing was unavailable because Chromium navigation was blocked by environment policy.",
+  "sourceFile": "ProofPass_跨校证书核验实验室.html",
+  "tests": [
+    {
+      "name": "eight_case_outputs",
+      "observed": [
+        {
+          "case": 1,
+          "markup": "<div class=\"result-title\">技术核验通过 · B 校予以认定</div><p class=\"result-desc\">技术凭证成立，且满足当前演示的 B 校认定规则。</p>"
+        },
+        {
+          "case": 2,
+          "markup": "<div class=\"result-title\">技术核验失败：内容或签名不一致</div><p class=\"result-desc\">无法用已登记签发方公钥验证签名。不能直接采信。</p>"
+        },
+        {
+          "case": 3,
+          "markup": "<div class=\"result-title\">技术核验失败：签发方未经认可</div><p class=\"result-desc\">数学签名成立也不等于机构具有合法签发权。</p>"
+        },
+        {
+          "case": 4,
+          "markup": "<div class=\"result-title\">持有人绑定不匹配</div><p class=\"result-desc\">凭证本身为真，但出示者不符合凭证绑定对象；应核查身份。</p>"
+        },
+        {
+          "case": 5,
+          "markup": "<div class=\"result-title\">凭证已撤销或超过有效期</div><p class=\"result-desc\">历史签名仍可能有效，但最新可用状态不再满足要求。</p>"
+        },
+        {
+          "case": 6,
+          "markup": "<div class=\"result-title\">技术核验通过 · B 校不予认定</div><p class=\"result-desc\">来源、签名和状态都没有问题，但证书不满足本校认定目录。</p>"
+        },
+        {
+          "case": 7,
+          "markup": "<div class=\"result-title\">文件指纹变化 · 待官方查询或人工核验</div><p class=\"result-desc\">重新扫描导致字节不同，不存在可在此验签的结构化数字凭证。不能直接判假。</p>"
+        },
+        {
+          "case": 8,
+          "markup": "<div class=\"result-title\">待复核：暂时无法确定最新状态</div><p class=\"result-desc\">服务不可用或状态未知，不应默认有效，也不应直接定为造假。</p>"
+        }
+      ]
+    },
+    {
+      "name": "normal_workflow",
+      "observed": {
+        "sig": true,
+        "trusted": true,
+        "holderMatch": true,
+        "authorized": true,
+        "status": "valid",
+        "expired": false,
+        "policy": true,
+        "verdict": "pass",
+        "title": "技术核验通过 · B 校予以认定",
+        "explain": "技术凭证成立，且满足当前演示的 B 校认定规则。"
+      }
+    },
+    {
+      "name": "tampered_fields",
+      "observed": {
+        "sig": false,
+        "trusted": true,
+        "holderMatch": true,
+        "authorized": true,
+        "status": "valid",
+        "expired": false,
+        "policy": false,
+        "verdict": "bad",
+        "title": "技术核验失败：内容或签名不一致",
+        "explain": "无法用已登记签发方公钥验证签名。不能直接采信。"
+      }
+    },
+    {
+      "name": "status_ledger_desynchronization",
+      "observed": {
+        "before": "bad",
+        "after": "pass",
+        "ledgerAudit": {
+          "ok": true,
+          "count": 6
+        },
+        "revocationStillRecorded": true
+      }
+    },
+    {
+      "name": "rewrite_all_history_and_rehash",
+      "observed": {
+        "withoutRehash": {
+          "ok": false,
+          "index": 1
+        },
+        "withRehash": {
+          "ok": true,
+          "count": 6
+        }
+      }
+    },
+    {
+      "name": "no_independent_holder_evidence",
+      "observed": {
+        "expectedHolderSupplied": false,
+        "holderMatch": true,
+        "verdict": "pass"
+      }
+    },
+    {
+      "name": "reorder_json_fields_without_changing_content",
+      "observed": {
+        "sameKeyValues": true,
+        "signatureValid": false
+      }
+    },
+    {
+      "name": "unknown_status_display",
+      "observed": {
+        "status": "unknown",
+        "verdict": "wait",
+        "markup": "<div class=\"testcheck\"><i class=\"dot good\"></i><span>签名与内容一致</span><b>通过</b></div><div class=\"testcheck\"><i class=\"dot good\"></i><span>签发方受信任</span><b>通过</b></div><div class=\"testcheck\"><i class=\"dot good\"></i><span>持有人绑定</span><b>通过</b></div><div class=\"testcheck\"><i class=\"dot good\"></i><span>用途授权</span><b>通过</b></div><div class=\"testcheck\"><i class=\"dot bad\"></i><span>凭证状态</span><b>有效</b></div><div class=\"testcheck\"><i class=\"dot good\"></i><span>B 校独立认定</span><b>满足目录</b></div>"
+      }
+    },
+    {
+      "name": "unrecognized_status_value",
+      "observed": {
+        "sig": true,
+        "trusted": true,
+        "holderMatch": true,
+        "authorized": true,
+        "status": "unexpected-status",
+        "expired": false,
+        "policy": true,
+        "verdict": "pass",
+        "title": "技术核验通过 · B 校予以认定",
+        "explain": "技术凭证成立，且满足当前演示的 B 校认定规则。"
+      }
+    },
+    {
+      "name": "concurrent_append",
+      "observed": {
+        "audit": {
+          "ok": false,
+          "index": 7
+        },
+        "lastTwo": [
+          {
+            "index": 6,
+            "prevHash": "155effc74c748a43654efd1fc7a38527facafaafd7857a8b63945d303a570320"
+          },
+          {
+            "index": 6,
+            "prevHash": "155effc74c748a43654efd1fc7a38527facafaafd7857a8b63945d303a570320"
+          }
+        ]
+      }
+    },
+    {
+      "name": "export_after_new_session",
+      "observed": {
+        "signatureValid": false,
+        "exportKeys": [
+          "data",
+          "signature",
+          "alg"
+        ]
+      }
+    }
+  ],
+  "sourceSHA256": "e9bb79026237dabff8d3f4217f149b6768aa163a03e77478dedef32760d5d73d",
+  "auditDate": "2026-11-03",
+  "groupCount": 11
+}

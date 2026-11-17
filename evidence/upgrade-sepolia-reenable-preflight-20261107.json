@@ -1,0 +1,180 @@
+{
+  "checkedAt": "2026-11-07T13:41:00.936Z",
+  "mode": "read-only",
+  "chainId": 11155111,
+  "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+  "runtimeCodeVerified": true,
+  "blockNumber": 12084023,
+  "blockHash": "0xa751db3150e8bd8ee4eb6582bb2f03054c08e3476754bfa963b23ad289e0e636",
+  "blockTimestamp": 1794058848,
+  "institution": {
+    "id": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+    "key": "0x3242e9b46a6f43283BfF0d91c92dE8545F195009",
+    "epoch": 2,
+    "revision": 4,
+    "enabled": false
+  },
+  "threshold": 2,
+  "proposalCount": 4,
+  "members": [
+    {
+      "account": 1,
+      "address": "0xcDF9996213eFdfC6014F9ab4c3554CD4E6e398Ac",
+      "governor": true,
+      "listedAddress": "0xcDF9996213eFdfC6014F9ab4c3554CD4E6e398Ac",
+      "balanceSepoliaETH": "2.463021442219984628",
+      "transactionCount": 14
+    },
+    {
+      "account": 2,
+      "address": "0x3242e9b46a6f43283BfF0d91c92dE8545F195009",
+      "governor": true,
+      "listedAddress": "0x3242e9b46a6f43283BfF0d91c92dE8545F195009",
+      "balanceSepoliaETH": "0.006211343459337522",
+      "transactionCount": 10
+    },
+    {
+      "account": 3,
+      "address": "0xeE778D5339dd8f9D1CecE5aD458f0805809B63Bc",
+      "governor": true,
+      "listedAddress": "0xeE778D5339dd8f9D1CecE5aD458f0805809B63Bc",
+      "balanceSepoliaETH": "0.0",
+      "transactionCount": 0
+    }
+  ],
+  "proposals": [
+    {
+      "id": 1,
+      "action": 0,
+      "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+      "key": "0xcDF9996213eFdfC6014F9ab4c3554CD4E6e398Ac",
+      "enabled": false,
+      "credentialId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "reasonHash": "0x3e38e37966be220cdcd873f051524f7b4f0a6f433e912c9f254a120d3eeab5ce",
+      "revision": 0,
+      "deadline": 1794110986,
+      "approvals": 2,
+      "executed": true,
+      "cancelled": false,
+      "stale": true,
+      "expired": false,
+      "votes": [
+        {
+          "address": "0xcDF9996213eFdfC6014F9ab4c3554CD4E6e398Ac",
+          "approved": true
+        },
+        {
+          "address": "0x3242e9b46a6f43283BfF0d91c92dE8545F195009",
+          "approved": true
+        },
+        {
+          "address": "0xeE778D5339dd8f9D1CecE5aD458f0805809B63Bc",
+          "approved": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "action": 1,
+      "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+      "key": "0x3242e9b46a6f43283BfF0d91c92dE8545F195009",
+      "enabled": false,
+      "credentialId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "reasonHash": "0x6ed2218fc75020da180f3fdff2540aea3cea14a0c2369d4a951e07a01f83752d",
+      "revision": 1,
+      "deadline": 1794111863,
+      "approvals": 2,
+      "executed": true,
+      "cancelled": false,
+      "stale": true,
+      "expired": false,
+      "votes": [
+        {
+          "address": "0xcDF9996213eFdfC6014F9ab4c3554CD4E6e398Ac",
+          "approved": true
+        },
+        {
+          "address": "0x3242e9b46a6f43283BfF0d91c92dE8545F195009",
+          "approved": true
+        },
+        {
+          "address": "0xeE778D5339dd8f9D1CecE5aD458f0805809B63Bc",
+          "approved": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "action": 2,
+      "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+      "key": "0x0000000000000000000000000000000000000000",
+      "enabled": false,
+      "credentialId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "reasonHash": "0x8b139b89670b04148d4a6841e1b2d152a22218872986789b9d1897095361b756",
+      "revision": 2,
+      "deadline": 1794115699,
+      "approvals": 2,
+      "executed": true,
+      "cancelled": false,
+      "stale": true,
+      "expired": false,
+      "votes": [
+        {
+          "address": "0xcDF9996213eFdfC6014F9ab4c3554CD4E6e398Ac",
+          "approved": true
+        },
+        {
+          "address": "0x3242e9b46a6f43283BfF0d91c92dE8545F195009",
+          "approved": true
+        },
+        {
+          "address": "0xeE778D5339dd8f9D1CecE5aD458f0805809B63Bc",
+          "approved": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "action": 3,
+      "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+      "key": "0x0000000000000000000000000000000000000000",
+      "enabled": false,
+      "credentialId": "0xaaeb8577272d9bddac334b2a2b7473ed45d9724fc2860c4dd1b8f593b91864b9",
+      "reasonHash": "0x0453b3dcdb3e5791453d7c47608ef2e14828a53302064c049e316b543459b58e",
+      "revision": 3,
+      "deadline": 1794116149,
+      "approvals": 2,
+      "executed": true,
+      "cancelled": false,
+      "stale": true,
+      "expired": false,
+      "votes": [
+        {
+          "address": "0xcDF9996213eFdfC6014F9ab4c3554CD4E6e398Ac",
+          "approved": true
+        },
+        {
+          "address": "0x3242e9b46a6f43283BfF0d91c92dE8545F195009",
+          "approved": true
+        },
+        {
+          "address": "0xeE778D5339dd8f9D1CecE5aD458f0805809B63Bc",
+          "approved": false
+        }
+      ]
+    }
+  ],
+  "pendingEnableProposals": [],
+  "nextAction": "create SetEnabled proposal",
+  "newProposalParameters": {
+    "action": 2,
+    "institution": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+    "key": "0x0000000000000000000000000000000000000000",
+    "enabled": true,
+    "credentialId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "reasonText": "重新启用机构，恢复凭证签发并验证网站签发与核验流程。",
+    "reasonHash": "0x3f6f5ad5acdf84e1600f01d9ec33d9e8e03a23242189728a12f5a0cb83b747a4",
+    "deadlinePolicy": "current time + 86400 seconds; must be later than latest block and within 7 days"
+  },
+  "publicTransactionsSent": 0
+}

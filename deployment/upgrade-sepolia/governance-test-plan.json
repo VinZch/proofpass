@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "network": "Sepolia",
+  "chainId": 11155111,
+  "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+  "createdAt": "2026-11-07T04:08:16.108Z",
+  "institutionLabel": "ProofPass Sepolia Institution A TEST ONLY",
+  "institutionId": "0xaff948893d03e9eb8afe9372906515f60975ceb759a6c0c754fc9fc0bdd077af",
+  "institutionIdDerivation": "keccak256(UTF-8 institutionLabel)",
+  "issuer": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+  "proposer": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+  "secondApprover": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+  "reason": "TEST ONLY: register Institution A for two-of-three governance acceptance using three accounts in one local MetaMask wallet.",
+  "reasonHash": "0x3e38e37966be220cdcd873f051524f7b4f0a6f433e912c9f254a120d3eeab5ce",
+  "testOnly": true,
+  "independentRealInstitutions": false,
+  "status": "executed-and-institution-admitted",
+  "governanceProposal": {
+    "proposalId": 1,
+    "transactionHash": "0xad82988f9d636249ae55e00ff3630b6b3f152d1dad5c730ea6560d8ff646a05b",
+    "approvalTransactionHash": "0xe17e4816246894a34d0d4ee3520f6f422805f569a9afcb2d506732f86d8db07f",
+    "executionTransactionHash": "0x16028e6dbc7c3097fcdb902862385a0bb773eb20516d433d8d5b2cd1902f3551",
+    "executionBlock": 12081228,
+    "snapshotBlock": 12081230,
+    "snapshotBlockHash": "0x5f875e998d5d9a61e8dcf9b1cf0df2dab41227cefa95efc233119804a8dedecb",
+    "snapshotAt": "2026-11-07T04:15:32.852Z",
+    "approvals": 2,
+    "threshold": 2,
+    "executed": true,
+    "status": "executed-and-institution-admitted",
+    "evidence": "evidence/upgrade-sepolia-governance-executed.json",
+    "priorStageEvidence": [
+      "evidence/upgrade-sepolia-governance-one-vote.json",
+      "evidence/upgrade-sepolia-governance-two-votes.json"
+    ]
+  },
+  "updatedAt": "2026-11-07T04:31:41.621Z"
+}

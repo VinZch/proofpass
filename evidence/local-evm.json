@@ -1,0 +1,92 @@
+{
+  "environment": "Ganache in-process ONLY; NOT public Sepolia",
+  "at": "2026-11-05T10:42:11.599Z",
+  "deployment": {
+    "mode": "testnet",
+    "chainId": 11155111,
+    "registryAddress": "0xe84234ff3bb988793175356aabf0d076d5e68c31",
+    "deploymentTxHash": "0x9b5f3de7d175b00127929d9fba988c0ec304ee277dc69c8fb80af5c76623fff1",
+    "runtimeCodeHash": "0xe78d184febd310ae8838745377afc6f537cb982cca3b983d0e66578edbdb665c",
+    "deploymentStatus": "deployed",
+    "maxBlockAgeSeconds": 300
+  },
+  "progress": [
+    {
+      "state": "待钱包批准"
+    },
+    {
+      "state": "已广播",
+      "transactionHash": "0x286cdefa68e280e3dbee0afbc259b2fb174f178008490efe9fc939d77745ea03"
+    },
+    {
+      "state": "待打包",
+      "transactionHash": "0x286cdefa68e280e3dbee0afbc259b2fb174f178008490efe9fc939d77745ea03"
+    },
+    {
+      "state": "已入块成功",
+      "transactionHash": "0x286cdefa68e280e3dbee0afbc259b2fb174f178008490efe9fc939d77745ea03",
+      "blockNumber": 4,
+      "blockHash": "0x9b9e488cdaabb87994737914ea743bf006b7a2e6587ffb49de3d528c2ee62267",
+      "receiptStatus": "0x1",
+      "finality": "已达 finalized 区块",
+      "queriedAt": "2026-11-05T10:42:11.496Z"
+    },
+    {
+      "state": "已入块成功",
+      "transactionHash": "0x286cdefa68e280e3dbee0afbc259b2fb174f178008490efe9fc939d77745ea03",
+      "blockNumber": 4,
+      "blockHash": "0x9b9e488cdaabb87994737914ea743bf006b7a2e6587ffb49de3d528c2ee62267",
+      "receiptStatus": "0x1",
+      "finality": "已达 finalized 区块",
+      "queriedAt": "2026-11-05T10:42:11.496Z"
+    },
+    {
+      "state": "待钱包批准"
+    },
+    {
+      "state": "已广播",
+      "transactionHash": "0xb6ad2c24f88e9f387280deab5ed1ef4fa272a3acf65feac5acac24b0ca925eda"
+    },
+    {
+      "state": "待打包",
+      "transactionHash": "0xb6ad2c24f88e9f387280deab5ed1ef4fa272a3acf65feac5acac24b0ca925eda"
+    },
+    {
+      "state": "已入块成功",
+      "transactionHash": "0xb6ad2c24f88e9f387280deab5ed1ef4fa272a3acf65feac5acac24b0ca925eda",
+      "blockNumber": 7,
+      "blockHash": "0x808ddbf6f081db8f59b82602f41e0e82fd61972b0349fdae81dbdbf471e12cae",
+      "receiptStatus": "0x1",
+      "finality": "已达 finalized 区块",
+      "queriedAt": "2026-11-05T10:42:11.550Z"
+    },
+    {
+      "state": "已入块成功",
+      "transactionHash": "0xb6ad2c24f88e9f387280deab5ed1ef4fa272a3acf65feac5acac24b0ca925eda",
+      "blockNumber": 7,
+      "blockHash": "0x808ddbf6f081db8f59b82602f41e0e82fd61972b0349fdae81dbdbf471e12cae",
+      "receiptStatus": "0x1",
+      "finality": "已达 finalized 区块",
+      "queriedAt": "2026-11-05T10:42:11.550Z"
+    }
+  ],
+  "verification": {
+    "technicalPass": false,
+    "source": "可信部署内的原签发地址登记（地址与现实机构的绑定仍需线下确认）",
+    "integrity": "匹配",
+    "status": "已撤销",
+    "holder": "未验证",
+    "school": "未审批；演示目录匹配：是",
+    "issuer": "0xc648e02fa03231622429f185855559445477d270",
+    "credentialId": "0xfe9f44b43a74519e349868aa2bb29b60f39ae1c6b69f43a1380a671884557131",
+    "commitment": "0x21d6303791d67136598047f0ce96b210e8a1fb132acf0c409c52d5f52e18157f",
+    "query": {
+      "at": "2026-11-05T10:42:11.602Z",
+      "blockNumber": 8,
+      "blockHash": "0x4442060a9192c54ae7d203c0e3d8238a3e143eb7bc00b8e54832f46cb5751835",
+      "chainId": 11155111,
+      "registryAddress": "0xe84234ff3bb988793175356aabf0d076d5e68c31"
+    },
+    "conclusion": "未通过技术检查"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "artifactType": "SIMULATED_PLACEHOLDER",
+  "renderDate": "2026-11-05",
+  "browser": "156.0.8078.81",
+  "checks": [
+    {
+      "image": "01_部署成功_模拟占位.png",
+      "heading": "登记合约已就绪"
+    },
+    {
+      "image": "02_机构授权_模拟占位.png",
+      "heading": "签发权限由管理员授予"
+    },
+    {
+      "image": "03_签发成功_模拟占位.png",
+      "heading": "虚构凭证完成登记"
+    },
+    {
+      "image": "04_独立核验有效_模拟占位.png",
+      "heading": "换一个浏览器，独立查询"
+    },
+    {
+      "image": "05_篡改被发现_模拟占位.png",
+      "heading": "改动内容，完整性不再匹配"
+    },
+    {
+      "image": "06_撤销成功_模拟占位.png",
+      "heading": "原签发方撤销自己的记录"
+    },
+    {
+      "image": "07_撤销后复查_模拟占位.png",
+      "heading": "原来的凭证包，得到新的状态"
+    },
+    {
+      "image": "08_机构权限隔离_模拟占位.png",
+      "heading": "同一个编号，两份独立记录"
+    }
+  ],
+  "interactionChecks": [
+    "next button",
+    "scene selector",
+    "left arrow",
+    "390px no horizontal overflow"
+  ],
+  "pageErrors": [],
+  "notice": "仅证明模拟材料渲染和翻页正常，不是链上测试结果。"
+}

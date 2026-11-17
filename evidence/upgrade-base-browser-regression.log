@@ -1,0 +1,10 @@
+This version of µWS is not compatible with your Node.js build:
+
+Error: Cannot find module '../binaries/uws_darwin_arm64_147.node'
+Require stack:
+- /Users/vinch/Desktop/区块链/node_modules/ganache/node_modules/@trufflesuite/uws-js-unofficial/src/uws.js
+- /Users/vinch/Desktop/区块链/node_modules/ganache/dist/node/core.js
+Falling back to a NodeJS implementation; performance may be degraded.
+
+
+Browser checks passed; screenshots and honest local evidence saved.

@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-05T06:07:07.198Z",
+  "mode": "local-evm",
+  "beforeBlock": "0x7",
+  "afterBlock": "0xa",
+  "pass": true,
+  "note": "empty local blocks; no credential transaction"
+}

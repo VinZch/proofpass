@@ -1,0 +1,96 @@
+✔ 状态 0、异常状态及钱包拒绝不会被宣称成功；禁止 ETH value (13.346334ms)
+✔ 并发提交拒绝、账户变更拒绝、失效区块与重组拒绝 (0.8755ms)
+✔ 钱包连接先取得账户授权，允许审批超过普通 RPC 时限，随后仍拒绝错误网络 (28.456083ms)
+✔ 预检后重查网络与账户，交易明确绑定 Sepolia chainId (1.715ms)
+✔ 准备期间账户或网络切换后切回也中止，并移除监听器 (0.752042ms)
+✔ 连接授权期间初始账户事件可接受，但校网后账户改变须重连 (0.177125ms)
+✔ 广播后 RPC 失败保留哈希、发送者和阶段；只读重查可恢复且不再发送 (0.360833ms)
+✔ 只读重查区分未入块、规范块执行失败和未确认异常 (0.696875ms)
+✔ 部署读取绑定配置交易哈希与规范区块编号 (0.7595ms)
+✔ 交易重查拒绝空值区块编号且不伪造最终确认 (2.755667ms)
+This version of µWS is not compatible with your Node.js build:
+
+Error: Cannot find module '../binaries/uws_darwin_arm64_147.node'
+Require stack:
+- /Users/vinch/Desktop/区块链/node_modules/ganache/node_modules/@trufflesuite/uws-js-unofficial/src/uws.js
+- /Users/vinch/Desktop/区块链/node_modules/ganache/dist/node/core.js
+Falling back to a NodeJS implementation; performance may be degraded.
+
+
+✔ 真实本地 EVM：权限、命名空间、撤销、停用、错误网络和跨会话查询 (400.622875ms)
+✔ 部署验证绑定交易哈希、区块、网络与可选发送钱包 (4.484708ms)
+✔ 最终性不能由成功回执单独推出，无效 finalized 为 unknown (0.172375ms)
+✔ 离线修复：并发、规范化、摘要长度、未知状态、独立身份及八种教学案例 (83.948625ms)
+✔ 字段重排、嵌套排序、数字与 Unicode 边界 (11.777084ms)
+✔ 修改载荷或盐导致承诺不同；拒绝假合约及多余字段 (2.698333ms)
+✔ 完整性、撤销、过期、未登记分别判断；身份未认证不得通过 (4.114375ms)
+✔ Public release uses stable content versions throughout the module graph and keeps legacy files private (266.351916ms)
+✔ 提案查询在区块推进时仍显示同一时点的票数、投票及机构状态 (3.746208ms)
+✔ 提案查询拒绝读取期间的区块重组 (1.242083ms)
+✔ 提案查询拒绝过旧、缺失和异常时间的区块 (2.028417ms)
+✔ 区块编号和时间只接受标准安全范围的 RPC quantity，不把空值当作零 (28.509166ms)
+✔ file URL fails visibly without fetch/import, while recovery and network information remain usable (2.393666ms)
+✔ HTTP config 404 explains the failure and exposes retry/service entry before any app import (5.783084ms)
+✔ Public HTTPS failure retains recovery without sending visitors to their localhost (8.881042ms)
+✔ Invalid configuration schema fails before modules load and cannot claim a connected wallet (6.699667ms)
+(node:12882) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Malformed ABI schema fails with a visible actionable error (6.998875ms)
+✔ Successful app initialization retains its permission changes, then removes inert (6.029958ms)
+✔ v3 签发核验使用包承诺并拒绝错误交易身份/参数/事件和非有效记录 (23.279834ms)
+✔ v3 原子更正核验同时绑定 ABI 原因、三事件与旧新双向关联 (8.398333ms)
+✔ Emergency revoke changes only target revocation fields and preserves both unrelated credentials (3.071875ms)
+✔ Only executed proposal creation-history unavailability may be recorded as omitted (0.703208ms)
+✔ Pending executor is future intent; executed proposal must match expected executor (1.172292ms)
+✔ Rotate preserves suspension, increments epoch/revision, reserves retired key; pending stage remains unchanged (0.540875ms)
+✔ SetEnabled changes only enabled and revision (0.253166ms)
+✔ EmergencyRevoke keeps credential content and institution state; requires kind3, reason and timestamp (0.567917ms)
+✔ Governance transaction envelope binds hash, sender, target, canonical block, network, value and exact calldata (3.163375ms)
+✔ 升级 UI：修改机构或历史编号立即清除旧结果和版本导航 (21.685459ms)
+✔ 升级 UI：查询失败不保留上一笔历史、机构或提案的成功结果 (2.081334ms)
+✔ 升级 UI：编辑提案编号立即撤销旧提案操作权限和展示 (1.476417ms)
+▶ 升级 UI：钱包事件使等待中的连接和角色查询失效
+  ✔ connect (3.338708ms)
+  ✔ role (0.89875ms)
+✔ 升级 UI：钱包事件使等待中的连接和角色查询失效 (4.629666ms)
+▶ 升级 UI：钱包变化后迟到的机构、历史、提案响应不能重新显示
+  ✔ refresh (2.006708ms)
+  ✔ query (2.198709ms)
+  ✔ read-proposal (1.51225ms)
+✔ 升级 UI：钱包变化后迟到的机构、历史、提案响应不能重新显示 (6.234667ms)
+✔ 升级 UI：钱包变化后迟到的凭证报告不能显示或导出 (1.69075ms)
+✔ 升级 UI：广播后失败保留哈希，刷新恢复后仅用只读接口重查 (4.196167ms)
+✔ 升级 UI：只读重查发现执行失败时保留交易定位且不显示成功 (1.714917ms)
+✔ 升级 UI：跨机构导入同时切换查询目标并清除旧提案 (1.656958ms)
+✔ 升级 UI：导入失败清除旧凭证、历史与下载入口，并允许重选相同文件 (1.528666ms)
+✔ 升级 UI：成功交易重新查询失败后不沿用旧确认结果 (2.307375ms)
+✔ 升级 UI：必填机构被折叠时自动展开并定位错误字段 (0.943708ms)
+▶ 升级 UI：无效有效期与更正编号在申请钱包交易前拦截
+  ✔ empty (0.986042ms)
+  ✔ not-a-date (0.880292ms)
+  ✔ 2000-01-01T00:00 (1.159541ms)
+  ✔ correction ID (1.011917ms)
+✔ 升级 UI：无效有效期与更正编号在申请钱包交易前拦截 (4.384959ms)
+✔ 升级 UI：地址锚点变化切换到对应工作区 (0.851625ms)
+▶ 升级 UI：处理提案不要求填写无关机构，也不刷新其他机构
+  ✔ empty institution (1.816792ms)
+  ✔ other institution (0.965167ms)
+✔ 升级 UI：处理提案不要求填写无关机构，也不刷新其他机构 (2.967959ms)
+This version of µWS is not compatible with your Node.js build:
+
+Error: Cannot find module '../binaries/uws_darwin_arm64_147.node'
+Require stack:
+- /Users/vinch/Desktop/区块链/node_modules/ganache/node_modules/@trufflesuite/uws-js-unofficial/src/uws.js
+- /Users/vinch/Desktop/区块链/node_modules/ganache/dist/node/core.js
+Falling back to a NodeJS implementation; performance may be degraded.
+
+
+✔ 升级治理：阈值、轮换、原子更正、停用后紧急撤销与隔离 (1424.770125ms)
+ℹ tests 64
+ℹ suites 0
+ℹ pass 64
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1821.770333

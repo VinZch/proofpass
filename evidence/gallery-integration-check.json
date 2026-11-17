@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-05",
+  "environment": "isolated headless Chrome; local file pages; external network blocked",
+  "checks": [
+    "eight gallery images decoded",
+    "scene buttons and previous/next boundaries",
+    "scene descriptions and direct anchor",
+    "390px no horizontal overflow",
+    "original offline grant and verification flow",
+    "Chain link opens gallery"
+  ],
+  "visualReview": [
+    "desktop gallery",
+    "390px gallery"
+  ],
+  "scope": "UI integration of simulated placeholders only; not public-chain or team onsite evidence"
+}

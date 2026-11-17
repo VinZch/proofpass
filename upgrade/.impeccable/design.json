@@ -1,0 +1,22 @@
+{
+  "source": "../DESIGN.md",
+  "scope": "upgrade/",
+  "generatedBy": "manual extraction; Impeccable engine unavailable",
+  "focus": {
+    "color": "#59dfd0",
+    "width": "3px",
+    "offset": "4px"
+  },
+  "motion": {
+    "duration": "180ms",
+    "reducedMotion": "disable transitions"
+  },
+  "elevation": "tonal surfaces and whitespace; no panel borders or shadows",
+  "layout": {
+    "sidebar": "232px",
+    "sidebarMedium": "208px",
+    "singleColumnAt": "1000px",
+    "topNavigationAt": "760px"
+  },
+  "theme": "dark ink blue with cyan actions"
+}

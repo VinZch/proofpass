@@ -1,0 +1,22 @@
+{
+  "type": "SIMULATED_DATA_CONSISTENCY_ONLY",
+  "scope": "These flags describe only the generated research fixtures, not the separately recorded Sepolia tests.",
+  "counts": {
+    "core": 16,
+    "extended": 8,
+    "fictional_roles": 15,
+    "paired_model_rows": 48
+  },
+  "checks": [
+    "unique case ids",
+    "two variants per category",
+    "48 paired parameter records",
+    "central and chain identical variable work",
+    "90 minute fixed-cost difference",
+    "empirical_pass is null for all cases"
+  ],
+  "real_experiments_run": false,
+  "real_interviews_conducted": false,
+  "implementation_status_date": "2026-11-07",
+  "separate_real_evidence_index": "evidence/upgrade-sepolia-independent-browser-acceptance.json"
+}

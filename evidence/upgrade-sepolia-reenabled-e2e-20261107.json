@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-11-07T14:00:04.277776+00:00",
+  "url": "https://vinzch.github.io/proofpass/upgrade/",
+  "proposalId": 5,
+  "enabled": true,
+  "issuer": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+  "epoch": 2,
+  "revision": 5,
+  "credentialId": "0xda67b303c23c0a6d1015368f36b2bf4d6a640e2b2709dd1a7d7271b63784dd20",
+  "issueTransaction": "0xaa3d35be9e8d7392b878c4f13360f0476df509efb1e157ffd65bdf208a6b1839",
+  "publicBrowserFlow": [
+    "connect governors",
+    "propose enable",
+    "approve second vote",
+    "execute enable",
+    "connect issuer",
+    "issue",
+    "download package",
+    "reload",
+    "import downloaded package",
+    "verify",
+    "download report"
+  ],
+  "browserResult": {
+    "status": "有效",
+    "integrity": true,
+    "technicalPass": true,
+    "institutionEnabled": true,
+    "query": {
+      "mode": "testnet",
+      "chainId": 11155111,
+      "registryAddress": "0x623b2e6a55003da0aa144ef0ec53547af3f61410",
+      "blockNumber": 12084113,
+      "blockHash": "0xc1cf68924afe7a835b0ea97ce7916db55c6c8249d00e4d4c52f68f8c6b83368d",
+      "blockTimestamp": 1794059928,
+      "at": "2026-11-07T13:58:50.783Z"
+    }
+  },
+  "testOnly": true,
+  "tamperDetectionPassed": true,
+  "walletFinalConfirmations": "performed by user",
+  "walletDomainWarning": "User handled wallet warning; domain classification not cleared by this task.",
+  "publishedCodeCommit": "f26e6114ea735ad5c35b710ff9a9fa449ce1bff5",
+  "codeChangesRequired": false
+}

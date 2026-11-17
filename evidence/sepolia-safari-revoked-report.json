@@ -1,0 +1,20 @@
+{
+  "technicalPass": false,
+  "source": "可信部署内的原签发地址登记（地址与现实机构的绑定仍需线下确认）",
+  "integrity": "匹配",
+  "status": "已撤销",
+  "holder": "未验证",
+  "school": "未审批；演示目录匹配：是",
+  "policyVersion": "B-school-demo-1",
+  "issuer": "0xcdf9996213efdfc6014f9ab4c3554cd4e6e398ac",
+  "credentialId": "0xec049ce6621886dc973d6b2e4ab902c39c6bdd660739845ed9f68486a27e60ac",
+  "commitment": "0x46d68ea27753551bfe4ba9d61a856b6ee31c946754af7a71fc16ac2405694f73",
+  "query": {
+    "at": "2026-11-04T13:08:23.660Z",
+    "blockNumber": 12062613,
+    "blockHash": "0x2a6f7639a401cc8b8cfe3fbb81ae9df13742d147f8d10da507a367b401830738",
+    "chainId": 11155111,
+    "registryAddress": "0xdaf9d8f06bc5895a79a4cdae66ec3ea262435149"
+  },
+  "conclusion": "未通过技术检查"
+}

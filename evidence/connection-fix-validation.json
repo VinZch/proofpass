@@ -1,0 +1,16 @@
+{
+  "at": "2026-11-04T13:03:55.115135+00:00",
+  "unitTests": {
+    "command": "npm test",
+    "passed": 8,
+    "failed": 0
+  },
+  "browserRegression": "scripts/browser-check.mjs passed; evidence/browser-run.log",
+  "fixes": [
+    "Prefer EIP-6963 io.metamask over conflicting window.ethereum",
+    "Request account access before wallet chainId check; do not time out human consent",
+    "Use selected provider for wallet-backed reads when explicit RPC is absent",
+    "Distinguish configured deployment from not-yet-verified deployment in initial UI",
+    "Include provider and method in timeout errors"
+  ]
+}

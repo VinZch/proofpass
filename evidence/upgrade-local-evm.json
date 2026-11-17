@@ -1,0 +1,149 @@
+{
+  "at": "2026-11-05T10:42:12.297Z",
+  "mode": "local-evm",
+  "chainId": 31337,
+  "publicTestnetDeployed": false,
+  "checks": [
+    {
+      "name": "治理部署拒绝单人阈值",
+      "passed": true
+    },
+    {
+      "name": "治理部署拒绝重复成员",
+      "passed": true
+    },
+    {
+      "name": "单人不能执行准入提案",
+      "passed": true
+    },
+    {
+      "name": "同一治理成员不能重复计票",
+      "passed": true
+    },
+    {
+      "name": "非治理成员不能批准",
+      "passed": true
+    },
+    {
+      "name": "达到两人阈值后登记机构",
+      "passed": true
+    },
+    {
+      "name": "已执行提案不能重放",
+      "passed": true
+    },
+    {
+      "name": "B 不能冒充 A 签发",
+      "passed": true
+    },
+    {
+      "name": "v3 凭证完整性与链上状态核验通过",
+      "passed": true
+    },
+    {
+      "name": "改标题不能通过核验",
+      "passed": true
+    },
+    {
+      "name": "同 ID 不能跨机构替换",
+      "passed": true
+    },
+    {
+      "name": "旧协议不会被误当升级协议",
+      "passed": true
+    },
+    {
+      "name": "轮换不改写原始签发地址和历史记录",
+      "passed": true
+    },
+    {
+      "name": "旧包在密钥轮换后仍有效",
+      "passed": true
+    },
+    {
+      "name": "旧密钥不能继续签发",
+      "passed": true
+    },
+    {
+      "name": "旧密钥不能继续撤销",
+      "passed": true
+    },
+    {
+      "name": "过期机构修订的提案不能继续批准",
+      "passed": true
+    },
+    {
+      "name": "退役密钥不能再次准入",
+      "passed": true
+    },
+    {
+      "name": "更正的新编号相同会回退",
+      "passed": true
+    },
+    {
+      "name": "过期新版导致整笔更正回退",
+      "passed": true
+    },
+    {
+      "name": "失败更正不会撤销旧证书",
+      "passed": true
+    },
+    {
+      "name": "更正同时建立双向版本关联",
+      "passed": true
+    },
+    {
+      "name": "新证书保留新密钥和密钥版本",
+      "passed": true
+    },
+    {
+      "name": "旧包显示已更正而不是有效",
+      "passed": true
+    },
+    {
+      "name": "新版凭证核验有效",
+      "passed": true
+    },
+    {
+      "name": "已替代版本不能再次分叉更正",
+      "passed": true
+    },
+    {
+      "name": "停用不自动使历史凭证失效",
+      "passed": true
+    },
+    {
+      "name": "停用后签发被拦截",
+      "passed": true
+    },
+    {
+      "name": "停用后普通撤销被拦截",
+      "passed": true
+    },
+    {
+      "name": "紧急撤销也需要两人批准",
+      "passed": true
+    },
+    {
+      "name": "停用状态仍可由治理阈值完成紧急撤销",
+      "passed": true
+    },
+    {
+      "name": "A 轮换、更正、紧急撤销均不改变 B 同编号记录",
+      "passed": true
+    },
+    {
+      "name": "轮换不偷偷解除机构停用",
+      "passed": true
+    },
+    {
+      "name": "取消提案不能继续批准",
+      "passed": true
+    },
+    {
+      "name": "超时提案不能批准",
+      "passed": true
+    }
+  ],
+  "count": 35
+}

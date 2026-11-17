@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-07T08:28:57.341666+00:00",
+  "command": [
+    "node",
+    "--test",
+    "tests/offline.test.mjs",
+    "tests/protocol.test.mjs"
+  ],
+  "nodeVersion": "v26.5.0",
+  "exitCode": 0,
+  "passed": true,
+  "durationSeconds": 0.2582,
+  "scope": "Only offline and v2 protocol Node tests. No browser visual QA, new file-hash UI experiment, RPC, wallet transaction or upgraded contract suite was run.",
+  "stdout": "course-closeout/validation/base-tests.stdout.log",
+  "stderr": "course-closeout/validation/base-tests.stderr.log",
+  "sourceSha256": {
+    "tests/offline.test.mjs": "d925d1bf9fe9c37390f3439b0c87447ec7208bdd7c04b10e2a24fb978f1ca8ba",
+    "tests/protocol.test.mjs": "b35bfe6454b5b7d7a5f5c7263129db7c1f148d947096bacaec4ebed1ff61c221",
+    "ProofPass_跨校证书核验实验室.html": "d003426595c3e3cb9d9ebae8edb4e70f0837c317b612336df265d9d34111bbbb",
+    "chain/protocol.js": "165c74a294340bc797a3be77a4f3f6f9abb955350b45c5f977371a483f667b71"
+  },
+  "tests": 4,
+  "passedTests": 4,
+  "failedTests": 0
+}

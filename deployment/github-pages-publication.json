@@ -1,0 +1,117 @@
+{
+  "url": "https://vinzch.github.io/proofpass/",
+  "repository": "https://github.com/VinZch/proofpass",
+  "commit": "f26e6114ea735ad5c35b710ff9a9fa449ce1bff5",
+  "status": "built",
+  "httpsEnforced": true,
+  "assetVersion": "2b1ab550fac8a14e",
+  "scope": "Credential state, input handling, consistent RPC snapshots, strict block quantities, release cache dependency versioning",
+  "publishedFiles": 14,
+  "checkedAt": "2026-11-07T13:37:03.536193+00:00",
+  "checks": [
+    {
+      "path": "chain/adapters.js",
+      "httpStatus": 200,
+      "matchesRelease": true
+    },
+    {
+      "path": "chain/protocol.js",
+      "httpStatus": 200,
+      "matchesRelease": true
+    },
+    {
+      "path": "chain/vendor/ethers-LICENSE.md",
+      "httpStatus": 200,
+      "matchesRelease": true
+    },
+    {
+      "path": "chain/vendor/ethers.js",
+      "httpStatus": 200,
+      "matchesRelease": true
+    },
+    {
+      "path": "index.html",
+      "httpStatus": 200,
+      "matchesRelease": true
+    },
+    {
+      "path": "upgrade/abi.json",
+      "httpStatus": 200,
+      "matchesRelease": true
+    },
+    {
+      "path": "upgrade/adapter.js",
+      "httpStatus": 200,
+      "matchesRelease": true
+    },
+    {
+      "path": "upgrade/app.js",
+      "httpStatus": 200,
+      "matchesRelease": true
+    },
+    {
+      "path": "upgrade/bootstrap.js",
+      "httpStatus": 200,
+      "matchesRelease": true
+    },
+    {
+      "path": "upgrade/config.json",
+      "httpStatus": 200,
+      "matchesRelease": true
+    },
+    {
+      "path": "upgrade/index.html",
+      "httpStatus": 200,
+      "matchesRelease": true
+    },
+    {
+      "path": "upgrade/protocol.js",
+      "httpStatus": 200,
+      "matchesRelease": true
+    },
+    {
+      "path": "upgrade/style.css",
+      "httpStatus": 200,
+      "matchesRelease": true
+    }
+  ],
+  "tests": {
+    "passed": 64,
+    "failed": 0,
+    "command": "node --experimental-vm-modules --test tests/*.test.mjs"
+  },
+  "publicTransactionsSent": 0,
+  "browserCheck": {
+    "completed": true,
+    "browser": "Google Chrome with MetaMask",
+    "localReleaseWalletConnectionPassed": true,
+    "localReleaseCredentialImportPassed": true,
+    "localReleasePackageVerification": "有效 · 内容匹配",
+    "publicStartupPassed": true,
+    "publicReadOnlyQueryPassed": true,
+    "publicWalletConnected": false,
+    "publicQueryBlock": 12084008,
+    "publicCredentialStatus": "有效",
+    "screenshot": "evidence/website-functional-public-20261107.png"
+  },
+  "chainChecks": "evidence/website-connection-check-20261107.json",
+  "testLog": "evidence/website-functional-tests-20261107.log",
+  "institutionState": {
+    "enabled": true,
+    "key": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+    "epoch": 2,
+    "revision": 5,
+    "reenableProposal": 5,
+    "executionTransaction": "0xbc78b2466fcee69a5b87ca570a9ea5cc4254f7149d8068231e8ea86c79e4ce36",
+    "executionBlock": 12084085
+  },
+  "latestPublicIssuance": {
+    "transactionHash": "0xaa3d35be9e8d7392b878c4f13360f0476df509efb1e157ffd65bdf208a6b1839",
+    "block": 12084101,
+    "credentialId": "0xda67b303c23c0a6d1015368f36b2bf4d6a640e2b2709dd1a7d7271b63784dd20",
+    "package": "evidence/upgrade-sepolia-reenabled-package-20261107.json",
+    "verification": "evidence/upgrade-sepolia-reenabled-live-verification-20261107.json",
+    "source": "https://vinzch.github.io/proofpass/upgrade/",
+    "testOnly": true
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "proofpass-chain",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compile": "node scripts/compile.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:vm": "node --experimental-vm-modules --test tests/*.test.mjs",
+    "serve": "python3 -m http.server 8080 --bind 127.0.0.1",
+    "compile:upgrade": "node scripts/compile-upgrade.mjs",
+    "upgrade:demo": "node scripts/upgrade-demo.mjs",
+    "test:upgrade:browser": "node scripts/upgrade-browser-check.mjs",
+    "evidence:verify": "node scripts/evidence.mjs verify",
+    "evidence:record": "node scripts/evidence.mjs record",
+    "evidence:backfill": "node scripts/evidence.mjs backfill",
+    "verify:deployment": "node scripts/verify-deployment.mjs"
+  },
+  "engines": {
+    "node": ">=22 <27"
+  },
+  "devDependencies": {
+    "ethers": "6.17.0",
+    "ganache": "7.9.2",
+    "playwright": "1.56.1",
+    "solc": "0.8.38"
+  },
+  "overrides": {
+    "solc": {
+      "tmp": "0.2.7"
+    }
+  }
+}

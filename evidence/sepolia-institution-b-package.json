@@ -1,0 +1,24 @@
+{
+  "payload": {
+    "schemaVersion": 2,
+    "chainId": 11155111,
+    "registryAddress": "0xdaf9d8f06bc5895a79a4cdae66ec3ea262435149",
+    "issuer": "0x3242e9b46a6f43283bff0d91c92de8545f195009",
+    "credentialId": "0xec049ce6621886dc973d6b2e4ab902c39c6bdd660739845ed9f68486a27e60ac",
+    "title": "Institution B TEST ONLY",
+    "category": "竞赛获奖",
+    "level": "省级一等奖",
+    "holderRef": "虚构学生乙",
+    "validUntil": 1825372799
+  },
+  "salt": "0x97d939e908cbbd4e7a6973f4d9a131234aad61a5602176e6986102a4305ff837",
+  "receipt": {
+    "state": "已入块成功",
+    "transactionHash": "0xacfc765d493ed7cccbdd497cd5db3dd1a8b17ff81e0026e905cb85fb263b7556",
+    "blockNumber": 12062759,
+    "blockHash": "0x48a315bfe360f70ad1ea24e033688272638650b86dacc25d47d5ea68182ea738",
+    "receiptStatus": "0x1",
+    "finality": "included; not yet finalized",
+    "queriedAt": "2026-11-04T13:40:09.585Z"
+  }
+}

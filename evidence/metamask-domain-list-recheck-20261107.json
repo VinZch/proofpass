@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-11-07T14:07:10.667282+00:00",
+  "listUrl": "https://raw.githubusercontent.com/MetaMask/eth-phishing-detect/main/src/config.json",
+  "sha256": "a48e79adc20fcf67f5d5a5ac632494814755637b576a007f3ccdb3884982b4ba",
+  "blocklistMatches": [],
+  "allowlistMatches": [],
+  "endpoints": [
+    {
+      "url": "https://vinzch.github.io/",
+      "status": 404
+    },
+    {
+      "url": "https://vinzch.github.io/proofpass/",
+      "status": 200,
+      "finalUrl": "https://vinzch.github.io/proofpass/"
+    },
+    {
+      "url": "https://vinzch.github.io/proofpass/upgrade/",
+      "status": 200,
+      "finalUrl": "https://vinzch.github.io/proofpass/upgrade/"
+    }
+  ]
+}
