@@ -1,16 +1,15 @@
 import fs from 'node:fs';
-import ganache from 'ganache';
+import { createLocalEvm } from './evm.mjs';
 import { BrowserProvider, ContractFactory, keccak256, id, ZeroAddress, ZeroHash } from 'ethers';
 export const artifact = JSON.parse(
   fs.readFileSync(new URL('../artifacts/ProofPassGoverned.json', import.meta.url)),
 );
 export async function fixture({ seed = false } = {}) {
-  const rpc = ganache.provider({
-    logging: { quiet: true },
-    chain: { chainId: 31337, hardfork: 'shanghai' },
-    wallet: { totalAccounts: 8 },
-    miner: { blockGasLimit: 12000000 },
-  });
+  const rpc = createLocalEvm({
+    chainId: 31337,
+    totalAccounts: 8,
+    blockGasLimit: 12000000,
+  }).provider;
   const provider = new BrowserProvider(rpc, undefined, { cacheTimeout: -1 });
   const signers = await Promise.all(Array.from({ length: 8 }, (_, i) => provider.getSigner(i)));
   const addresses = await Promise.all(signers.map((s) => s.getAddress()));

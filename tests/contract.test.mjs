@@ -2,17 +2,14 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { writeTestOutput } from '../scripts/evidence.mjs';
-import ganache from 'ganache';
+import { createLocalEvm } from '../scripts/evm.mjs';
 import { BrowserProvider, ContractFactory, keccak256, ZeroAddress } from 'ethers';
 import { TestnetContractAdapter } from '../chain/adapters.js';
 import { commitment, random32, verifyPackage } from '../chain/protocol.js';
 const artifact = JSON.parse(fs.readFileSync('artifacts/ProofPassRegistry.json'));
 test('真实本地 EVM：权限、命名空间、撤销、停用、错误网络和跨会话查询', async () => {
-  const rpc = ganache.provider({
-    logging: { quiet: true },
-    chain: { chainId: 11155111, hardfork: 'shanghai' },
-    wallet: { totalAccounts: 4 },
-  });
+  const evm = createLocalEvm({ chainId: 11155111, totalAccounts: 4 });
+  const rpc = evm.provider;
   try {
     const provider = new BrowserProvider(rpc);
     const admin = await provider.getSigner(0),
@@ -149,6 +146,6 @@ test('真实本地 EVM：权限、命名空间、撤销、停用、错误网络�
       verification: await verifyPackage(pkg, secondSession, config),
     });
   } finally {
-    await rpc.disconnect();
+    await evm.disconnect();
   }
 });

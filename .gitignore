@@ -1,6 +1,7 @@
 # 依赖与本地工具
 node_modules/
 .npm-cache/
+.foundry/
 .pnpm-store/
 .DS_Store
 

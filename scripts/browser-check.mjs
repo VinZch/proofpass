@@ -2,17 +2,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
 import { launchChromium } from './browser-launcher.mjs';
-import ganache from 'ganache';
+import { createLocalEvm } from './evm.mjs';
 import { BrowserProvider, ContractFactory, keccak256 } from 'ethers';
 import assert from 'node:assert/strict';
 import { writeTestOutput, testOutputPath } from './evidence.mjs';
 const root = process.cwd(),
   artifact = JSON.parse(fs.readFileSync('artifacts/ProofPassRegistry.json'));
 fs.mkdirSync(path.dirname(testOutputPath('browser-results.json')), { recursive: true });
-const rpc = ganache.provider({
-  logging: { quiet: true },
-  chain: { chainId: 11155111, hardfork: 'shanghai' },
-});
+const rpc = createLocalEvm({ chainId: 11155111 }).provider;
 const server = http.createServer((req, res) => {
   try {
     const pathname = decodeURIComponent(new URL(req.url, 'http://local').pathname);
