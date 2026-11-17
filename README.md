@@ -32,6 +32,12 @@
 - 交付 zip 与 `deployment/public-site/dist/` 视为生成物，不入库；需要时重新打包或挂到 GitHub Release。
 - 跳过的 `upgrade-bootstrap` 用例需要 `npm run test:vm`（`--experimental-vm-modules`）才会执行。
 
+## 合约版本
+
+2026-11-17 起 `contracts/` 是 **v2 源码**：基础版新增两阶段管理员转移与有效期上限；升级版把取消提案改为“提案人或达到阈值”，紧急撤销提案增加记录预检，治理成员不得兼任机构密钥，并让紧急撤销不再发出误导性的 `InstitutionChanged`。
+
+Sepolia 上运行的仍是 2026-11-04 / 2026-11-07 部署的 **v1**，`chain/config.json`、`upgrade/config.json` 和现有证据都指向 v1；v2 需要重新部署后才生效，ABI 仍向后兼容。版本对照、运行时代码哈希与复核命令见 [deployment/DEPLOYMENTS.md](deployment/DEPLOYMENTS.md)。
+
 ## 真实技术证据与历史演示材料
 
 主网页的取证栏目改用本轮真实 Sepolia 技术证据：3 张 IAB 独立浏览器截图及对应报告，分别展示原版被替代、更正版已紧急撤销、epoch=2 凭证有效。证据与固定区块复核索引位于 `evidence/upgrade-sepolia-independent-browser-acceptance.json`；图片位于 `evidence/upgrade-sepolia-independent-*.jpg`。这些是实际测试操作截图，不能代替团队成员现场材料或现实身份审批。
@@ -47,7 +53,7 @@
 ## 公共测试网部署与验收（团队操作）
 
 1. 当场新建一个空钱包，仅申请免费的 Sepolia 测试币；不要使用有真实资产的钱包，也不向页面或脚本输入私钥、助记词。
-2. Remix 打开 `contracts/ProofPassRegistry.sol`。编译器 **0.8.38**，优化器 **enabled / 200 runs**，EVM **shanghai**。文件名须保持 `ProofPassRegistry.sol`，精确编译输入见 `artifacts/compiler-input.json`。合约共 29 行，没有用整段挤成一行伪装；这是单管理员基础合约，不是多签或联盟链。
+2. Remix 打开 `contracts/ProofPassRegistry.sol`。编译器 **0.8.38**，优化器 **enabled / 200 runs**，EVM **shanghai**。文件名须保持 `ProofPassRegistry.sol`，精确编译输入见 `artifacts/compiler-input.json`。当前源码为基础合约 v2（50 行，含两阶段管理员转移与有效期上限）；没有用整段挤成一行伪装。它仍是单管理员基础合约，不是多签或联盟链。
 3. Remix Deploy & Run 选择 **Browser Extension**，确认钱包网络 Sepolia、value 为 0，部署并等待成功回执。Remix VM 不算测试网证据。
 4. 执行 `node scripts/verify-deployment.mjs https://你的只读RPC 真实合约地址 真实部署交易哈希`。脚本只读核对链 ID、成功回执、区块哈希、完整运行时代码，默认 dry-run 不写文件；核对无误后加 `--write`，才会写入 `chain/config.json` 并登记 `evidence/sepolia-deployment.json`（旧配置先备份，旧证据不覆盖）。RPC 地址将出现在浏览器配置中，不使用秘密 API 凭据。
 5. 管理员连接页面，授权一个新建的机构测试钱包。切换机构钱包，输入虚构信息并登记，等待 **receipt.status=0x1**。保存下载的凭证包和交易证据。机构与现实学校的对应关系由线下准入审核确认。

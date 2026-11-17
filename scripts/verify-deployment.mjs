@@ -13,11 +13,15 @@ import path from 'node:path';
 import {keccak256, Interface} from 'ethers';
 import {recordEvidence, uniqueEvidenceName, writeTestOutput} from './evidence.mjs';
 
-const flags = new Set(process.argv.slice(2).filter(argument => argument.startsWith('--')));
-const [rpcUrl, addressInput, hash] = process.argv.slice(2).filter(argument => !argument.startsWith('--'));
+const rawArgs = process.argv.slice(2);
+const flags = new Set(rawArgs.filter(argument => argument.startsWith('--')));
+const artifactIndex = rawArgs.indexOf('--artifact');
+if (artifactIndex >= 0 && !rawArgs[artifactIndex + 1]) throw new Error('--artifact 缺少路径');
+const artifactPath = artifactIndex >= 0 ? rawArgs[artifactIndex + 1] : 'artifacts/ProofPassRegistry.json';
+const [rpcUrl, addressInput, hash] = rawArgs.filter((argument, index) => !argument.startsWith('--') && index !== artifactIndex + 1);
 const address = addressInput?.toLowerCase();
 if (!/^https:\/\//.test(rpcUrl ?? '') || !/^0x[0-9a-f]{40}$/.test(address ?? '') || !/^0x[0-9a-fA-F]{64}$/.test(hash ?? '')) {
-  throw new Error('用法：node scripts/verify-deployment.mjs https://RPC 合约地址 部署交易哈希 [--write]');
+  throw new Error('用法：node scripts/verify-deployment.mjs https://RPC 合约地址 部署交易哈希 [--write] [--artifact 路径]');
 }
 
 async function rpc(method, params = []) {
@@ -41,10 +45,10 @@ if (receipt?.status !== '0x1' || receipt.contractAddress?.toLowerCase() !== addr
 const block = await rpc('eth_getBlockByNumber', [receipt.blockNumber, false]);
 if (block?.hash !== receipt.blockHash) throw new Error('部署区块不可验证');
 
-const artifact = JSON.parse(fs.readFileSync('artifacts/ProofPassRegistry.json'));
+const artifact = JSON.parse(fs.readFileSync(artifactPath));
 const code = await rpc('eth_getCode', [address, 'latest']);
 if (code.toLowerCase() !== artifact.runtimeBytecode.toLowerCase()) {
-  throw new Error('运行时代码与本地编译结果不一致，请核对编译器、文件名和优化设置');
+  throw new Error(`运行时代码与编译结果不一致，请核对编译器、文件名和优化设置（比对产物：${artifactPath}）`);
 }
 
 const abi = new Interface(artifact.abi);

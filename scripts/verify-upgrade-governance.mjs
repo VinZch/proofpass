@@ -106,7 +106,7 @@ export async function verifyGovernance(argv=process.argv.slice(2)) {
     if(p.action<=1n)same((await call('keyInstitution',[p.key],beforeTag))[0],ZeroHash,'new key was already reserved');
     if(p.action===3n){[previousRecord]=await call('getRecord',[p.institution,p.credentialId],beforeTag);[record]=await call('getRecord',[p.institution,p.credentialId]);}
     const executionLogs=executionTx.receipt.logs.filter(l=>lower(l.address)===lower(config.registryAddress));
-    const changed=executionLogs.filter(l=>sameTopic(l.topics[0],abi.getEvent('InstitutionChanged').topicHash));assert.equal(changed.length,1);const e=abi.parseLog(changed[0]).args;same(e[0],p.institution);same(e[1],org.key);assert.equal(e[2],org.epoch);assert.equal(e[3],org.enabled);
+    const changed=executionLogs.filter(l=>sameTopic(l.topics[0],abi.getEvent('InstitutionChanged').topicHash));assert.ok(changed.length<=1);if(changed.length===0)assert.equal(p.action,3n,'only emergency revoke may omit InstitutionChanged');else{const e=abi.parseLog(changed[0]).args;same(e[0],p.institution);same(e[1],org.key);assert.equal(e[2],org.epoch);assert.equal(e[3],org.enabled);}
     if(p.action===3n){const revoked=executionLogs.filter(l=>sameTopic(l.topics[0],abi.getEvent('Revoked').topicHash));assert.equal(revoked.length,1);const e=abi.parseLog(revoked[0]).args;same(e[0],p.institution);same(e[1],p.credentialId);assert.equal(e[2],3n);same(e[3],p.reasonHash);}
   }
   const previousKeyMapping=lower(before.key)===lower(ZeroAddress)?ZeroHash:(await call('keyInstitution',[before.key]))[0];

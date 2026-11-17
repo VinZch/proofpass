@@ -1,7 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.38;
 
-/// Separate registry: does not migrate or mutate the existing 29-line registry.
+/// Separate registry: does not migrate or mutate the existing base registry.
+/// v2 (2026-11-17): proposer-or-threshold cancellation, emergency-revoke prechecks,
+/// governor/institution key separation, validity cap, and no misleading
+/// InstitutionChanged event when an emergency revoke leaves institution state intact.
 contract ProofPassGoverned {
     struct Institution { address key; uint64 epoch; uint64 revision; bool enabled; }
     struct Record {
@@ -16,6 +19,7 @@ contract ProofPassGoverned {
         bytes32 credentialId; bytes32 reasonHash; uint64 revision;
         uint64 deadline; uint8 approvals; bool executed; bool cancelled;
     }
+    uint64 public constant MAX_VALIDITY = 10 * 365 days;
     mapping(address => bool) public governors;
     address[] public governorList;
     uint8 public threshold;
@@ -26,6 +30,7 @@ contract ProofPassGoverned {
     uint256 public proposalCount;
     mapping(uint256 => Proposal) public proposals;
     mapping(uint256 => mapping(address => bool)) public approved;
+    mapping(uint256 => address) public proposer;
 
     event Proposed(uint256 indexed proposalId, bytes32 indexed institution, Action action, address proposer);
     event Approved(uint256 indexed proposalId, address indexed governor);
@@ -58,14 +63,20 @@ contract ProofPassGoverned {
         require(action == Action.Register ? org.key == address(0) : org.key != address(0), "institution");
         // Canonical action fields avoid misleading unused parameters in proposals.
         if (action == Action.Register || action == Action.Rotate) {
-            require(key != address(0) && keyInstitution[key] == 0 && !enabled && credentialId == 0, "key/fields");
+            // Governance members must not double as institution signing keys.
+            require(key != address(0) && keyInstitution[key] == 0 && !governors[key] && !enabled && credentialId == 0, "key/fields");
         } else if (action == Action.SetEnabled) {
             require(key == address(0) && credentialId == 0, "fields");
         } else {
+            // A proposal that can never pass _revoke only burns a proposal id and
+            // invalidates every other pending proposal for the institution.
             require(key == address(0) && !enabled && credentialId != 0, "fields");
+            Record storage target = records[institution][credentialId];
+            require(target.commitment != 0 && target.revocationKind == 0, "credential");
         }
         id = ++proposalCount;
         proposals[id] = Proposal(action, institution, key, enabled, credentialId, reasonHash, org.revision, deadline, 1, false, false);
+        proposer[id] = msg.sender;
         approved[id][msg.sender] = true;
         emit Proposed(id, institution, action, msg.sender); emit Approved(id, msg.sender);
     }
@@ -78,9 +89,13 @@ contract ProofPassGoverned {
         _pending(id); require(!approved[id][msg.sender], "already approved");
         approved[id][msg.sender] = true; ++proposals[id].approvals; emit Approved(id, msg.sender);
     }
-    // Any governor may veto a pending proposal. This intentionally favors safety over availability.
+    // The proposer may always withdraw; anyone else needs the approval threshold.
+    // This keeps one compromised governor from vetoing every proposal.
     function cancel(uint256 id) external onlyGovernor {
-        _pending(id); proposals[id].cancelled = true; emit Cancelled(id);
+        _pending(id);
+        Proposal storage p = proposals[id];
+        require(msg.sender == proposer[id] || p.approvals >= threshold, "cancel/threshold");
+        p.cancelled = true; emit Cancelled(id);
     }
     function execute(uint256 id) external onlyGovernor {
         _pending(id); Proposal storage p = proposals[id];
@@ -98,10 +113,13 @@ contract ProofPassGoverned {
             _revoke(p.institution, p.credentialId, 3, p.reasonHash);
         }
         ++org.revision;
-        emit InstitutionChanged(p.institution, org.key, org.epoch, org.enabled); emit Executed(id);
+        // EmergencyRevoke only changes one credential; emitting InstitutionChanged
+        // there makes indexers report a governance change that never happened.
+        if (p.action != Action.EmergencyRevoke) emit InstitutionChanged(p.institution, org.key, org.epoch, org.enabled);
+        emit Executed(id);
     }
     function _issue(bytes32 institution, bytes32 id, bytes32 commitment, uint64 validUntil, bytes32 previousId) private {
-        require(id != 0 && commitment != 0 && validUntil > block.timestamp, "empty/expiry");
+        require(id != 0 && commitment != 0 && validUntil > block.timestamp && validUntil <= block.timestamp + MAX_VALIDITY, "empty/expiry");
         require(records[institution][id].commitment == 0, "duplicate");
         Record storage r = records[institution][id];
         r.commitment = commitment; r.registeredAt = uint64(block.timestamp); r.validUntil = validUntil;
